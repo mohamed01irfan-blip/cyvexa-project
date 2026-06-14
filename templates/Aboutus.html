@@ -1,0 +1,763 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us | CYVEXA - Cybersecurity & Web Development</title>
+    <link rel="icon" type="image/png" href="CYVEXA.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:#050505;
+    color:#ffffff;
+    overflow-x:hidden;
+    line-height:1.7;
+}
+
+/* =========================
+BACKGROUND EFFECTS
+========================= */
+
+body::before{
+    content:'';
+    position:fixed;
+    inset:0;
+    background:
+    radial-gradient(circle at top left, rgba(255,255,255,0.06), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(255,255,255,0.04), transparent 30%);
+    z-index:-2;
+}
+
+.grid{
+    position:fixed;
+    inset:0;
+    background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size:40px 40px;
+    z-index:-1;
+    mask-image:linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0.1));
+}
+
+/* =========================
+CONTAINER
+========================= */
+
+.container{
+    width:min(1200px,90%);
+    margin:auto;
+}
+
+/* =========================
+HEADER
+========================= */
+
+header{
+    position:fixed;
+    width:100%;
+    top:0;
+    left:0;
+    z-index:999;
+    backdrop-filter:blur(16px);
+    background:rgba(0,0,0,0.45);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+    transition:0.4s ease;
+}
+
+.header-inner{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 0;
+}
+
+.logo-wrapper{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.logo-wrapper img{
+    width:48px;
+    height:48px;
+    object-fit:contain;
+    filter:drop-shadow(0 0 15px rgba(255,255,255,0.3));
+}
+
+.logo-text{
+    font-size:1.4rem;
+    font-weight:800;
+    letter-spacing:2px;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:35px;
+}
+
+nav a{
+    text-decoration:none;
+    color:#fff;
+    font-weight:500;
+    position:relative;
+    transition:0.3s ease;
+}
+
+nav a::after{
+    content:'';
+    position:absolute;
+    width:0%;
+    height:2px;
+    left:0;
+    bottom:-8px;
+    background:#fff;
+    transition:0.3s ease;
+}
+
+nav a:hover::after{
+    width:100%;
+}
+
+nav a:hover{
+    opacity:0.8;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===== GLOBAL RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  line-height: 1.6;
+  color: #e5e5e5;
+  background-color: #000; /* FULL BLACK */
+}
+
+/* ===== CONTAINER ===== */
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* ===== HERO SECTION ===== */
+.about-hero {
+  background: linear-gradient(135deg, #000, #111);
+  text-align: center;
+  padding: 90px 20px;
+}
+
+.about-title {
+  font-size: 44px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.about-tagline {
+  font-size: 18px;
+  color: #aaa;
+}
+
+/* ===== INTRO ===== */
+.about-intro {
+  padding: 60px 0;
+  text-align: center;
+}
+
+.about-intro-text {
+  max-width: 800px;
+  margin: 12px auto;
+  font-size: 17px;
+  color: #bbb;
+}
+
+/* ===== GENERAL SECTION ===== */
+.about-section {
+  padding: 70px 0;
+  border-top: 1px solid #111;
+}
+
+/* TITLES */
+.about-section-title {
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #fff;
+}
+
+/* TEXT */
+.about-text {
+  max-width: 850px;
+  margin: 12px auto;
+  text-align: center;
+  color: #bbb;
+  font-size: 16px;
+}
+
+/* Highlight */
+.about-highlight {
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Quote */
+.about-quote {
+  font-style: italic;
+  font-size: 18px;
+  color: #ccc;
+}
+
+/* ===== LISTS ===== */
+.about-approach,
+.about-values {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.about-approach-title,
+.about-values-title {
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.about-approach-list,
+.about-values-list,
+.about-expertise-list,
+.about-commitment-list {
+  list-style: none;
+  padding: 0;
+}
+
+.about-approach-list li,
+.about-values-list li,
+.about-expertise-list li,
+.about-commitment-list li {
+  margin: 10px 0;
+  font-size: 16px;
+  color: #ccc;
+}
+
+/* ===== CTA SECTION ===== */
+.cta-section {
+  background: #111;
+  text-align: center;
+  padding: 70px 20px;
+}
+
+.cta-content h2 {
+  margin-bottom: 20px;
+  font-size: 28px;
+  color: #fff;
+}
+
+/* BUTTON */
+
+.hero-buttons{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:16px 34px;
+    border-radius:60px;
+    font-weight:600;
+    text-decoration:none;
+    transition:0.4s ease;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.btn-primary{
+    background:#fff;
+    color:#000;
+}
+
+.btn-primary:hover{
+    transform:translateY(-5px) scale(1.03);
+    box-shadow:0 15px 35px rgba(255,255,255,0.18);
+}
+
+.btn-outline{
+    border:1px solid rgba(255,255,255,0.2);
+    color:#fff;
+}
+
+.btn-outline:hover{
+    background:#fff;
+    color:#000;
+    transform:translateY(-5px);
+}
+
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .about-title {
+    font-size: 32px;
+  }
+
+  .about-section-title {
+    font-size: 24px;
+  }
+
+  .about-text {
+    font-size: 15px;
+  }
+
+  .cta-content h2 {
+    font-size: 22px;
+  }
+}
+
+/* =========================
+FOOTER
+========================= */
+
+footer{
+    padding:60px 0 40px;
+    border-top:1px solid rgba(255,255,255,0.08);
+}
+
+.footer-inner{
+    display:flex;
+    justify-content:space-between;
+    gap:50px;
+    flex-wrap:wrap;
+}
+
+.footer-brand{
+    max-width:350px;
+}
+
+.footer-brand h3{
+    margin:20px 0 10px;
+}
+
+.footer-links{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.footer-links a{
+    color:#d0d0d0;
+    text-decoration:none;
+    transition:0.3s ease;
+}
+
+.footer-links a:hover{
+    color:#fff;
+    transform:translateX(5px);
+}
+
+.footer-copy{
+    width:100%;
+    text-align:center;
+    margin-top:50px;
+    color:#8f8f8f;
+    border-top:1px solid rgba(255,255,255,0.08);
+    padding-top:30px;
+}
+
+/* =========================
+ANIMATIONS
+========================= */
+
+@keyframes float{
+    0%{
+        transform:translateY(0px);
+    }
+    50%{
+        transform:translateY(-20px);
+    }
+    100%{
+        transform:translateY(0px);
+    }
+}
+
+.reveal{
+    opacity:0;
+    transform:translateY(50px);
+    transition:1s ease;
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(max-width:980px){
+
+    .hero-content,
+    .showcase{
+        grid-template-columns:1fr;
+    }
+
+    .hero-text{
+        text-align:center;
+    }
+
+    .hero-text p{
+        margin:auto auto 40px;
+    }
+
+    .hero-buttons{
+        justify-content:center;
+    }
+
+    .hero-text h1{
+        font-size:3rem;
+    }
+
+    nav{
+        display:none;
+    }
+
+    .showcase-text{
+        text-align:center;
+    }
+
+    .cta-box{
+        padding:50px 30px;
+    }
+
+    .section-title{
+        font-size:2.4rem;
+    }
+
+    .cta h2{
+        font-size:2.4rem;
+    }
+}
+
+</style>
+  </head>
+  <body>
+
+    <div class="grid"></div>
+<header id="header">
+    <div class="container header-inner">
+
+        <div class="logo-wrapper">
+            <img src="{% static 'images/CYVEXA.png' %}" alt="logo">
+            <div class="logo-text">CYVEXA</div>
+        </div>
+
+        <nav>
+            <ul>
+            <li><a class="nav-link" href="/">Home</a></li>
+            <li><a class="nav-link" href="/about/">About</a></li>
+            <li><a class="nav-link" href="/services/">Services</a></li>
+            <li><a class="nav-link" href="/works/">Works</a></li>
+            <li><a class="nav-link" href="/contact/">Contact</a></li>
+            <li><a class="nav-link" href="/blog/">Blog</a> </li>
+            <li><a class="nav-link" href="{% url 'event_list' %}">Events</a></li>
+            </ul>
+        </nav>
+
+    </div>
+</header>
+
+
+    <main>
+      <section class="about-hero">
+        <div class="container about-hero-content">
+          <h1 class="about-title">About CYVEXA</h1>
+          <p class="about-tagline">Human. Trusted. Secure.</p>
+        </div>
+      </section>
+
+      <section class="about-intro">
+        <div class="container">
+          <p class="about-intro-text">
+            CYVEXA was founded on a simple belief: technology should empower people — not expose them to risk.
+          </p>
+          <p class="about-intro-text">
+            In an increasingly digital world, businesses rely on software, cloud systems, and online platforms to operate and grow. Yet many organizations face cyber threats, unreliable systems, and development partners who prioritize speed over security.
+          </p>
+          <p class="about-intro-text">
+            We created CYVEXA to change that.
+          </p>
+        </div>
+      </section>
+
+      <section class="about-section" id="who-we-are">
+        <div class="container">
+          <h2 class="about-section-title"> Who We Are</h2>
+          <p class="about-text">
+            CYVEXA is a secure technology company specializing in cybersecurity and modern web development, helping organizations build powerful digital systems that are both high-performing and resilient.
+          </p>
+          <p class="about-text">
+            We work with startups, institutions, and growing enterprises to design, develop, and protect their digital infrastructure — ensuring they can innovate with confidence.
+          </p>
+          <div class="about-approach">
+            <p class="about-approach-title">Our approach is simple:</p>
+            <ul class="about-approach-list">
+              <li>👉 Build it right</li>
+              <li>👉 Secure it properly</li>
+              <li>👉 Support it long-term</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="about-section" id="our-story">
+        <div class="container">
+          <h2 class="about-section-title"> Our Story</h2>
+          <p class="about-text">
+            CYVEXA began as a vision to bridge the gap between development and security.
+          </p>
+          <p class="about-text">
+            We observed that many digital products were launched quickly but lacked proper protection, leaving businesses vulnerable to data breaches, downtime, and reputational damage. At the same time, cybersecurity solutions were often complex, expensive, or inaccessible to growing organizations.
+          </p>
+          <p class="about-text">
+            CYVEXA was established to deliver enterprise-quality security and engineering in a practical, accessible way.
+          </p>
+          <p class="about-text">
+            From small projects to large platforms, our goal has always been the same — to help organizations move forward safely in the digital age.
+          </p>
+        </div>
+      </section>
+
+      <section class="about-section" id="what-drives-us">
+        <div class="container">
+          <h2 class="about-section-title"> What Drives Us</h2>
+          <p class="about-text">
+            We are driven by responsibility.
+          </p>
+          <p class="about-text">
+            Every system we build or secure may handle sensitive information, financial transactions, or critical operations. That trust is not taken lightly.
+          </p>
+          <div class="about-values">
+            <p class="about-values-title">Our team approaches each project with:</p>
+            <ul class="about-values-list">
+              <li>🛡️ A security-first mindset</li>
+              <li>💻 Engineering excellence</li>
+              <li>🤝 Genuine partnership with clients</li>
+              <li>📈 Commitment to long-term success</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="about-section" id="mission">
+        <div class="container">
+          <h2 class="about-section-title">🎯 Our Mission</h2>
+          <p class="about-text about-highlight">
+            To deliver secure, reliable, and innovative technology solutions that enable organizations to grow without fear of digital risk.
+          </p>
+        </div>
+      </section>
+
+      <section class="about-section" id="vision">
+        <div class="container">
+          <h2 class="about-section-title">🌟 Our Vision</h2>
+          <p class="about-text about-highlight">
+            To become a trusted partner for secure digital transformation, recognized for integrity, technical excellence, and human-centred service.
+          </p>
+        </div>
+      </section>
+
+      <section class="about-section" id="founder-message">
+        <div class="container">
+          <h2 class="about-section-title">👨‍💼 Founder's Message</h2>
+          <p class="about-text about-quote">
+            "CYVEXA was built to help organizations innovate without compromising security. We believe strong technology should be both powerful and trustworthy — and our role is to make that possible for every client we serve."
+          </p>
+        </div>
+      </section>
+
+      <section class="about-section" id="expertise">
+        <div class="container">
+          <h2 class="about-section-title"> Our Expertise</h2>
+          <p class="about-text">
+            CYVEXA combines multidisciplinary capabilities to deliver complete solutions:
+          </p>
+          <ul class="about-expertise-list">
+            <li>🔐 Cybersecurity & Ethical Hacking</li>
+            <li>💻 Full-Stack Web Development</li>
+            <li>⚙️ Secure Software Engineering</li>
+            <li>📊 Technology Consulting</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="about-section" id="client-commitment">
+        <div class="container">
+          <h2 class="about-section-title">🤝 Our Commitment to Clients</h2>
+          <p class="about-text">
+            We don't see projects as transactions — we see them as partnerships.
+          </p>
+          <p class="about-text">
+            When organizations work with CYVEXA, they gain a team that is:
+          </p>
+          <ul class="about-commitment-list">
+            <li>✔ Reliable and responsive</li>
+            <li>✔ Transparent in communication</li>
+            <li>✔ Focused on real outcomes</li>
+            <li>✔ Dedicated to quality and security</li>
+            <li>✔ Invested in their long-term success</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="about-section" id="looking-ahead">
+        <div class="container">
+          <h2 class="about-section-title">🌱 Looking Ahead</h2>
+          <p class="about-text">
+            As technology evolves, so do cyber risks and business challenges. CYVEXA continuously adapts, researches, and innovates to stay ahead — ensuring our clients remain protected and competitive.
+          </p>
+          <p class="about-text">
+            Our journey is just beginning, and we are committed to building a safer digital future for organizations worldwide.
+          </p>
+        </div>
+      </section>
+
+      <section class="cta-section">
+        <div class="container cta-content">
+          <h2>Ready to Secure Your Digital Future?</h2>
+          <a class="btn btn-primary" href="https://forms.gle/DR6qhGH1duecEUgn7">
+            Get in Touch
+          </a>
+        </div>
+      </section>
+    </main>
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="container footer-inner">
+
+<div class="footer-brand">
+    <img src="{% static 'images/CYVEXA.png' %}" width="55">
+    <h3>CYVEXA</h3>
+    <p>
+        Professional Cybersecurity &
+        Web Development Solutions
+    </p>
+</div>
+
+<div class="footer-links">
+    <a href="/home/">Home</a>
+    <a href="/about/">About</a>
+    <a href="/services/">Services</a>
+    <a href="/works/">Works</a>
+    <a href="/contact/">Contact</a>
+</div>
+
+<div class="footer-links">
+    <a href="#">Cybersecurity</a>
+    <a href="#">Web Development</a>
+    <a href="#">Consulting</a>
+    <a href="#">Ethical Hacking</a>
+    <a href="#">Cloud Security</a>
+</div>
+
+<div class="footer-copy">
+    © 2026 CYVEXA — Secure Technology Solutions
+</div>
+
+</div>
+
+</footer>
+
+
+    <script>
+      // Navbar scroll behavior
+      let lastScrollTop = 0;
+      const header = document.querySelector('.site-header');
+
+      window.addEventListener('scroll', () => {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (scrollTop > lastScrollTop && scrollTop > 100) {
+          // Scrolling DOWN
+          header.classList.add('navbar-hidden');
+        } else {
+          // Scrolling UP
+          header.classList.remove('navbar-hidden');
+        }
+        
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+      });
+
+      // Cybersecurity background animation - Controlled Version
+      const cyberDots = document.querySelector('.cyber-dots');
+      const binarySymbols = ['0', '1'];
+      const MAX_ELEMENTS = 45; // Maximum floating elements to maintain
+      let elementCount = 0;
+
+      function createFloatingElement() {
+        const element = document.createElement('div');
+        element.style.position = 'absolute';
+        element.style.fontSize = Math.random() * 20 + 16 + 'px';
+        element.style.opacity = Math.random() * 0.4 + 0.2;
+        element.style.pointerEvents = 'none';
+        element.style.left = Math.random() * 100 + '%';
+        element.style.top = Math.random() * 100 + '%';
+        element.textContent = binarySymbols[Math.floor(Math.random() * binarySymbols.length)];
+        element.style.color = 'rgba(0, 102, 255, 0.5)';
+        element.style.fontWeight = 'bold';
+        element.style.fontFamily = 'monospace';
+        element.style.animation = `float ${Math.random() * 12 + 18}s linear infinite`;
+        
+        // Remove oldest element if we've reached the max
+        if (elementCount >= MAX_ELEMENTS && cyberDots.firstChild) {
+          cyberDots.removeChild(cyberDots.firstChild);
+        } else {
+          elementCount++;
+        }
+        
+        cyberDots.appendChild(element);
+      }
+
+      // Create initial floating elements
+      for (let i = 0; i < 35; i++) {
+        setTimeout(() => createFloatingElement(), i * 100);
+      }
+
+      // Add new elements periodically with controlled rate
+      setInterval(() => {
+        createFloatingElement();
+      }, 3000);
+    </script>

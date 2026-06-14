@@ -1,0 +1,776 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Services | CYVEXA - Web Development & Cybersecurity</title>
+    <link rel="icon" type="image/png" href="CYVEXA.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:#050505;
+    color:#ffffff;
+    overflow-x:hidden;
+    line-height:1.7;
+}
+
+/* =========================
+BACKGROUND EFFECTS
+========================= */
+
+body::before{
+    content:'';
+    position:fixed;
+    inset:0;
+    background:
+    radial-gradient(circle at top left, rgba(255,255,255,0.06), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(255,255,255,0.04), transparent 30%);
+    z-index:-2;
+}
+
+.grid{
+    position:fixed;
+    inset:0;
+    background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size:40px 40px;
+    z-index:-1;
+    mask-image:linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0.1));
+}
+
+/* =========================
+CONTAINER
+========================= */
+
+.container{
+    width:min(1200px,90%);
+    margin:auto;
+}
+
+/* =========================
+HEADER
+========================= */
+
+header{
+    position:fixed;
+    width:100%;
+    top:0;
+    left:0;
+    z-index:999;
+    backdrop-filter:blur(16px);
+    background:rgba(0,0,0,0.45);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+    transition:0.4s ease;
+}
+
+.header-inner{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 0;
+}
+
+.logo-wrapper{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.logo-wrapper img{
+    width:48px;
+    height:48px;
+    object-fit:contain;
+    filter:drop-shadow(0 0 15px rgba(255,255,255,0.3));
+}
+
+.logo-text{
+    font-size:1.4rem;
+    font-weight:800;
+    letter-spacing:2px;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:35px;
+}
+
+nav a{
+    text-decoration:none;
+    color:#fff;
+    font-weight:500;
+    position:relative;
+    transition:0.3s ease;
+}
+
+nav a::after{
+    content:'';
+    position:absolute;
+    width:0%;
+    height:2px;
+    left:0;
+    bottom:-8px;
+    background:#fff;
+    transition:0.3s ease;
+}
+
+nav a:hover::after{
+    width:100%;
+}
+
+nav a:hover{
+    opacity:0.8;
+}
+
+
+
+
+
+
+
+
+
+/* ===== GLOBAL ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: #000;
+  color: #e5e5e5;
+  line-height: 1.6;
+}
+
+/* ===== CONTAINER ===== */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* ===== HERO ===== */
+.services-hero {
+  background: linear-gradient(135deg, #000, #0a0a0a);
+  padding: 90px 20px;
+  text-align: center;
+}
+
+.services-title {
+  font-size: 44px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.services-subtitle {
+  color: #aaa;
+  font-size: 18px;
+}
+
+/* ===== SECTION ===== */
+.services-section {
+  padding: 70px 0;
+}
+
+.services-section-alt {
+  background: #050505;
+}
+
+/* CATEGORY TITLE */
+.services-category-title {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 40px;
+  color: #fff;
+}
+
+/* ===== GRID ===== */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+/* ===== CARD ===== */
+.service-card {
+  background: #0a0a0a;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #111;
+  transition: 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  border-color: #bdc3d1;
+}
+
+/* IMAGE */
+.service-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* CONTENT */
+.service-content {
+  padding: 20px;
+  text-align: left;
+}
+
+/* BADGE */
+.service-badge {
+  display: inline-block;
+  background: #111;
+  color: #3b82f6;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+/* TITLE */
+.service-title {
+  font-size: 20px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+/* DESCRIPTION */
+.service-description {
+  font-size: 14px;
+  color: #bbb;
+  margin-bottom: 15px;
+}
+
+/* BUTTON */
+.btn {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* SERVICE BUTTON */
+
+/* ===== CTA ===== */
+.cta-section {
+  background: #050505;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.cta-content h2 {
+  font-size: 28px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.cta-content p {
+  color: #aaa;
+  margin-bottom: 20px;
+}
+
+/* PRIMARY BUTTON */
+
+.hero-buttons{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:16px 34px;
+    border-radius:60px;
+    font-weight:600;
+    text-decoration:none;
+    transition:0.4s ease;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.btn-primary{
+    background:#fff;
+    color:#000;
+}
+
+.btn-primary:hover{
+    transform:translateY(-5px) scale(1.03);
+    box-shadow:0 15px 35px rgba(255,255,255,0.18);
+}
+
+.btn-service{
+    border:1px solid rgba(255,255,255,0.2);
+    color:#fff;
+}
+
+.btn-service:hover{
+    background:#fff;
+    color:#000;
+    transform:translateY(-5px);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .services-title {
+    font-size: 32px;
+  }
+
+  .services-category-title {
+    font-size: 22px;
+  }
+
+  .service-title {
+    font-size: 18px;
+  }
+}
+/* =========================
+FOOTER
+========================= */
+
+footer{
+    padding:60px 0 40px;
+    border-top:1px solid rgba(255,255,255,0.08);
+}
+
+.footer-inner{
+    display:flex;
+    justify-content:space-between;
+    gap:50px;
+    flex-wrap:wrap;
+}
+
+.footer-brand{
+    max-width:350px;
+}
+
+.footer-brand h3{
+    margin:20px 0 10px;
+}
+
+.footer-links{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.footer-links a{
+    color:#d0d0d0;
+    text-decoration:none;
+    transition:0.3s ease;
+}
+
+.footer-links a:hover{
+    color:#fff;
+    transform:translateX(5px);
+}
+
+.footer-copy{
+    width:100%;
+    text-align:center;
+    margin-top:50px;
+    color:#8f8f8f;
+    border-top:1px solid rgba(255,255,255,0.08);
+    padding-top:30px;
+}
+
+/* =========================
+ANIMATIONS
+========================= */
+
+@keyframes float{
+    0%{
+        transform:translateY(0px);
+    }
+    50%{
+        transform:translateY(-20px);
+    }
+    100%{
+        transform:translateY(0px);
+    }
+}
+
+.reveal{
+    opacity:0;
+    transform:translateY(50px);
+    transition:1s ease;
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(max-width:980px){
+
+    .hero-content,
+    .showcase{
+        grid-template-columns:1fr;
+    }
+
+    .hero-text{
+        text-align:center;
+    }
+
+    .hero-text p{
+        margin:auto auto 40px;
+    }
+
+    .hero-buttons{
+        justify-content:center;
+    }
+
+    .hero-text h1{
+        font-size:3rem;
+    }
+
+    nav{
+        display:none;
+    }
+
+    .showcase-text{
+        text-align:center;
+    }
+
+    .cta-box{
+        padding:50px 30px;
+    }
+
+    .section-title{
+        font-size:2.4rem;
+    }
+
+    .cta h2{
+        font-size:2.4rem;
+    }
+}
+
+</style>
+  </head>
+  <body>
+
+
+<div class="grid"></div>
+
+<header id="header">
+    <div class="container header-inner">
+
+        <div class="logo-wrapper">
+                <img src="{% static 'images/CYVEXA.png' %}" alt="logo">
+            <div class="logo-text">CYVEXA</div>
+        </div>
+
+        <nav>
+            <ul>
+            <li><a class="nav-link" href="/">Home</a></li>
+            <li><a class="nav-link" href="/about/">About</a></li>
+            <li><a class="nav-link" href="/services/">Services</a></li>
+            <li><a class="nav-link" href="/works/">Works</a></li>
+            <li><a class="nav-link" href="/contact/">Contact</a></li>
+            <li><a class="nav-link" href="/blog/">Blog</a> </li>
+            <li><a class="nav-link" href="{% url 'event_list' %}">Events</a></li>
+            </ul>
+        </nav>
+
+    </div>
+</header>
+    <main>
+      <section class="services-hero">
+        <div class="container services-hero-content">
+          <h1 class="services-title">Our Services</h1>
+          <p class="services-subtitle">Building Secure. Building Fast. Building Smart.</p>
+        </div>
+      </section>
+
+      <!-- Web & Software Development Services -->
+      <section class="services-section">
+        <div class="container">
+          <h2 class="services-category-title">💻 Web & Software Development Services</h2>
+          <div class="services-grid">
+            <!-- Professional Website Development -->
+            <div class="service-card">
+              <div class="service-image">
+                <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6" alt="Professional Website Development" />
+              </div>
+              <div class="service-content">
+                <span class="service-badge">Web Development</span>
+                <h3 class="service-title">🌐 Professional Website Development</h3>
+                <p class="service-description">
+                  Custom, responsive, and high-performance websites engineered to align with your business objectives, brand identity, and user experience standards.
+                </p>
+                <a class="btn btn-service" href="https://forms.gle/DR6qhGH1duecEUgn7">
+                  👉 Get Website Development Service
+                </a>
+              </div>
+            </div>
+
+            <!-- Secure Web Application Development -->
+            <div class="service-card">
+              <div class="service-image">
+                <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c" alt="Secure Web Application Development" />
+              </div>
+              <div class="service-content">
+                <span class="service-badge">Web Development</span>
+                <h3 class="service-title">⚙️ Secure Web Application Development</h3>
+                <p class="service-description">
+                  Robust web platforms built using modern frameworks with security integrated into architecture, ensuring reliability, scalability, and data protection.
+                </p>
+                <a class="btn btn-service" href="https://forms.gle/DR6qhGH1duecEUgn7">
+                  👉 Get Web Application Service
+                </a>
+              </div>
+            </div>
+
+            <!-- E-Commerce Development -->
+            <div class="service-card">
+              <div class="service-image">
+                <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da" alt="E-Commerce Development" />
+              </div>
+              <div class="service-content">
+                <span class="service-badge">Web Development</span>
+                <h3 class="service-title">🛒 E-Commerce Development</h3>
+                <p class="service-description">
+                  End-to-end online store solutions featuring secure payment integration, inventory management, optimized performance, and seamless customer experience.
+                </p>
+                <a class="btn btn-service" href="https://forms.gle/DR6qhGH1duecEUgn7">
+                  👉 Get E-Commerce Solution
+                </a>
+              </div>
+            </div>
+
+            <!-- API Development & Integration -->
+            <div class="service-card">
+              <div class="service-image">
+                <img src="https://images.unsplash.com/photo-1542831371-d531d36971e6" alt="API Development & Integration" />
+              </div>
+              <div class="service-content">
+                <span class="service-badge">Web Development</span>
+                <h3 class="service-title">🔗 API Development & Integration</h3>
+                <p class="service-description">
+                  Secure and scalable backend APIs enabling seamless integration between systems, applications, and third-party services.
+                </p>
+                <a class="btn btn-service" href="https://forms.gle/DR6qhGH1duecEUgn7">
+                  👉 Get API Development Service
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Cybersecurity Services -->
+      <section class="services-section services-section-alt">
+        <div class="container">
+          <h2 class="services-category-title">🔐 Cybersecurity Services</h2>
+          <div class="services-grid">
+            <!-- Penetration Testing -->
+            <div class="service-card">
+              <div class="service-image">
+                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b" alt="Penetration Testing" />
+              </div>
+              <div class="service-content">
+                <span class="service-badge">Cybersecurity</span>
+                <h3 class="service-title">🛡️ Penetration Testing</h3>
+                <p class="service-description">
+                  Simulated real-world cyberattacks conducted by security experts to identify exploitable vulnerabilities before malicious actors can.
+                </p>
+                <a class="btn btn-service" href="https://forms.gle/DR6qhGH1duecEUgn7">
+                  👉 Request Penetration Test
+                </a>
+              </div>
+            </div>
+
+            <!-- Vulnerability Assessment -->
+            <div class="service-card">
+              <div class="service-image">
+                <img src="https://images.unsplash.com/photo-1510511459019-5dda7724fd87" alt="Vulnerability Assessment" />
+              </div>
+              <div class="service-content">
+                <span class="service-badge">Cybersecurity</span>
+                <h3 class="service-title">🔎 Vulnerability Assessment</h3>
+                <p class="service-description">
+                  Comprehensive evaluation of systems and applications to detect, analyze, and prioritize security weaknesses.
+                </p>
+                <a class="btn btn-service" href="https://forms.gle/DR6qhGH1duecEUgn7">
+                  👉 Request Assessment
+                </a>
+              </div>
+            </div>
+
+            <!-- Security Audit -->
+            <div class="service-card">
+              <div class="service-image">
+                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=500&fit=crop&crop=center" alt="Security Audit" />
+              </div>
+              <div class="service-content">
+                <span class="service-badge">Cybersecurity</span>
+                <h3 class="service-title">📋 Security Audit</h3>
+                <p class="service-description">
+                  Detailed audit of software, websites, and infrastructure to assess security posture and provide actionable compliance-ready reports.
+                </p>
+                <a class="btn btn-service" href="https://forms.gle/DR6qhGH1duecEUgn7">
+                  👉 Request Security Audit
+                </a>
+              </div>
+            </div>
+
+            <!-- Web Application Security -->
+            <div class="service-card">
+              <div class="service-image">
+                <img src="https://images.unsplash.com/photo-1535223289827-42f1e9919769" alt="Website Security" />
+              </div>
+              <div class="service-content">
+                <span class="service-badge">Cybersecurity</span>
+                <h3 class="service-title">🌐 Web Application Security</h3>
+                <p class="service-description">
+                  In-depth testing of web applications against OWASP Top 10 risks and advanced attack vectors to ensure robust protection.
+                </p>
+                <a class="btn btn-service" href="https://forms.gle/DR6qhGH1duecEUgn7">
+                  👉 Secure My Application
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="cta-section">
+        <div class="container cta-content">
+          <h2>Ready to Get Started?</h2>
+          <p>Choose the perfect service for your needs and let's secure your digital future together.</p>
+          <a class="btn btn-primary" href="https://forms.gle/DR6qhGH1duecEUgn7">
+            Contact Us Today
+          </a>
+        </div>
+      </section>
+    </main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="container footer-inner">
+
+<div class="footer-brand">
+    <img src="{% static 'images/CYVEXA.png' %}" width="55">
+    <h3>CYVEXA</h3>
+    <p>
+        Professional Cybersecurity &
+        Web Development Solutions
+    </p>
+</div>
+
+<div class="footer-links">
+    <a href="/home/">Home</a>
+    <a href="/about/">About</a>
+    <a href="/services/">Services</a>
+    <a href="/works/">Works</a>
+    <a href="/contact/">Contact</a>
+</div>
+
+<div class="footer-links">
+    <a href="#">Cybersecurity</a>
+    <a href="#">Web Development</a>
+    <a href="#">Consulting</a>
+    <a href="#">Ethical Hacking</a>
+    <a href="#">Cloud Security</a>
+</div>
+
+<div class="footer-copy">
+    © 2026 CYVEXA — Secure Technology Solutions
+</div>
+
+</div>
+
+</footer>
+
+
+    <script>
+      // Navbar scroll behavior
+      let lastScrollTop = 0;
+      const header = document.querySelector('.site-header');
+
+      window.addEventListener('scroll', () => {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (scrollTop > lastScrollTop && scrollTop > 100) {
+          // Scrolling DOWN
+          header.classList.add('navbar-hidden');
+        } else {
+          // Scrolling UP
+          header.classList.remove('navbar-hidden');
+        }
+        
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+      });
+
+      // Cybersecurity background animation - Controlled Version
+      const cyberDots = document.querySelector('.cyber-dots');
+      const binarySymbols = ['0', '1'];
+      const MAX_ELEMENTS = 45; // Maximum floating elements to maintain
+      let elementCount = 0;
+
+      function createFloatingElement() {
+        const element = document.createElement('div');
+        element.style.position = 'absolute';
+        element.style.fontSize = Math.random() * 20 + 16 + 'px';
+        element.style.opacity = Math.random() * 0.4 + 0.2;
+        element.style.pointerEvents = 'none';
+        element.style.left = Math.random() * 100 + '%';
+        element.style.top = Math.random() * 100 + '%';
+        element.textContent = binarySymbols[Math.floor(Math.random() * binarySymbols.length)];
+        element.style.color = 'rgba(0, 102, 255, 0.5)';
+        element.style.fontWeight = 'bold';
+        element.style.fontFamily = 'monospace';
+        element.style.animation = `float ${Math.random() * 12 + 18}s linear infinite`;
+        
+        // Remove oldest element if we've reached the max
+        if (elementCount >= MAX_ELEMENTS && cyberDots.firstChild) {
+          cyberDots.removeChild(cyberDots.firstChild);
+        } else {
+          elementCount++;
+        }
+        
+        cyberDots.appendChild(element);
+      }
+
+      // Create initial floating elements
+      for (let i = 0; i < 35; i++) {
+        setTimeout(() => createFloatingElement(), i * 100);
+      }
+
+      // Add new elements periodically with controlled rate
+      setInterval(() => {
+        createFloatingElement();
+      }, 3000);
+    </script>
+  </body>
+</html>
