@@ -68,75 +68,114 @@ CONTAINER
 HEADER
 ========================= */
 
+/* HEADER FIX */
 header{
     position:fixed;
     width:100%;
     top:0;
-    left:0;
     z-index:999;
-    backdrop-filter:blur(16px);
-    background:rgba(0,0,0,0.45);
+    backdrop-filter:blur(10px);
+    background:rgba(0,0,0,0.6);
     border-bottom:1px solid rgba(255,255,255,0.08);
-    transition:0.4s ease;
 }
 
+/* SMALL HEADER */
 .header-inner{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:18px 0;
+    padding:6px 0;   /* 🔥 reduced */
 }
 
-.logo-wrapper{
+/* LOGO FIX */
+.logo{
     display:flex;
     align-items:center;
-    gap:14px;
+    gap:10px;
 }
 
-.logo-wrapper img{
-    width:48px;
-    height:48px;
-    object-fit:contain;
-    filter:drop-shadow(0 0 15px rgba(255,255,255,0.3));
+.logo img{
+    width:85px;   /* 🔥 smaller */
 }
 
-.logo-text{
-    font-size:1.4rem;
-    font-weight:800;
-    letter-spacing:2px;
+.logo span{
+    font-weight:700;
+    font-size:1.1rem;
 }
 
+/* NAV */
 nav ul{
     display:flex;
     list-style:none;
-    gap:35px;
+    gap:20px;
 }
 
 nav a{
-    text-decoration:none;
     color:#fff;
-    font-weight:500;
-    position:relative;
-    transition:0.3s ease;
+    text-decoration:none;
 }
 
-nav a::after{
-    content:'';
-    position:absolute;
-    width:0%;
-    height:2px;
-    left:0;
-    bottom:-8px;
-    background:#fff;
-    transition:0.3s ease;
+/* MENU BUTTON */
+.menu-toggle{
+    display:none;
+    font-size:24px;
+    cursor:pointer;
 }
 
-nav a:hover::after{
-    width:100%;
+/* HERO */
+.hero{
+    padding-top:80px; /* adjust for header */
+    min-height:100vh;
+    display:flex;
+    align-items:center;
 }
 
-nav a:hover{
-    opacity:0.8;
+.hero-content{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+}
+
+.hero h1{
+    font-size:3.5rem;
+}
+
+/* MOBILE */
+@media(max-width:980px){
+
+    .menu-toggle{
+        display:block;
+    }
+
+    nav{
+        position:absolute;
+        top:50px;
+        left:0;
+        width:100%;
+        background:#000;
+        display:none;
+        flex-direction:column;
+        text-align:center;
+        padding:15px 0;
+    }
+
+    nav.active{
+        display:flex;
+    }
+
+    nav ul{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    .hero-content{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+
+    .hero h1{
+        font-size:2.2rem;
+    }
 }
 
 /* =========================
@@ -144,6 +183,7 @@ HERO SECTION
 ========================= */
 
 .hero{
+     padding-top:90px;
     min-height:100vh;
     display:flex;
     align-items:center;
@@ -514,6 +554,7 @@ RESPONSIVE
     }
 }
 
+
 </style>
 </head>
 
@@ -522,26 +563,28 @@ RESPONSIVE
 <div class="grid"></div>
 
 <header id="header">
-    <div class="container header-inner">
+<div class="container header-inner">
 
-        <div class="logo-wrapper">
-            <img src="{% static 'images/CYVEXA.png' %}" alt="logo">
-            <div class="logo-text">CYVEXA</div>
-        </div>
+<div class="logo">
+<img src="{% static 'images/CYVEXA.png' %}">
+<span>CYVEXA</span>
+</div>
 
-        <nav>
-            <ul>
-            <li><a class="nav-link" href="/">Home</a></li>
-            <li><a class="nav-link" href="/about/">About</a></li>
-            <li><a class="nav-link" href="/services/">Services</a></li>
-            <li><a class="nav-link" href="/works/">Works</a></li>
-            <li><a class="nav-link" href="/contact/">Contact</a></li>
-            <li><a class="nav-link" href="/blog/">Blog</a> </li>
-            <li><a class="nav-link" href="{% url 'event_list' %}">Events</a></li>
-            </ul>
-        </nav>
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
 
-    </div>
+<nav id="mobileMenu">
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/about/">About</a></li>
+<li><a href="/services/">Services</a></li>
+<li><a href="/works/">Works</a></li>
+<li><a href="/contact/">Contact</a></li>
+<li><a href="/blog/">Blog</a></li>
+<li><a href="{% url 'event_list' %}">Events</a></li>
+</ul>
+</nav>
+
+</div>
 </header>
 
 <!-- HERO -->

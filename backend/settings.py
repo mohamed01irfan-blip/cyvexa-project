@@ -33,7 +33,7 @@ SECRET_KEY = 'django-insecure-kqlb*twqwpu!cd0x2@8bn3an)6)^4pz*t*j(gds#!#w^v&y(2i
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["cyvexa-project-production.up.railway.app"]
+ALLOWED_HOSTS = ["*"]
 
 # Application definition
 
