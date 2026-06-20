@@ -20,7 +20,7 @@ def admin_only(user):
 # 🏠 HOME PAGES (PUBLIC)
 # =========================
 def home(request):
-    return render(request, 'blog/home.html')
+    return render(request, 'backend/templates/home.html')
 
 def services(request):
     return render(request, 'Services.html')
