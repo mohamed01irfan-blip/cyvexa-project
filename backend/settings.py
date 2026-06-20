@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-kqlb*twqwpu!cd0x2@8bn3an)6)^4pz*t*j(gds#!#w^v&y(2i
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["cyvexa-project-production.up.railway.app"]
+ALLOWED_HOSTS = ["*"]
 
 # Application definition
 
@@ -58,7 +58,7 @@ ROOT_URLCONF = 'backend.urls'
 TEMPLATES = [
     {
          'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'backend' / 'templates'],  # ✅ ADD THIS
+        'DIRS': [],  # ✅ ADD THIS
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -134,6 +134,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_REDIRECT_URL = '/'
+
 LOGIN_REDIRECT_URL = '/blog/'
 LOGOUT_REDIRECT_URL = '/'
