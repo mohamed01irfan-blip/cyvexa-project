@@ -15,7 +15,11 @@ STATIC_URL = '/static/'
 
 import os
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://your-app-name.onrender.com",
+]
 
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -29,7 +33,7 @@ SECRET_KEY = 'django-insecure-kqlb*twqwpu!cd0x2@8bn3an)6)^4pz*t*j(gds#!#w^v&y(2i
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["https://cyvexa-project-production.up.railway.app/"]
 
 # Application definition
 

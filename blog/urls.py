@@ -1,6 +1,8 @@
 from django.urls import path
 from . import views
 from .forms import BlogForm
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('', views.blog_list, name='blog_list'),
@@ -15,3 +17,5 @@ path('add-event/', views.add_event, name='add_event'),
 path('edit-event/<int:id>/', views.edit_event, name='edit_event'),
 path('delete-event/<int:id>/', views.delete_event, name='delete_event'),
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
