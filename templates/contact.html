@@ -211,6 +211,61 @@ footer{
   .services-title{font-size:2.2rem;}
   nav{display:none;}
 }
+
+/* MENU BUTTON */
+.menu-toggle{
+    display:none;
+    font-size:26px;
+    cursor:pointer;
+}
+
+/* MOBILE MENU */
+@media(max-width:768px){
+
+    .menu-toggle{
+        display:block;
+    }
+
+    nav{
+        position:absolute;
+        top:70px;
+        left:0;
+        width:100%;
+        background:#000;
+        max-height:0;
+        overflow:hidden;
+        transition:max-height 0.4s ease;
+
+        display:flex;
+        justify-content:center;
+        align-items:center;
+    }
+
+    nav.active{
+        max-height:400px;
+    }
+
+    nav ul{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+        width:100%;
+        padding:20px 0;
+        gap:15px;
+    }
+
+    nav ul li{
+        width:100%;
+        text-align:center;
+    }
+
+    nav ul li a{
+        display:block;
+        width:100%;
+        padding:12px 0;
+    }
+}
 </style>
 </head>
 
@@ -225,18 +280,19 @@ footer{
             <div class="logo-text">CYVEXA</div>
         </div>
 
-        <nav>
-            <ul>
-            <li><a class="nav-link" href="/">Home</a></li>
-            <li><a class="nav-link" href="/about/">About</a></li>
-            <li><a class="nav-link" href="/services/">Services</a></li>
-            <li><a class="nav-link" href="/works/">Works</a></li>
-            <li><a class="nav-link" href="/contact/">Contact</a></li>
-            <li><a class="nav-link" href="/blog/">Blog</a> </li>
-            <li><a class="nav-link" href="{% url 'event_list' %}">Events</a></li>
-            </ul>
-        </nav>
+   <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 
+<nav id="mobileMenu">
+    <ul>
+        <li><a class="nav-link" href="/">Home</a></li>
+        <li><a class="nav-link" href="/about/">About</a></li>
+        <li><a class="nav-link" href="/services/">Services</a></li>
+        <li><a class="nav-link" href="/works/">Works</a></li>
+        <li><a class="nav-link" href="/contact/">Contact</a></li>
+        <li><a class="nav-link" href="/blog/">Blog</a></li>
+        <li><a class="nav-link" href="{% url 'event_list' %}">Events</a></li>
+    </ul>
+</nav>
     </div>
 </header>
 <section class="services-hero">
@@ -317,4 +373,10 @@ footer{
 
 </footer>
 </body>
+<script>
+    function toggleMenu() {
+        document.getElementById("mobileMenu").classList.toggle("active");
+    }
+
+</script>
 </html>

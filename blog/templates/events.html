@@ -493,9 +493,7 @@ RESPONSIVE
         font-size:3rem;
     }
 
-    nav{
-        display:none;
-    }
+
 
     .showcase-text{
         text-align:center;
@@ -653,7 +651,57 @@ RESPONSIVE
     box-shadow:0 6px 15px rgba(255,255,255,0.3);
 }
 
+/* MENU BUTTON */
+.menu-toggle{
+    display:none;
+    font-size:26px;
+    cursor:pointer;
+}
 
+/* MOBILE MENU */
+@media(max-width:768px){
+
+    .menu-toggle{
+        display:block;
+    }
+
+    nav{
+        position:absolute;
+        top:70px;
+        left:0;
+        width:100%;
+        background:#000;
+
+        max-height:0;
+        overflow:hidden;
+        transition:max-height 0.4s ease;
+
+        display:flex;
+        justify-content:center;
+        align-items:center;
+    }
+
+    nav.active{
+        max-height:400px;
+    }
+
+    nav ul{
+        flex-direction:column;
+        gap:15px;
+        padding:20px 0;
+    }
+
+    nav ul li{
+        width:100%;
+        text-align:center;
+    }
+
+    nav ul li a{
+        display:block;
+        width:100%;
+        padding:12px 0;
+    }
+}
 
 </style>
 </head>
@@ -671,8 +719,8 @@ RESPONSIVE
       </a>
       <span class="logo-text">CYVEXA</span>
     </div>
-
-    <nav class="nav">
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <nav class="nav" id="mobileMenu">
       <ul class="nav-list">
         <li><a href="/">Home</a></li>
         <li><a href="/about/">About</a></li>
@@ -893,6 +941,10 @@ RESPONSIVE
 </section>
 
 <script>
+function toggleMenu() {
+    document.getElementById("mobileMenu").classList.toggle("active");
+}
+
 function confirmDelete() {
     return confirm("Are you sure you want to delete?");
 }
