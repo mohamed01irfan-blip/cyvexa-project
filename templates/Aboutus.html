@@ -469,20 +469,72 @@ RESPONSIVE
     }
 }
 
+/* NAV */
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:25px;
+}
+
+nav a{
+    color:#fff;
+    text-decoration:none;
+}
+
+/* MENU BUTTON */
+.menu-toggle{
+    display:none;
+    font-size:26px;
+    cursor:pointer;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+    .menu-toggle{
+        display:block;
+    }
+
+    nav{
+        position:absolute;
+        top:60px;
+        left:0;
+        width:100%;
+        background:#000;
+        max-height:0;
+        overflow:hidden;
+        transition:0.4s;
+    }
+
+    nav.active{
+        max-height:400px;
+    }
+
+    nav ul{
+        flex-direction:column;
+        text-align:center;
+        padding:15px 0;
+    }
+}
+.cyber-dots {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+}
 </style>
   </head>
   <body>
-
-    <div class="grid"></div>
-<header id="header">
+<div class="cyber-dots"></div>
+  <header id="header">
     <div class="container header-inner">
 
         <div class="logo-wrapper">
             <img src="{% static 'images/CYVEXA.png' %}" alt="logo">
             <div class="logo-text">CYVEXA</div>
         </div>
-
-        <nav>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <nav id="mobileMenu">
             <ul>
             <li><a class="nav-link" href="/">Home</a></li>
             <li><a class="nav-link" href="/about/">About</a></li>
@@ -683,6 +735,8 @@ RESPONSIVE
     <a href="/services/">Services</a>
     <a href="/works/">Works</a>
     <a href="/contact/">Contact</a>
+   <a href="/blog/">Blog</a>
+   <a href="{% url 'event_list' %}">Events</a>
 </div>
 
 <div class="footer-links">
@@ -701,63 +755,71 @@ RESPONSIVE
 
 </footer>
 
+<script>
 
-    <script>
-      // Navbar scroll behavior
-      let lastScrollTop = 0;
-      const header = document.querySelector('.site-header');
+// MENU
+function toggleMenu() {
+    console.log("clicked");
+    document.getElementById("mobileMenu").classList.toggle("active");
+}
 
-      window.addEventListener('scroll', () => {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
-        if (scrollTop > lastScrollTop && scrollTop > 100) {
-          // Scrolling DOWN
-          header.classList.add('navbar-hidden');
-        } else {
-          // Scrolling UP
-          header.classList.remove('navbar-hidden');
-        }
-        
-        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-      });
+// NAVBAR SCROLL
+let lastScrollTop = 0;
+const header = document.getElementById('header');
 
-      // Cybersecurity background animation - Controlled Version
-      const cyberDots = document.querySelector('.cyber-dots');
-      const binarySymbols = ['0', '1'];
-      const MAX_ELEMENTS = 45; // Maximum floating elements to maintain
-      let elementCount = 0;
+window.addEventListener('scroll', () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-      function createFloatingElement() {
-        const element = document.createElement('div');
-        element.style.position = 'absolute';
-        element.style.fontSize = Math.random() * 20 + 16 + 'px';
-        element.style.opacity = Math.random() * 0.4 + 0.2;
-        element.style.pointerEvents = 'none';
-        element.style.left = Math.random() * 100 + '%';
-        element.style.top = Math.random() * 100 + '%';
-        element.textContent = binarySymbols[Math.floor(Math.random() * binarySymbols.length)];
-        element.style.color = 'rgba(0, 102, 255, 0.5)';
-        element.style.fontWeight = 'bold';
-        element.style.fontFamily = 'monospace';
-        element.style.animation = `float ${Math.random() * 12 + 18}s linear infinite`;
-        
-        // Remove oldest element if we've reached the max
-        if (elementCount >= MAX_ELEMENTS && cyberDots.firstChild) {
-          cyberDots.removeChild(cyberDots.firstChild);
-        } else {
-          elementCount++;
-        }
-        
-        cyberDots.appendChild(element);
-      }
+    if (scrollTop > lastScrollTop && scrollTop > 100) {
+        header.classList.add('navbar-hidden');
+    } else {
+        header.classList.remove('navbar-hidden');
+    }
 
-      // Create initial floating elements
-      for (let i = 0; i < 35; i++) {
-        setTimeout(() => createFloatingElement(), i * 100);
-      }
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+});
 
-      // Add new elements periodically with controlled rate
-      setInterval(() => {
-        createFloatingElement();
-      }, 3000);
-    </script>
+// CYBER EFFECT
+const cyberDots = document.querySelector('.cyber-dots');
+const binarySymbols = ['0', '1'];
+const MAX_ELEMENTS = 45;
+let elementCount = 0;
+
+function createFloatingElement() {
+
+    if (!cyberDots) return; // 🔥 IMPORTANT SAFETY
+
+    const element = document.createElement('div');
+
+    element.style.position = 'absolute';
+    element.style.fontSize = Math.random() * 20 + 16 + 'px';
+    element.style.opacity = Math.random() * 0.4 + 0.2;
+    element.style.pointerEvents = 'none';
+    element.style.left = Math.random() * 100 + '%';
+    element.style.top = Math.random() * 100 + '%';
+    element.textContent = binarySymbols[Math.floor(Math.random() * binarySymbols.length)];
+    element.style.color = 'rgba(0, 102, 255, 0.5)';
+    element.style.fontWeight = 'bold';
+    element.style.fontFamily = 'monospace';
+    element.style.animation = `float ${Math.random() * 12 + 18}s linear infinite`;
+
+    if (elementCount >= MAX_ELEMENTS && cyberDots.firstChild) {
+        cyberDots.removeChild(cyberDots.firstChild);
+    } else {
+        elementCount++;
+    }
+
+    cyberDots.appendChild(element);
+}
+
+// INIT
+for (let i = 0; i < 35; i++) {
+    setTimeout(() => createFloatingElement(), i * 100);
+}
+
+setInterval(() => {
+    createFloatingElement();
+}, 3000);
+
+</script>
+  </body>
