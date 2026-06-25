@@ -252,7 +252,7 @@ footer{
         justify-content:center;
         width:100%;
         padding:20px 0;
-        gap:15px;
+        gap:12px;
     }
 
     nav ul li{
@@ -265,6 +265,27 @@ footer{
         width:100%;
         padding:12px 0;
     }
+}
+
+/* REVEAL ANIMATION */
+.reveal{
+    opacity:0;
+    transform:translateY(60px);
+    transition:0.8s ease;
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* smoother cards */
+.card.reveal{
+    transform:translateY(60px);
+}
+
+.card.active{
+    transform:translateY(0);
 }
 </style>
 </head>
@@ -295,28 +316,28 @@ footer{
 </nav>
     </div>
 </header>
-<section class="services-hero">
+<section class="services-hero reveal">
   <div class="container">
     <h1 class="services-title">CONTACT</h1>
     <p class="services-subtitle">Let’s Build Something Secure Together</p>
   </div>
 </section>
 
-<section class="section">
+<section class="section reveal">
   <div class="container">
     <h2 class="section-title">Contact Info</h2>
     <p class="section-subtext">Reach us easily</p>
 
     <div class="grid--2">
-      <div class="card">
+      <div class="card reveal">
         <h3>Email</h3>
         <p>vadgroups@gmail.com</p>
       </div>
-      <div class="card">
+      <div class="card reveal">
         <h3>Phone</h3>
         <p>8903051053</p>
       </div>
-      <div class="card">
+      <div class="card reveal">
         <h3>Location</h3>
         <p>India</p>
       </div>
@@ -324,7 +345,7 @@ footer{
   </div>
 </section>
 
-<section class="section">
+<section class="section reveal">
   <div class="container cta-section">
     <h2>Book a Free Consultation</h2>
     <p>Talk with our experts</p>
@@ -350,11 +371,13 @@ footer{
 </div>
 
 <div class="footer-links">
-    <a href="/home/">Home</a>
+    <a href="/">Home</a>
     <a href="/about/">About</a>
     <a href="/services/">Services</a>
     <a href="/works/">Works</a>
     <a href="/contact/">Contact</a>
+    <a href="{% url 'blog_list' %}">Blog</a>
+    <a href="{% url 'event_list' %}">Events</a>
 </div>
 
 <div class="footer-links">
@@ -377,6 +400,25 @@ footer{
     function toggleMenu() {
         document.getElementById("mobileMenu").classList.toggle("active");
     }
+
+function revealOnScroll() {
+    const reveals = document.querySelectorAll('.reveal');
+
+    reveals.forEach((el) => {
+        const windowHeight = window.innerHeight;
+        const elementTop = el.getBoundingClientRect().top;
+        const revealPoint = 100;
+
+        if (elementTop < windowHeight - revealPoint) {
+            el.classList.add('active');
+        }
+    });
+}
+
+window.addEventListener('scroll', revealOnScroll);
+
+// run once on load
+revealOnScroll();
 
 </script>
 </html>

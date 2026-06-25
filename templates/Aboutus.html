@@ -548,14 +548,15 @@ nav a{
 
 
     <main>
-      <section class="about-hero">
+      <section class="about-section reveal">
+      <section class="about-hero reveal">
         <div class="container about-hero-content">
           <h1 class="about-title">About CYVEXA</h1>
           <p class="about-tagline">Human. Trusted. Secure.</p>
         </div>
       </section>
 
-      <section class="about-intro">
+      <section class="about-intro reveal">
         <div class="container">
           <p class="about-intro-text">
             CYVEXA was founded on a simple belief: technology should empower people — not expose them to risk.
@@ -569,7 +570,7 @@ nav a{
         </div>
       </section>
 
-      <section class="about-section" id="who-we-are">
+      <section class="about-section reveal" id="who-we-are">
         <div class="container">
           <h2 class="about-section-title"> Who We Are</h2>
           <p class="about-text">
@@ -589,7 +590,7 @@ nav a{
         </div>
       </section>
 
-      <section class="about-section" id="our-story">
+      <section class="about-section reveal" id="our-story">
         <div class="container">
           <h2 class="about-section-title"> Our Story</h2>
           <p class="about-text">
@@ -607,7 +608,7 @@ nav a{
         </div>
       </section>
 
-      <section class="about-section" id="what-drives-us">
+      <section class="about-section reveal" id="what-drives-us">
         <div class="container">
           <h2 class="about-section-title"> What Drives Us</h2>
           <p class="about-text">
@@ -628,7 +629,7 @@ nav a{
         </div>
       </section>
 
-      <section class="about-section" id="mission">
+      <section class="about-section reveal" id="mission">
         <div class="container">
           <h2 class="about-section-title">🎯 Our Mission</h2>
           <p class="about-text about-highlight">
@@ -637,7 +638,7 @@ nav a{
         </div>
       </section>
 
-      <section class="about-section" id="vision">
+      <section class="about-section reveal" id="vision">
         <div class="container">
           <h2 class="about-section-title">🌟 Our Vision</h2>
           <p class="about-text about-highlight">
@@ -646,7 +647,7 @@ nav a{
         </div>
       </section>
 
-      <section class="about-section" id="founder-message">
+      <section class="about-section reveal" id="founder-message">
         <div class="container">
           <h2 class="about-section-title">👨‍💼 Founder's Message</h2>
           <p class="about-text about-quote">
@@ -655,7 +656,7 @@ nav a{
         </div>
       </section>
 
-      <section class="about-section" id="expertise">
+      <section class="about-section reveal" id="expertise">
         <div class="container">
           <h2 class="about-section-title"> Our Expertise</h2>
           <p class="about-text">
@@ -670,7 +671,7 @@ nav a{
         </div>
       </section>
 
-      <section class="about-section" id="client-commitment">
+      <section class="about-section reveal" id="client-commitment">
         <div class="container">
           <h2 class="about-section-title">🤝 Our Commitment to Clients</h2>
           <p class="about-text">
@@ -689,7 +690,7 @@ nav a{
         </div>
       </section>
 
-      <section class="about-section" id="looking-ahead">
+      <section class="about-section reveal" id="looking-ahead">
         <div class="container">
           <h2 class="about-section-title">🌱 Looking Ahead</h2>
           <p class="about-text">
@@ -708,6 +709,7 @@ nav a{
             Get in Touch
           </a>
         </div>
+      </section>
       </section>
     </main>
 
@@ -818,5 +820,24 @@ setInterval(() => {
     createFloatingElement();
 }, 3000);
 
+
+function revealOnScroll() {
+    const reveals = document.querySelectorAll('.reveal');
+
+    reveals.forEach((el) => {
+        const windowHeight = window.innerHeight;
+        const elementTop = el.getBoundingClientRect().top;
+        const revealPoint = 100;
+
+        if (elementTop < windowHeight - revealPoint) {
+            el.classList.add('active');
+        }
+    });
+}
+
+window.addEventListener('scroll', revealOnScroll);
+
+// Run once on load
+revealOnScroll();
 </script>
   </body>

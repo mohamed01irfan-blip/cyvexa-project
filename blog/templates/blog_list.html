@@ -446,17 +446,17 @@ ANIMATIONS
     }
 }
 
-.reveal{
+/* smoother reveal */
+.card.reveal{
     opacity:0;
-    transform:translateY(50px);
-    transition:1s ease;
+    transform:translateY(60px) scale(0.98);
 }
 
-.reveal.active{
+.card.active{
     opacity:1;
-    transform:translateY(0);
+    transform:translateY(0) scale(1);
+    transition:0.8s ease;
 }
-
 /* =========================
 RESPONSIVE
 ========================= */
@@ -581,7 +581,7 @@ RESPONSIVE
 
     nav ul{
         flex-direction:column;
-        gap:15px;
+        gap:9px;
         padding:20px 0;
     }
 
@@ -630,7 +630,7 @@ RESPONSIVE
 
 <!-- CREATE BUTTON -->
 <!-- BLOG SECTION -->
-<section class="section" style="margin-top:120px;">
+<section class="section reveal" style="margin-top:120px;">
   <div class="container">
 
     {% if user.is_authenticated %}
@@ -643,7 +643,7 @@ RESPONSIVE
 
       <div class="blog-grid">
         {% for blog in blogs %}
-        <div class="card">
+        <div class="card reveal">
 
           {% if blog.image %}
             <img src="{{ blog.image.url }}" alt="blog image">
@@ -740,6 +740,24 @@ function confirmDelete() {
 function toggleMenu() {
     document.getElementById("mobileMenu").classList.toggle("active");
 }
+function revealOnScroll() {
+    const reveals = document.querySelectorAll('.reveal');
+
+    reveals.forEach((el) => {
+        const windowHeight = window.innerHeight;
+        const elementTop = el.getBoundingClientRect().top;
+        const revealPoint = 100;
+
+        if (elementTop < windowHeight - revealPoint) {
+            el.classList.add('active');
+        }
+    });
+}
+
+window.addEventListener('scroll', revealOnScroll);
+
+// run once on load
+revealOnScroll();
 
 </script>
 </body>

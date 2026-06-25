@@ -35,6 +35,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://cyvexa-project-production.up.railway.app"
+]
+
 # Application definition
 
 INSTALLED_APPS = [

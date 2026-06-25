@@ -526,6 +526,17 @@ RESPONSIVE
         padding:12px 0;
     }
 }
+
+.service-card.reveal {
+    transform: translateY(60px);
+    opacity: 0;
+}
+
+.service-card.active {
+    transform: translateY(0);
+    opacity: 1;
+    transition: 0.8s ease;
+}
 </style>
   </head>
   <body>
@@ -557,7 +568,7 @@ RESPONSIVE
     </div>
 </header>
     <main>
-      <section class="services-hero">
+      <section class="services-hero reveal">
         <div class="container services-hero-content">
           <h1 class="services-title">Our Services</h1>
           <p class="services-subtitle">Building Secure. Building Fast. Building Smart.</p>
@@ -565,7 +576,7 @@ RESPONSIVE
       </section>
 
       <!-- Web & Software Development Services -->
-      <section class="services-section">
+      <section class="services-section reveal">
         <div class="container">
           <h2 class="services-category-title">💻 Web & Software Development Services</h2>
           <div class="services-grid">
@@ -641,7 +652,7 @@ RESPONSIVE
       </section>
 
       <!-- Cybersecurity Services -->
-      <section class="services-section services-section-alt">
+      <section class="services-section services-section-alt reveal">
         <div class="container">
           <h2 class="services-category-title">🔐 Cybersecurity Services</h2>
           <div class="services-grid">
@@ -680,7 +691,7 @@ RESPONSIVE
             </div>
 
             <!-- Security Audit -->
-            <div class="service-card">
+            <div class="service-card reveal">
               <div class="service-image">
                 <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=500&fit=crop&crop=center" alt="Security Audit" />
               </div>
@@ -717,7 +728,7 @@ RESPONSIVE
       </section>
 
       <!-- CTA Section -->
-      <section class="cta-section">
+      <section class="cta-section reveal">
         <div class="container cta-content">
           <h2>Ready to Get Started?</h2>
           <p>Choose the perfect service for your needs and let's secure your digital future together.</p>
@@ -750,6 +761,8 @@ RESPONSIVE
     <a href="/services/">Services</a>
     <a href="/works/">Works</a>
     <a href="/contact/">Contact</a>
+    <a href="{% url 'blog_list' %}">Blog</a>
+    <a href="{% url 'event_list' %}">Events</a>
 </div>
 
 <div class="footer-links">
@@ -776,7 +789,7 @@ RESPONSIVE
 }
       // Navbar scroll behavior
       let lastScrollTop = 0;
-      const header = document.querySelector('.site-header');
+      const header = document.querySelector('header');
 
       window.addEventListener('scroll', () => {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -831,6 +844,25 @@ RESPONSIVE
       setInterval(() => {
         createFloatingElement();
       }, 3000);
+
+      function revealOnScroll() {
+    const reveals = document.querySelectorAll('.reveal');
+
+    reveals.forEach((el) => {
+        const windowHeight = window.innerHeight;
+        const elementTop = el.getBoundingClientRect().top;
+        const revealPoint = 100;
+
+        if (elementTop < windowHeight - revealPoint) {
+            el.classList.add('active');
+        }
+    });
+}
+
+window.addEventListener('scroll', revealOnScroll);
+
+// Run once on load
+revealOnScroll();
     </script>
   </body>
 </html>

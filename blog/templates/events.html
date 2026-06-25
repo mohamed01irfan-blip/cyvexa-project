@@ -623,25 +623,29 @@ RESPONSIVE
 .card::before{
     pointer-events:none;
 }
-.action-btn {
-    padding:8px 14px;
+.action-btn{
+    padding:10px 0;
+    width:90px;              /* 🔥 fixed width */
+    text-align:center;
     border-radius:6px;
     font-size:13px;
     border:none;
     cursor:pointer;
     transition:0.25s;
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
 }
-
 /* EDIT */
 .btn-edit {
-    background:#ffc107;
+    background:#fbfbfa;
     color:#000;
 }
 
 /* DELETE */
 .btn-delete {
-    background:#dc3545;
-    color:#fff;
+    background:#f6f3f3;
+    color:#040404;
 }
 
 /* SAME HOVER FOR BOTH */
@@ -687,7 +691,7 @@ RESPONSIVE
 
     nav ul{
         flex-direction:column;
-        gap:15px;
+        gap:10px;
         padding:20px 0;
     }
 
@@ -701,6 +705,36 @@ RESPONSIVE
         width:100%;
         padding:12px 0;
     }
+}
+
+@media(max-width:768px){
+
+    /* Upcoming */
+    .section-title:nth-of-type(1){
+        font-size:1.5rem;
+    }
+
+    /* Ongoing */
+    .section-title:nth-of-type(2){
+        font-size:1.5rem;
+    }
+
+    /* Completed */
+    .section-title:nth-of-type(3){
+        font-size:1.5rem;
+    }
+
+}
+/* CARD REVEAL UPGRADE */
+.card.reveal{
+    opacity:0;
+    transform:translateY(60px) scale(0.97);
+}
+
+.card.active{
+    opacity:1;
+    transform:translateY(0) scale(1);
+    transition:0.7s ease;
 }
 
 </style>
@@ -737,7 +771,7 @@ RESPONSIVE
 </header>
 
 
-<section class="container">
+<section class="container reveal">
 
   <!-- TOP BAR -->
   <div class="top-bar">
@@ -749,10 +783,10 @@ RESPONSIVE
   </div>
 
   <!-- UPCOMING -->
-   <h2 class="section-title">📅 Upcoming Events</h2>
+   <h2 class="section-title event-title">📅 Upcoming Events</h2>
 <div class="event-grid">
   {% for event in upcoming_events %}
-  <div class="card">
+  <div class="card reveal">
 
     {% if event.image %}
       <img src="{{ event.image.url }}">
@@ -767,7 +801,7 @@ RESPONSIVE
 <div class="card-footer">
 
 <!-- EDIT -->
-<a href="{% url 'edit_event' event.id %}" class="action-btn btn-primary">
+<a href="{% url 'edit_event' event.id %}" class="action-btn btn-edit">
     Edit
 </a>
 
@@ -778,7 +812,7 @@ RESPONSIVE
     
     {% csrf_token %}
     
-    <button type="submit" class="action-btn btn-primary">
+    <button type="submit" class="action-btn btn-delete">
         Delete
     </button>
 </form>
@@ -794,10 +828,10 @@ RESPONSIVE
 
 
   <!-- ONGOING -->
-  <h2 class="section-title">🟢 Ongoing Events</h2>
+  <h2 class="section-title event-title">🟢 Ongoing Events</h2>
 <div class="event-grid">
   {% for event in ongoing_events %}
-  <div class="card">
+  <div class="card reveal">
 
     {% if event.image %}
       <img src="{{ event.image.url }}">
@@ -812,7 +846,7 @@ RESPONSIVE
 <div class="card-footer">
 
 <!-- EDIT -->
-<a href="{% url 'edit_event' event.id %}" class="action-btn btn-primary">
+<a href="{% url 'edit_event' event.id %}" class="action-btn btn-edit">
     Edit
 </a>
 
@@ -823,7 +857,7 @@ RESPONSIVE
     
     {% csrf_token %}
     
-    <button type="submit" class="action-btn btn-primary">
+    <button type="submit" class="action-btn btn-delete">
         Delete
     </button>
 </form>
@@ -839,10 +873,10 @@ RESPONSIVE
 
 
   <!-- COMPLETED -->
-  <h2 class="section-title">⚫ Completed Events</h2>
+  <h2 class="section-title event-title">⚫ Completed Events</h2>
 <div class="event-grid">
   {% for event in completed_events %}
-  <div class="card">
+  <div class="card reveal">
 
     {% if event.image %}
       <img src="{{ event.image.url }}">
@@ -859,7 +893,7 @@ RESPONSIVE
 <div class="card-footer">
 
 <!-- EDIT -->
-<a href="{% url 'edit_event' event.id %}" class="action-btn btn-primary">
+<a href="{% url 'edit_event' event.id %}" class="action-btn btn-edit">
     Edit
 </a>
 
@@ -870,7 +904,7 @@ RESPONSIVE
     
     {% csrf_token %}
     
-    <button type="submit" class="action-btn btn-primary">
+    <button type="submit" class="action-btn btn-delete">
         Delete
     </button>
 </form>
@@ -909,6 +943,8 @@ RESPONSIVE
     <a href="/services/">Services</a>
     <a href="/works/">Works</a>
     <a href="/contact/">Contact</a>
+    <a href="{% url 'blog_list' %}">Blog</a>
+    <a href="{% url 'event_list' %}">Events</a>
     {% if not user.is_authenticated %}
         <a href="{% url 'login' %}">
            Login
@@ -963,6 +999,22 @@ function getCookie(name) {
     }
     return cookieValue;
 }
+function revealOnScroll() {
+    const reveals = document.querySelectorAll('.reveal');
+
+    reveals.forEach((el) => {
+        const windowHeight = window.innerHeight;
+        const elementTop = el.getBoundingClientRect().top;
+        const revealPoint = 100;
+
+        if (elementTop < windowHeight - revealPoint) {
+            el.classList.add('active');
+        }
+    });
+}
+
+window.addEventListener('scroll', revealOnScroll);
+revealOnScroll();
 </script>
 </body>
 </html> 

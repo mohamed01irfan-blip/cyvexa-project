@@ -554,7 +554,7 @@ RESPONSIVE
         justify-content:center;
         width:100%;
         padding:20px 0;
-        gap:15px;
+        gap:10px;
     }
 
     nav ul li{
@@ -602,7 +602,7 @@ RESPONSIVE
     <main>
 
       <!-- HERO -->
-      <section class="services-hero">
+      <section class="services-hero reveal">
         <div class="container services-hero-content">
           <h1 class="services-title">PROJECTS</h1>
           <p class="services-subtitle">Our Work Speaks for Itself</p>
@@ -610,7 +610,7 @@ RESPONSIVE
       </section>
 
       <!-- INTRO -->
-      <section class="section">
+      <section class="section reveal">
         <div class="container">
           <p class="section-subtext">
             CYVEXA delivers secure, scalable, and high-performance digital solutions across industries.
@@ -620,7 +620,7 @@ RESPONSIVE
       </section>
 
       <!-- PROJECT 1 -->
-      <section class="section section--alt">
+      <section class="section section--alt reveal">
         <div class="container">
 
           <div class="card">
@@ -660,7 +660,7 @@ RESPONSIVE
       </section>
 
       <!-- PROJECT 2 -->
-      <section class="section">
+      <section class="section reveal">
         <div class="container">
 
           <div class="card">
@@ -699,10 +699,10 @@ RESPONSIVE
       </section>
 
       <!-- PROJECT 3 -->
-      <section class="section section--alt">
+      <section class="section section--alt reveal">
         <div class="container">
 
-          <div class="card">
+          <div class="card reveal">
             <h2>🎯 College Hackathon Website</h2>
             <p><strong>Category:</strong> Event Management Platform • Secure Website</p>
 
@@ -785,7 +785,7 @@ RESPONSIVE
     document.getElementById("mobileMenu").classList.toggle("active");
 }
       let lastScrollTop = 0;
-      const header = document.querySelector('.site-header');
+      const header = document.querySelector('header');
 
       window.addEventListener('scroll', () => {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -796,6 +796,24 @@ RESPONSIVE
         }
         lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
       });
+      function revealOnScroll() {
+    const reveals = document.querySelectorAll('.reveal');
+
+    reveals.forEach((el) => {
+        const windowHeight = window.innerHeight;
+        const elementTop = el.getBoundingClientRect().top;
+        const revealPoint = 100;
+
+        if (elementTop < windowHeight - revealPoint) {
+            el.classList.add('active');
+        }
+    });
+}
+
+window.addEventListener('scroll', revealOnScroll);
+
+// run once on load
+revealOnScroll();
     </script>
 
   </body>
