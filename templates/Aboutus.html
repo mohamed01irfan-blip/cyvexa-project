@@ -140,6 +140,16 @@ nav a:hover{
 }
 
 
+
+
+
+
+
+
+
+
+
+
 /* ===== GLOBAL RESET ===== */
 * {
   margin: 0;
@@ -459,79 +469,20 @@ RESPONSIVE
     }
 }
 
-
-nav a{
-    color:#fff;
-    text-decoration:none;
-}
-
-/* MENU BUTTON */
-.menu-toggle{
-    display:none;
-    font-size:26px;
-    cursor:pointer;
-}
-
-/* MOBILE */
-@media(max-width:768px){
-
-    .menu-toggle{
-        display:block;
-    }
-
-    nav{
-        position:absolute;
-        top:70px;
-        left:0;
-        width:100%;
-        background:#000;
-        max-height:0;
-        overflow:hidden;
-        transition:max-height 0.4s ease;
-
-        display:flex;
-        justify-content:center;   /* ✅ CENTER WHOLE MENU */
-        align-items:center;
-    }
-
-    nav.active{
-        max-height:400px;
-    }
-
-    nav ul{
-        display:flex;
-        flex-direction:column;
-        align-items:center;       /* ✅ CENTER ITEMS */
-        justify-content:center;
-        width:100%;
-        padding:20px 0;
-        gap:15px;
-    }
-
-    nav ul li{
-        width:100%;
-        text-align:center;
-    }
-
-    nav ul li a{
-        display:block;
-        width:100%;
-        padding:12px 0;
-    }
-}
-
 </style>
   </head>
   <body>
-  <header id="header">
+
+    <div class="grid"></div>
+<header id="header">
     <div class="container header-inner">
 
         <div class="logo-wrapper">
             <img src="{% static 'images/CYVEXA.png' %}" alt="logo">
             <div class="logo-text">CYVEXA</div>
         </div>
-        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-        <nav id="mobileMenu">
+
+        <nav>
             <ul>
             <li><a class="nav-link" href="/">Home</a></li>
             <li><a class="nav-link" href="/about/">About</a></li>
@@ -548,132 +499,123 @@ nav a{
 
 
     <main>
-      <section class="about-section reveal">
-      <section class="about-hero reveal">
+      <section class="about-hero">
         <div class="container about-hero-content">
           <h1 class="about-title">About CYVEXA</h1>
-          <p class="about-tagline">Human. Trusted. Secure.</p>
+          <p class="about-tagline">Built on Trust. Driven by Security. Powered by Innovation.</p>
         </div>
       </section>
 
-      <section class="about-intro reveal">
+      <section class="about-intro">
         <div class="container">
           <p class="about-intro-text">
-            CYVEXA was founded on a simple belief: technology should empower people — not expose them to risk.
-          </p>
+              At CYVEXA, we believe technology should help businesses grow with confidence—not create new risks.
+            Today's organizations depend on web applications, cloud platforms, and digital infrastructure to serve customers and drive innovation. But as technology evolves, so do cyber threats. Too often, businesses are forced to choose between moving fast and staying secure.          </p>
           <p class="about-intro-text">
-            In an increasingly digital world, businesses rely on software, cloud systems, and online platforms to operate and grow. Yet many organizations face cyber threats, unreliable systems, and development partners who prioritize speed over security.
-          </p>
+            We believe they should never have to compromise.
+            That's why CYVEXA was founded—to deliver security-first technology solutions that are reliable, scalable, and built for the future. From cybersecurity assessments and secure application development to modern web solutions, we help organizations protect their digital assets while accelerating business growth.          </p>
           <p class="about-intro-text">
-            We created CYVEXA to change that.
-          </p>
+            From startups to enterprises, CYVEXA builds secure, reliable, and future-ready digital solutions you can trust.          </p>
         </div>
       </section>
 
-      <section class="about-section reveal" id="who-we-are">
+      <section class="about-section" id="who-we-are">
         <div class="container">
           <h2 class="about-section-title"> Who We Are</h2>
           <p class="about-text">
-            CYVEXA is a secure technology company specializing in cybersecurity and modern web development, helping organizations build powerful digital systems that are both high-performing and resilient.
-          </p>
+            CYVEXA is a security-first technology company dedicated to building digital solutions that businesses can trust. We combine cybersecurity expertise with modern engineering to create secure, scalable, and future-ready applications that empower organizations to grow with confidence.          </p>
           <p class="about-text">
-            We work with startups, institutions, and growing enterprises to design, develop, and protect their digital infrastructure — ensuring they can innovate with confidence.
-          </p>
+            Whether we're developing a web platform, securing critical infrastructure, or strengthening an organization's cyber resilience, our focus remains the same—delivering technology that performs, protects, and lasts.          </p>
+          <p class="about-text">We work with enterprises, institutions, and startups to build secure digital solutions that empower innovation, accelerate growth, and inspire confidence.</p>
           <div class="about-approach">
             <p class="about-approach-title">Our approach is simple:</p>
             <ul class="about-approach-list">
-              <li>👉 Build it right</li>
-              <li>👉 Secure it properly</li>
-              <li>👉 Support it long-term</li>
+              <li>Build Right.</li>
+              <li>Secured Always.</li>
+              <li>Supported for Life.</li>
             </ul>
           </div>
         </div>
       </section>
 
-      <section class="about-section reveal" id="our-story">
+      <section class="about-section" id="our-story">
         <div class="container">
           <h2 class="about-section-title"> Our Story</h2>
           <p class="about-text">
-            CYVEXA began as a vision to bridge the gap between development and security.
-          </p>
+            CYVEXA was founded with a simple idea: security should be built into technology from the very beginning, not added as an afterthought.          </p>
           <p class="about-text">
-            We observed that many digital products were launched quickly but lacked proper protection, leaving businesses vulnerable to data breaches, downtime, and reputational damage. At the same time, cybersecurity solutions were often complex, expensive, or inaccessible to growing organizations.
-          </p>
+            As businesses embraced digital transformation, we saw too many organizations forced to choose between speed and security. We believed they deserved both.          </p>
           <p class="about-text">
-            CYVEXA was established to deliver enterprise-quality security and engineering in a practical, accessible way.
-          </p>
+            That belief became CYVEXA—a security-first technology company committed to building reliable, scalable, and secure digital solutions. Today, we partner with institutions, startups and enterprises to help them innovate with confidence, knowing their technology is designed to perform, protect, and grow.          </p>
           <p class="about-text">
             From small projects to large platforms, our goal has always been the same — to help organizations move forward safely in the digital age.
           </p>
         </div>
       </section>
 
-      <section class="about-section reveal" id="what-drives-us">
+      <section class="about-section" id="what-drives-us">
         <div class="container">
           <h2 class="about-section-title"> What Drives Us</h2>
           <p class="about-text">
             We are driven by responsibility.
           </p>
           <p class="about-text">
-            Every system we build or secure may handle sensitive information, financial transactions, or critical operations. That trust is not taken lightly.
-          </p>
+            Every decision begins with one question: How can we create greater trust?          </p>
+          <p class="about-text">
+            We understand that the technology we build and protect powers businesses, serves customers, and safeguards critical data. That's why we approach every project with a commitment to excellence, security, and lasting partnerships.        </p>
           <div class="about-values">
-            <p class="about-values-title">Our team approaches each project with:</p>
+            <p class="about-values-title">Our principles guide everything we do:</p>
             <ul class="about-values-list">
-              <li>🛡️ A security-first mindset</li>
-              <li>💻 Engineering excellence</li>
-              <li>🤝 Genuine partnership with clients</li>
-              <li>📈 Commitment to long-term success</li>
+              <li>Security First — Protection is built into every solution.</li>
+              <li>Engineering Excellence — Delivering reliable, scalable, and high-quality technology.</li>
+              <li>Trusted Partnerships — Working closely with clients to achieve lasting success.</li>
+              <li>Continuous Innovation — Evolving with technology to keep businesses future-ready.</li>
             </ul>
           </div>
         </div>
       </section>
 
-      <section class="about-section reveal" id="mission">
+      <section class="about-section" id="mission">
         <div class="container">
-          <h2 class="about-section-title">🎯 Our Mission</h2>
+          <h2 class="about-section-title">Our Mission</h2>
           <p class="about-text about-highlight">
-            To deliver secure, reliable, and innovative technology solutions that enable organizations to grow without fear of digital risk.
-          </p>
+            To build a safer digital future by creating technology that's secure by design, reliable by default, and built to help businesses thrive.          </p>
         </div>
       </section>
 
-      <section class="about-section reveal" id="vision">
+      <section class="about-section" id="vision">
         <div class="container">
-          <h2 class="about-section-title">🌟 Our Vision</h2>
+          <h2 class="about-section-title">Our Vision</h2>
           <p class="about-text about-highlight">
-            To become a trusted partner for secure digital transformation, recognized for integrity, technical excellence, and human-centred service.
-          </p>
+            To become the most trusted security-first technology company, empowering businesses worldwide to innovate, grow, and thrive in a secure digital future.          </p>
         </div>
       </section>
 
-      <section class="about-section reveal" id="founder-message">
+      <section class="about-section" id="founder-message">
         <div class="container">
-          <h2 class="about-section-title">👨‍💼 Founder's Message</h2>
+          <h2 class="about-section-title">Founder's Message</h2>
           <p class="about-text about-quote">
-            "CYVEXA was built to help organizations innovate without compromising security. We believe strong technology should be both powerful and trustworthy — and our role is to make that possible for every client we serve."
-          </p>
+             "CYVEXA was built to help organizations innovate without compromising security. We believe strong technology should be both powerful and trustworthy — and our role is to make that possible for every client we serve."          </p>
         </div>
       </section>
 
-      <section class="about-section reveal" id="expertise">
+      <section class="about-section" id="expertise">
         <div class="container">
           <h2 class="about-section-title"> Our Expertise</h2>
           <p class="about-text">
-            CYVEXA combines multidisciplinary capabilities to deliver complete solutions:
-          </p>
-          <ul class="about-expertise-list">
-            <li>🔐 Cybersecurity & Ethical Hacking</li>
-            <li>💻 Full-Stack Web Development</li>
-            <li>⚙️ Secure Software Engineering</li>
-            <li>📊 Technology Consulting</li>
+            From cybersecurity to modern software engineering, CYVEXA delivers end-to-end technology solutions designed to protect, optimize, and accelerate your business.          </p>
+          <ul class="about-expertise-list"><br>
+            <li>1. Cybersecurity VAPT & Security Audits </li>
+            <li>2. Web & Application Development</li>
+            <li>3. Secure Software Engineering</li>
+            <li>4. Technology Consulting for Digital Transformation</li>
           </ul>
         </div>
       </section>
 
-      <section class="about-section reveal" id="client-commitment">
+      <section class="about-section" id="client-commitment">
         <div class="container">
-          <h2 class="about-section-title">🤝 Our Commitment to Clients</h2>
+          <h2 class="about-section-title"> Our Commitment to Clients</h2>
           <p class="about-text">
             We don't see projects as transactions — we see them as partnerships.
           </p>
@@ -690,12 +632,11 @@ nav a{
         </div>
       </section>
 
-      <section class="about-section reveal" id="looking-ahead">
+      <section class="about-section" id="looking-ahead">
         <div class="container">
           <h2 class="about-section-title">🌱 Looking Ahead</h2>
           <p class="about-text">
-            As technology evolves, so do cyber risks and business challenges. CYVEXA continuously adapts, researches, and innovates to stay ahead — ensuring our clients remain protected and competitive.
-          </p>
+Technology never stands still—and neither do we. As cyber threats evolve and businesses embrace new opportunities, CYVEXA remains committed to staying ahead through continuous innovation, research, and security-first engineering.          </p>
           <p class="about-text">
             Our journey is just beginning, and we are committed to building a safer digital future for organizations worldwide.
           </p>
@@ -705,11 +646,10 @@ nav a{
       <section class="cta-section">
         <div class="container cta-content">
           <h2>Ready to Secure Your Digital Future?</h2>
-          <a class="btn btn-primary" href="https://forms.gle/DR6qhGH1duecEUgn7">
+          <a class="btn btn-primary" href= "https://wa.me/918903051053?text=Hi%20CYVEXA,%20Services,%20I%20am%20interested">
             Get in Touch
           </a>
         </div>
-      </section>
       </section>
     </main>
 
@@ -729,13 +669,11 @@ nav a{
 </div>
 
 <div class="footer-links">
-    <a href="/">Home</a>
+    <a href="/home/">Home</a>
     <a href="/about/">About</a>
     <a href="/services/">Services</a>
     <a href="/works/">Works</a>
     <a href="/contact/">Contact</a>
-   <a href="/blog/">Blog</a>
-   <a href="{% url 'event_list' %}">Events</a>
 </div>
 
 <div class="footer-links">
@@ -743,7 +681,6 @@ nav a{
     <a href="#">Web Development</a>
     <a href="#">Consulting</a>
     <a href="#">Ethical Hacking</a>
-    <a href="#">Cloud Security</a>
 </div>
 
 <div class="footer-copy">
@@ -754,90 +691,63 @@ nav a{
 
 </footer>
 
-<script>
 
-// MENU
-function toggleMenu() {
-    console.log("clicked");
-    document.getElementById("mobileMenu").classList.toggle("active");
-}
+    <script>
+      // Navbar scroll behavior
+      let lastScrollTop = 0;
+      const header = document.querySelector('.site-header');
 
-// NAVBAR SCROLL
-let lastScrollTop = 0;
-const header = document.getElementById('header');
-
-window.addEventListener('scroll', () => {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-    if (scrollTop > lastScrollTop && scrollTop > 100) {
-        header.classList.add('navbar-hidden');
-    } else {
-        header.classList.remove('navbar-hidden');
-    }
-
-    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-});
-
-// CYBER EFFECT
-const cyberDots = document.querySelector('.cyber-dots');
-const binarySymbols = ['0', '1'];
-const MAX_ELEMENTS = 45;
-let elementCount = 0;
-
-function createFloatingElement() {
-
-    if (!cyberDots) return; // 🔥 IMPORTANT SAFETY
-
-    const element = document.createElement('div');
-
-    element.style.position = 'absolute';
-    element.style.fontSize = Math.random() * 20 + 16 + 'px';
-    element.style.opacity = Math.random() * 0.4 + 0.2;
-    element.style.pointerEvents = 'none';
-    element.style.left = Math.random() * 100 + '%';
-    element.style.top = Math.random() * 100 + '%';
-    element.textContent = binarySymbols[Math.floor(Math.random() * binarySymbols.length)];
-    element.style.color = 'rgba(0, 102, 255, 0.5)';
-    element.style.fontWeight = 'bold';
-    element.style.fontFamily = 'monospace';
-    element.style.animation = `float ${Math.random() * 12 + 18}s linear infinite`;
-
-    if (elementCount >= MAX_ELEMENTS && cyberDots.firstChild) {
-        cyberDots.removeChild(cyberDots.firstChild);
-    } else {
-        elementCount++;
-    }
-
-    cyberDots.appendChild(element);
-}
-
-// INIT
-for (let i = 0; i < 35; i++) {
-    setTimeout(() => createFloatingElement(), i * 100);
-}
-
-setInterval(() => {
-    createFloatingElement();
-}, 3000);
-
-
-function revealOnScroll() {
-    const reveals = document.querySelectorAll('.reveal');
-
-    reveals.forEach((el) => {
-        const windowHeight = window.innerHeight;
-        const elementTop = el.getBoundingClientRect().top;
-        const revealPoint = 100;
-
-        if (elementTop < windowHeight - revealPoint) {
-            el.classList.add('active');
+      window.addEventListener('scroll', () => {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (scrollTop > lastScrollTop && scrollTop > 100) {
+          // Scrolling DOWN
+          header.classList.add('navbar-hidden');
+        } else {
+          // Scrolling UP
+          header.classList.remove('navbar-hidden');
         }
-    });
-}
+        
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+      });
 
-window.addEventListener('scroll', revealOnScroll);
+      // Cybersecurity background animation - Controlled Version
+      const cyberDots = document.querySelector('.cyber-dots');
+      const binarySymbols = ['0', '1'];
+      const MAX_ELEMENTS = 45; // Maximum floating elements to maintain
+      let elementCount = 0;
 
-// Run once on load
-revealOnScroll();
-</script>
-  </body>
+      function createFloatingElement() {
+        const element = document.createElement('div');
+        element.style.position = 'absolute';
+        element.style.fontSize = Math.random() * 20 + 16 + 'px';
+        element.style.opacity = Math.random() * 0.4 + 0.2;
+        element.style.pointerEvents = 'none';
+        element.style.left = Math.random() * 100 + '%';
+        element.style.top = Math.random() * 100 + '%';
+        element.textContent = binarySymbols[Math.floor(Math.random() * binarySymbols.length)];
+        element.style.color = 'rgba(0, 102, 255, 0.5)';
+        element.style.fontWeight = 'bold';
+        element.style.fontFamily = 'monospace';
+        element.style.animation = `float ${Math.random() * 12 + 18}s linear infinite`;
+        
+        // Remove oldest element if we've reached the max
+        if (elementCount >= MAX_ELEMENTS && cyberDots.firstChild) {
+          cyberDots.removeChild(cyberDots.firstChild);
+        } else {
+          elementCount++;
+        }
+        
+        cyberDots.appendChild(element);
+      }
+
+      // Create initial floating elements
+      for (let i = 0; i < 35; i++) {
+        setTimeout(() => createFloatingElement(), i * 100);
+      }
+
+      // Add new elements periodically with controlled rate
+      setInterval(() => {
+        createFloatingElement();
+      }, 3000);
+    </script>

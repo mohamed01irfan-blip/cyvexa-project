@@ -1,963 +1,850 @@
-    {% load static %}
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>CYVEXA | About Us</title>
+<title>CYVEXA | HOME</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <style>
+<style>
 
-    *{
-        margin:0;
-        padding:0;
-        box-sizing:border-box;
-    }
-
-    html{
-        scroll-behavior:smooth;
-    }
-
-    body{
-        font-family:'Inter',sans-serif;
-        background:#050505;
-        color:#ffffff;
-        overflow-x:hidden;
-        line-height:1.7;
-    }
-
-    /* =========================
-    BACKGROUND EFFECTS
-    ========================= */
-
-    body::before{
-        content:'';
-        position:fixed;
-        inset:0;
-        background:
-        radial-gradient(circle at top left, rgba(255,255,255,0.06), transparent 30%),
-        radial-gradient(circle at bottom right, rgba(255,255,255,0.04), transparent 30%);
-        z-index:-2;
-    }
-
-    .grid{
-        position:fixed;
-        inset:0;
-        background-image:
-        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-        background-size:40px 40px;
-        z-index:-1;
-        mask-image:linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0.1));
-    }
-
-    /* =========================
-    CONTAINER
-    ========================= */
-
-    .container{
-        width:min(1200px,90%);
-        margin:auto;
-    }
-
-    /* =========================
-    HEADER
-    ========================= */
-
-    /* HEADER FIX */
-    header{
-        position:fixed;
-        width:100%;
-        top:0;
-        z-index:999;
-        backdrop-filter:blur(10px);
-        background:rgba(0,0,0,0.6);
-        border-bottom:1px solid rgba(255,255,255,0.08);
-    }
-
-    /* SMALL HEADER */
-    .header-inner{
-        display:flex;
-        justify-content:space-between;
-        align-items:center;
-        padding:6px 0;   /* 🔥 reduced */
-    }
-
-    /* LOGO FIX */
-    .logo{
-        display:flex;
-        align-items:center;
-        gap:10px;
-    }
-
-    .logo img{
-        width:85px;   /* 🔥 smaller */
-    }
-
-    .logo span{
-        font-weight:700;
-        font-size:1.1rem;
-    }
-
-    /* NAV */
-    nav ul{
-        display:flex;
-        list-style:none;
-        gap:20px;
-    }
-
-    nav a{
-        color:#fff;
-        text-decoration:none;
-    }
-
-    /* MENU BUTTON */
-    .menu-toggle{
-        display:none;
-        font-size:24px;
-        cursor:pointer;
-    }
-
-    /* HERO */
-    .hero{
-        padding-top:80px; /* adjust for header */
-        min-height:100vh;
-        display:flex;
-        align-items:center;
-    }
-
-    .hero-content{
-        display:grid;
-        grid-template-columns:1fr 1fr;
-        gap:60px;
-    }
-
-    .hero h1{
-        font-size:3.5rem;
-    }
-nav{
-    display:flex;   /* ADD THIS */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
-    /* MOBILE */
-    @media(max-width:980px){
 
-        .menu-toggle{
-            display:block;
-        }
+html{
+    scroll-behavior:smooth;
+}
 
-    nav{
-        position:absolute;
-        top:60px;
-        left:0;
-        width:100%;
-        background:#000;
-        flex-direction:column;
-        text-align:center;
-        padding:15px 0;
+body{
+    font-family:'Inter',sans-serif;
+    background:#050505;
+    color:#ffffff;
+    overflow-x:hidden;
+    line-height:1.7;
+}
 
-        /* animation */
-        max-height:0;
-        overflow:hidden;
-        opacity:0;
-        transform:translateY(-10px);
-        transition: all 0.4s ease;
-    }
+/* =========================
+BACKGROUND EFFECTS
+========================= */
 
-    /* when active */
-    nav.active{
-        max-height:400px;
-        opacity:1;
-        transform:translateY(0);
-    }
-nav ul li{
-    opacity:0;
-    transform:translateY(10px);
+body::before{
+    content:'';
+    position:fixed;
+    inset:0;
+    background:
+    radial-gradient(circle at top left, rgba(255,255,255,0.06), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(255,255,255,0.04), transparent 30%);
+    z-index:-2;
+}
+
+.grid{
+    position:fixed;
+    inset:0;
+    background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size:40px 40px;
+    z-index:-1;
+    mask-image:linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0.1));
+}
+
+/* =========================
+CONTAINER
+========================= */
+
+.container{
+    width:min(1200px,90%);
+    margin:auto;
+}
+
+/* =========================
+HEADER
+========================= */
+
+header{
+    position:fixed;
+    width:100%;
+    top:0;
+    left:0;
+    z-index:999;
+    backdrop-filter:blur(16px);
+    background:rgba(0,0,0,0.45);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+    transition:0.4s ease;
+}
+
+.header-inner{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 0;
+}
+
+.logo-wrapper{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.logo-wrapper img{
+    width:48px;
+    height:48px;
+    object-fit:contain;
+    filter:drop-shadow(0 0 15px rgba(255,255,255,0.3));
+}
+
+.logo-text{
+    font-size:1.4rem;
+    font-weight:800;
+    letter-spacing:2px;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:35px;
+}
+
+nav a{
+    text-decoration:none;
+    color:#fff;
+    font-weight:500;
+    position:relative;
     transition:0.3s ease;
 }
 
-nav.active ul li{
+nav a::after{
+    content:'';
+    position:absolute;
+    width:0%;
+    height:2px;
+    left:0;
+    bottom:-8px;
+    background:#fff;
+    transition:0.3s ease;
+}
+
+nav a:hover::after{
+    width:100%;
+}
+
+nav a:hover{
+    opacity:0.8;
+}
+
+/* =========================
+HERO SECTION
+========================= */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero-content{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+    gap:80px;
+}
+
+.hero-text h1{
+    font-size:4.5rem;
+    font-weight:800;
+    line-height:1.1;
+    margin-bottom:25px;
+}
+
+.hero-text h1 span{
+    color:#bdbdbd;
+}
+
+.hero-text p{
+    font-size:1.1rem;
+    color:#cfcfcf;
+    margin-bottom:40px;
+    max-width:600px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:16px 34px;
+    border-radius:60px;
+    font-weight:600;
+    text-decoration:none;
+    transition:0.4s ease;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.btn-primary{
+    background:#fff;
+    color:#000;
+}
+
+.btn-primary:hover{
+    transform:translateY(-5px) scale(1.03);
+    box-shadow:0 15px 35px rgba(255,255,255,0.18);
+}
+
+.btn-outline{
+    border:1px solid rgba(255,255,255,0.2);
+    color:#fff;
+}
+
+.btn-outline:hover{
+    background:#fff;
+    color:#000;
+    transform:translateY(-5px);
+}
+
+.hero-image{
+    position:relative;
+}
+
+.hero-image img{
+    width:100%;
+    border-radius:30px;
+    object-fit:cover;
+    box-shadow:
+    0 25px 80px rgba(255,255,255,0.08),
+    0 0 0 1px rgba(255,255,255,0.08);
+    animation:float 6s ease-in-out infinite;
+}
+
+/* =========================
+ABOUT CARDS
+========================= */
+
+.section{
+    padding:120px 0;
+}
+
+.section-title{
+    font-size:3rem;
+    margin-bottom:20px;
+    text-align:center;
+    font-weight:800;
+}
+
+.section-sub{
+    text-align:center;
+    color:#cfcfcf;
+    max-width:800px;
+    margin:0 auto 70px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:28px;
+    padding:40px;
+    transition:0.4s ease;
+    position:relative;
+    overflow:hidden;
+}
+
+.card::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:linear-gradient(135deg, rgba(255,255,255,0.08), transparent);
+    opacity:0;
+    transition:0.4s ease;
+}
+
+.card:hover::before{
+    opacity:1;
+}
+
+.card:hover{
+    transform:translateY(-12px);
+    border-color:rgba(255,255,255,0.2);
+    box-shadow:0 25px 60px rgba(255,255,255,0.08);
+}
+
+.card h3{
+    margin-bottom:18px;
+    font-size:1.5rem;
+}
+
+.card p{
+    color:#d3d3d3;
+}
+
+/* =========================
+STATS
+========================= */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:30px;
+}
+
+.stat-box{
+    text-align:center;
+    padding:50px 20px;
+    border-radius:25px;
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    transition:0.4s ease;
+}
+
+.stat-box:hover{
+    transform:translateY(-10px);
+    box-shadow:0 20px 50px rgba(255,255,255,0.08);
+}
+
+.stat-box h2{
+    font-size:3rem;
+    margin-bottom:10px;
+}
+
+/* =========================
+SHOWCASE
+========================= */
+
+.showcase{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+.showcase img{
+    width:100%;
+    border-radius:30px;
+    box-shadow:0 20px 60px rgba(255,255,255,0.08);
+    transition:0.5s ease;
+}
+
+.showcase img:hover{
+    transform:scale(1.03);
+}
+
+.showcase-text h2{
+    font-size:3rem;
+    margin-bottom:25px;
+}
+
+.showcase-text p{
+    color:#d0d0d0;
+    margin-bottom:25px;
+}
+
+/* =========================
+CTA
+========================= */
+
+.cta{
+    text-align:center;
+    padding:120px 20px;
+    position:relative;
+}
+
+.cta-box{
+    max-width:900px;
+    margin:auto;
+    padding:70px;
+    border-radius:35px;
+    background:linear-gradient(
+        135deg,
+        rgba(255,255,255,0.08),
+        rgba(255,255,255,0.03)
+    );
+    border:1px solid rgba(255,255,255,0.08);
+    backdrop-filter:blur(14px);
+}
+
+.cta h2{
+    font-size:3rem;
+    margin-bottom:25px;
+}
+
+.cta p{
+    color:#d0d0d0;
+    margin-bottom:40px;
+}
+
+/* =========================
+FOOTER
+========================= */
+
+footer{
+    padding:60px 0 40px;
+    border-top:1px solid rgba(255,255,255,0.08);
+}
+
+.footer-inner{
+    display:flex;
+    justify-content:space-between;
+    gap:50px;
+    flex-wrap:wrap;
+}
+
+.footer-brand{
+    max-width:350px;
+}
+
+.footer-brand h3{
+    margin:20px 0 10px;
+}
+
+.footer-links{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.footer-links a{
+    color:#d0d0d0;
+    text-decoration:none;
+    transition:0.3s ease;
+}
+
+.footer-links a:hover{
+    color:#fff;
+    transform:translateX(5px);
+}
+
+.footer-copy{
+    width:100%;
+    text-align:center;
+    margin-top:50px;
+    color:#8f8f8f;
+    border-top:1px solid rgba(255,255,255,0.08);
+    padding-top:30px;
+}
+
+/* =========================
+ANIMATIONS
+========================= */
+
+@keyframes float{
+    0%{
+        transform:translateY(0px);
+    }
+    50%{
+        transform:translateY(-20px);
+    }
+    100%{
+        transform:translateY(0px);
+    }
+}
+
+.reveal{
+    opacity:0;
+    transform:translateY(50px);
+    transition:1s ease;
+}
+
+.reveal.active{
     opacity:1;
     transform:translateY(0);
 }
-        nav ul{
-            flex-direction:column;
-            gap:20px;
-        }
 
-        .hero-content{
-            grid-template-columns:1fr;
-            text-align:center;
-        }
-
-        .hero h1{
-            font-size:2.2rem;
-        }
-    }
-
-    /* =========================
-    HERO SECTION
-    ========================= */
-
-    .hero{
-        padding-top:90px;
-        min-height:100vh;
-        display:flex;
-        align-items:center;
-        position:relative;
-        overflow:hidden;
-    }
-
-    .hero-content{
-        display:grid;
-        grid-template-columns:1fr 1fr;
-        align-items:center;
-        gap:80px;
-    }
-
-    .hero-text h1{
-        font-size:4.5rem;
-        font-weight:800;
-        line-height:1.1;
-        margin-bottom:25px;
-    }
-
-    .hero-text h1 span{
-        color:#bdbdbd;
-    }
-
-    .hero-text p{
-        font-size:1.1rem;
-        color:#cfcfcf;
-        margin-bottom:40px;
-        max-width:600px;
-    }
-
-    .hero-buttons{
-        display:flex;
-        gap:20px;
-        flex-wrap:wrap;
-    }
-
-    .btn{
-        padding:16px 34px;
-        border-radius:60px;
-        font-weight:600;
-        text-decoration:none;
-        transition:0.4s ease;
-        display:inline-flex;
-        align-items:center;
-        justify-content:center;
-    }
-
-    .btn-primary{
-        background:#fff;
-        color:#000;
-    }
-
-    .btn-primary:hover{
-        transform:translateY(-5px) scale(1.03);
-        box-shadow:0 15px 35px rgba(255,255,255,0.18);
-    }
-
-    .btn-outline{
-        border:1px solid rgba(255,255,255,0.2);
-        color:#fff;
-    }
-
-    .btn-outline:hover{
-        background:#fff;
-        color:#000;
-        transform:translateY(-5px);
-    }
-
-    .hero-image{
-        position:relative;
-    }
-
-    .hero-image img{
-        width:100%;
-        border-radius:30px;
-        object-fit:cover;
-        box-shadow:
-        0 25px 80px rgba(255,255,255,0.08),
-        0 0 0 1px rgba(255,255,255,0.08);
-        animation:float 6s ease-in-out infinite;
-    }
-
-    /* =========================
-    ABOUT CARDS
-    ========================= */
-
-    .section{
-        padding:120px 0;
-    }
-
-    .section-title{
-        font-size:3rem;
-        margin-bottom:20px;
-        text-align:center;
-        font-weight:800;
-    }
-
-    .section-sub{
-        text-align:center;
-        color:#cfcfcf;
-        max-width:800px;
-        margin:0 auto 70px;
-    }
-
-    .cards{
-        display:grid;
-        grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-        gap:30px;
-    }
-
-    .card{
-        background:rgba(255,255,255,0.04);
-        border:1px solid rgba(255,255,255,0.08);
-        border-radius:28px;
-        padding:40px;
-        transition:0.4s ease;
-        position:relative;
-        overflow:hidden;
-    }
-
-    .card::before{
-        content:'';
-        position:absolute;
-        inset:0;
-        background:linear-gradient(135deg, rgba(255,255,255,0.08), transparent);
-        opacity:0;
-        transition:0.4s ease;
-    }
-
-    .card:hover::before{
-        opacity:1;
-    }
-
-    .card:hover{
-        transform:translateY(-12px);
-        border-color:rgba(255,255,255,0.2);
-        box-shadow:0 25px 60px rgba(255,255,255,0.08);
-    }
-
-    .card h3{
-        margin-bottom:18px;
-        font-size:1.5rem;
-    }
-
-    .card p{
-        color:#d3d3d3;
-    }
-
-    /* =========================
-    STATS
-    ========================= */
-
-    .stats{
-        display:grid;
-        grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-        gap:30px;
-    }
-
-    .stat-box{
-        text-align:center;
-        padding:50px 20px;
-        border-radius:25px;
-        background:rgba(255,255,255,0.04);
-        border:1px solid rgba(255,255,255,0.08);
-        transition:0.4s ease;
-    }
-
-    .stat-box:hover{
-        transform:translateY(-10px);
-        box-shadow:0 20px 50px rgba(255,255,255,0.08);
-    }
-
-    .stat-box h2{
-        font-size:3rem;
-        margin-bottom:10px;
-    }
-
-    /* =========================
-    SHOWCASE
-    ========================= */
-
-    .showcase{
-        display:grid;
-        grid-template-columns:1fr 1fr;
-        gap:60px;
-        align-items:center;
-    }
-
-    .showcase img{
-        width:100%;
-        border-radius:30px;
-        box-shadow:0 20px 60px rgba(255,255,255,0.08);
-        transition:0.5s ease;
-    }
-
-    .showcase img:hover{
-        transform:scale(1.03);
-    }
-
-    .showcase-text h2{
-        font-size:3rem;
-        margin-bottom:25px;
-    }
-
-    .showcase-text p{
-        color:#d0d0d0;
-        margin-bottom:25px;
-    }
-
-    /* =========================
-    CTA
-    ========================= */
-
-    .cta{
-        text-align:center;
-        padding:120px 20px;
-        position:relative;
-    }
-
-    .cta-box{
-        max-width:900px;
-        margin:auto;
-        padding:70px;
-        border-radius:35px;
-        background:linear-gradient(
-            135deg,
-            rgba(255,255,255,0.08),
-            rgba(255,255,255,0.03)
-        );
-        border:1px solid rgba(255,255,255,0.08);
-        backdrop-filter:blur(14px);
-    }
-
-    .cta h2{
-        font-size:3rem;
-        margin-bottom:25px;
-    }
-
-    .cta p{
-        color:#d0d0d0;
-        margin-bottom:40px;
-    }
-
-    /* =========================
-    FOOTER
-    ========================= */
-
-    footer{
-        padding:60px 0 40px;
-        border-top:1px solid rgba(255,255,255,0.08);
-    }
-
-    .footer-inner{
-        display:flex;
-        justify-content:space-between;
-        gap:50px;
-        flex-wrap:wrap;
-    }
-
-    .footer-brand{
-        max-width:350px;
-    }
-
-    .footer-brand h3{
-        margin:20px 0 10px;
-    }
-
-    .footer-links{
-        display:flex;
-        flex-direction:column;
-        gap:12px;
-    }
-
-    .footer-links a{
-        color:#d0d0d0;
-        text-decoration:none;
-        transition:0.3s ease;
-    }
-
-    .footer-links a:hover{
-        color:#fff;
-        transform:translateX(5px);
-    }
-
-    .footer-copy{
-        width:100%;
-        text-align:center;
-        margin-top:50px;
-        color:#8f8f8f;
-        border-top:1px solid rgba(255,255,255,0.08);
-        padding-top:30px;
-    }
-
-    /* =========================
-    ANIMATIONS
-    ========================= */
-
-    @keyframes float{
-        0%{
-            transform:translateY(0px);
-        }
-        50%{
-            transform:translateY(-20px);
-        }
-        100%{
-            transform:translateY(0px);
-        }
-    }
-
-    .reveal{
-        opacity:0;
-        transform:translateY(50px);
-        transition:1s ease;
-    }
-
-    .reveal.active{
-        opacity:1;
-        transform:translateY(0);
-    }
-
-    /* =========================
-    RESPONSIVE
-    ========================= */
-
-    @media(max-width:980px){
-
-        .hero-content,
-        .showcase{
-            grid-template-columns:1fr;
-        }
-
-        .hero-text{
-            text-align:center;
-        }
-
-        .hero-text p{
-            margin:auto auto 40px;
-        }
-
-        .hero-buttons{
-            justify-content:center;
-        }
-
-        .hero-text h1{
-            font-size:3rem;
-        }
-
-        nav{
-            display:flex;
-        }
-
-        .showcase-text{
-            text-align:center;
-        }
-
-        .cta-box{
-            padding:50px 30px;
-        }
-
-        .section-title{
-            font-size:2.4rem;
-        }
-
-        .cta h2{
-            font-size:2.4rem;
-        }
-    }
+/* =========================
+RESPONSIVE
+========================= */
 
 @media(max-width:980px){
 
-    .hero{
-        padding-top:100px;
-    }
-
-    .hero-content{
+    .hero-content,
+    .showcase{
         grid-template-columns:1fr;
-        gap:30px;
-        text-align:center;
     }
 
     .hero-text{
-        order:1;
-    }
-
-    .hero-image{
-        order:2;
-    }
-
-    .hero-text h1{
-        font-size:2.2rem;
-        line-height:1.3;
+        text-align:center;
     }
 
     .hero-text p{
-        font-size:0.95rem;
-        padding:0 10px;
+        margin:auto auto 40px;
     }
 
     .hero-buttons{
         justify-content:center;
     }
 
-    .hero-image img{
-        width:100%;
-        max-width:350px;
-        margin:auto;
+    .hero-text h1{
+        font-size:3rem;
+    }
+
+    nav{
+        display:none;
+    }
+
+    .showcase-text{
+        text-align:center;
+    }
+
+    .cta-box{
+        padding:50px 30px;
+    }
+
+    .section-title{
+        font-size:2.4rem;
+    }
+
+    .cta h2{
+        font-size:2.4rem;
     }
 }
 
-    </style>
-    </head>
+</style>
+</head>
 
-    <body>
+<body>
 
-    <div class="grid"></div>
+<div class="grid"></div>
 
-    <header id="header">
+<header id="header">
     <div class="container header-inner">
 
-    <div class="logo">
-    <img src="{% static 'images/CYVEXA.png' %}">
-    <span>CYVEXA</span>
-    </div>
-
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-
-    <nav id="mobileMenu">
-    <ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="/about/">About</a></li>
-    <li><a href="/services/">Services</a></li>
-    <li><a href="/works/">Works</a></li>
-    <li><a href="/contact/">Contact</a></li>
-    <li><a href="/blog/">Blog</a></li>
-    <li><a href="{% url 'event_list' %}">Events</a></li>
-    </ul>
-    </nav>
-
-    </div>
-    </header>
-
-    <!-- HERO -->
-
-    <section class="hero">
-
-    <div class="container hero-content">
-
-    <div class="hero-text reveal">
-        <h1>
-            Secure Digital
-            <span>Transformation</span>
-        </h1>
-
-        <p>
-            CYVEXA is a modern cybersecurity and web development company
-            helping startups and enterprises build secure, scalable,
-            and powerful digital experiences.
-        </p>
-
-        <div class="hero-buttons">
-            <a href="#" class="btn btn-primary">Get Started</a>
-            <a href="#" class="btn btn-outline">View Services</a>
+        <div class="logo-wrapper">
+            <img src="{% static 'images/CYVEXA.png' %}" alt="logo">
+            <div class="logo-text">CYVEXA</div>
         </div>
-    </div>
 
-    <div class="hero-image reveal">
-        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1600&auto=format&fit=crop" alt="">
-    </div>
-
-    </div>
-
-    </section>
-
-    <!-- ABOUT -->
-
-    <section class="section">
-
-    <div class="container">
-
-    <h2 class="section-title reveal">
-    Who We Are
-    </h2>
-
-    <p class="section-sub reveal">
-    CYVEXA bridges the gap between modern engineering and enterprise-grade security.
-    We build secure systems, scalable platforms, and resilient infrastructure
-    for organizations worldwide.
-    </p>
-
-    <div class="cards">
-
-    <div class="card reveal">
-        <h3>🔐 Cybersecurity</h3>
-        <p>
-            Advanced security testing, ethical hacking,
-            penetration testing, and infrastructure protection.
-        </p>
-    </div>
-
-    <div class="card reveal">
-        <h3>💻 Web Development</h3>
-        <p>
-            High-performance modern websites and applications
-            built with security-first architecture.
-        </p>
-    </div>
-
-    <div class="card reveal">
-        <h3>⚡ Secure Engineering</h3>
-        <p>
-            Reliable engineering solutions with performance,
-            scalability, and long-term maintainability.
-        </p>
-    </div>
+        <nav>
+            <ul>
+            <li><a class="nav-link" href="/">Home</a></li>
+            <li><a class="nav-link" href="/about/">About</a></li>
+            <li><a class="nav-link" href="/services/">Services</a></li>
+            <li><a class="nav-link" href="/works/">Works</a></li>
+            <li><a class="nav-link" href="/contact/">Contact</a></li>
+            <li><a class="nav-link" href="/blog/">Blog</a> </li>
+            <li><a class="nav-link" href="{% url 'event_list' %}">Events</a></li>
+            </ul>
+        </nav>
 
     </div>
+</header>
 
-    </div>
+<!-- HERO -->
 
-    </section>
+<section class="hero">
 
-    <!-- SHOWCASE -->
+<div class="container hero-content">
 
-    <section class="section">
-
-    <div class="container showcase">
-
-    <div class="showcase-image reveal">
-        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1600&auto=format&fit=crop" alt="">
-    </div>
-
-    <div class="showcase-text reveal">
-        <h2>Security First Mindset</h2>
-
-        <p>
-            Every digital product we create is engineered with
-            resilience, security, and long-term sustainability.
-        </p>
-
-        <p>
-            From startups to enterprise platforms,
-            CYVEXA helps organizations innovate confidently
-            without compromising digital trust.
-        </p>
-
-        <a href="#" class="btn btn-primary">
-            Learn More
-        </a>
-    </div>
-
-    </div>
-
-    </section>
-
-    <!-- STATS -->
-
-    <section class="section">
-
-    <div class="container">
-
-    <h2 class="section-title reveal">
-    Why Choose CYVEXA
-    </h2>
-
-    <div class="stats">
-
-    <div class="stat-box reveal">
-        <h2>100%</h2>
-        <p>Security Focused</p>
-    </div>
-
-    <div class="stat-box reveal">
-        <h2>24/7</h2>
-        <p>Support & Monitoring</p>
-    </div>
-
-    <div class="stat-box reveal">
-        <h2>Modern</h2>
-        <p>Tech Stack & Solutions</p>
-    </div>
-
-    <div class="stat-box reveal">
-        <h2>Trusted</h2>
-        <p>Professional Partnership</p>
-    </div>
-
-    </div>
-
-    </div>
-
-    </section>
-
-    <!-- CTA -->
-
-    <section class="cta">
-
-    <div class="container">
-
-    <div class="cta-box reveal">
-
-    <h2>
-    Ready To Secure Your Business?
-    </h2>
+<div class="hero-text reveal">
+    <h1>
+        Secure Digital
+        <span>Transformation</span>
+    </h1>
 
     <p>
-    Partner with CYVEXA to build secure,
-    high-performance digital systems for the future.
+        We're more than a cybersecurity company—we're your trusted technology partner.
+        CYVEXA combine security, innovation, and modern development to help businesses    </p>
+
+    <div class="hero-buttons">
+        <a href="https://wa.me/918903051053?text=Hi%20CYVEXA,%20Services,%20I%20need%20Website" class="btn btn-primary">Get Started</a>
+        <a href="/services/" class="btn btn-outline">View Services</a>
+    </div>
+</div>
+
+<div class="hero-image reveal">
+    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1600&auto=format&fit=crop" alt="">
+</div>
+
+</div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section class="section">
+
+<div class="container">
+
+<h2 class="section-title reveal">
+Our Identity
+</h2>
+
+<p class="section-sub reveal">
+At CYVEXA, we help businesses build technology they can trust. By combining cybersecurity expertise with modern development, we create secure, scalable solutions that enable organizations to innovate and grow with confidence.
+</p>
+
+<div class="cards">
+
+<div class="card reveal">
+    <h3>Cybersecurity</h3>
+    <p>
+        Advanced security testing, ethical hacking,
+        penetration testing, and infrastructure protection.
+    </p>
+</div>
+
+<div class="card reveal">
+    <h3>Web Development</h3>
+    <p>
+        High-performance modern websites and applications
+        built with security-first architecture.
+    </p>
+</div>
+
+<div class="card reveal">
+    <h3>Secure Engineering</h3>
+    <p>
+        Reliable engineering solutions with performance,
+        scalability, and long-term maintainability.
+    </p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- SHOWCASE -->
+
+<section class="section">
+
+<div class="container showcase">
+
+<div class="showcase-image reveal">
+    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1600&auto=format&fit=crop" alt="">
+</div>
+
+<div class="showcase-text reveal">
+    <h2>Security First Mindset</h2>
+
+    <p>
+        Every digital product we create is engineered with
+        resilience, security, and long-term sustainability.
     </p>
 
-    <a href="https://forms.gle/DR6qhGH1duecEUgn7" class="btn btn-primary">
-    Contact Us
+    <p>
+        From startups to enterprise platforms,
+        CYVEXA helps organizations innovate confidently
+        without compromising digital trust.
+    </p>
+
+    <a href="#" class="btn btn-primary">
+        Learn More
     </a>
+</div>
 
-    </div>
+</div>
 
-    </div>
+</section>
 
-    </section>
+<!-- STATS -->
 
-    <!-- FOOTER -->
+<section class="section">
 
-    <footer>
+<div class="container">
 
-    <div class="container footer-inner">
+<h2 class="section-title reveal">
+Why Choose CYVEXA
+</h2>
 
-    <div class="footer-brand">
-        <img src="{% static 'images/CYVEXA.png' %}" width="55">
-        <h3>CYVEXA</h3>
-        <p>
-            Professional Cybersecurity &
-            Web Development Solutions
-        </p>
-    </div>
+<div class="stats">
 
-    <div class="footer-links">
-        <a href="/home/">Home</a>
-        <a href="/about/">About</a>
-        <a href="/services/">Services</a>
-        <a href="/works/">Works</a>
-        <a href="/contact/">Contact</a>
-        <a href="/blog/">Blog</a>
-        <a href="{% url 'event_list' %}">Events</a>
-    </div>
+<div class="stat-box reveal">
+    <h2>100%</h2>
+    <p>Security Focused</p>
+</div>
 
-    <div class="footer-links">
-        <a href="#">Cybersecurity</a>
-        <a href="#">Web Development</a>
-        <a href="#">Consulting</a>
-        <a href="#">Ethical Hacking</a>
-        <a href="#">Cloud Security</a>
-    </div>
+<div class="stat-box reveal">
+    <h2>24/7</h2>
+    <p>Support & Monitoring</p>
+</div>
 
-    <div class="footer-copy">
-        © 2026 CYVEXA — Secure Technology Solutions
-    </div>
+<div class="stat-box reveal">
+    <h2>Modern</h2>
+    <p>Tech Stack & Solutions</p>
+</div>
 
-    </div>
+<div class="stat-box reveal">
+    <h2>Trusted</h2>
+    <p>Professional Partnership</p>
+</div>
 
-    </footer>
+</div>
 
-    <script>
+</div>
 
-function toggleMenu(){
-    const menu = document.getElementById("mobileMenu");
-    menu.classList.toggle("active");
-}
-    /* =========================
-    SCROLL REVEAL
-    ========================= */
+</section>
 
-    const reveals = document.querySelectorAll('.reveal');
+<!-- CTA -->
 
-    function revealOnScroll(){
+<section class="cta">
 
-        reveals.forEach((el)=>{
+<div class="container">
 
-            const windowHeight = window.innerHeight;
-            const revealTop = el.getBoundingClientRect().top;
+<div class="cta-box reveal">
 
-            if(revealTop < windowHeight - 100){
-                el.classList.add('active');
-            }
+<h2>
+Ready To Secure Your Business?
+</h2>
 
-        });
+<p>
+Partner with CYVEXA to build secure,
+high-performance digital systems for the future.
+</p>
 
-    }
+<a href="https://wa.me/918903051053?text=Hi%20CYVEXA,%20Services,%20I%20am%20interested" class="btn btn-primary">
+Contact Us
+</a>
 
-    window.addEventListener('scroll', revealOnScroll);
-    revealOnScroll();
+</div>
 
-    /* =========================
-    NAVBAR HIDE
-    ========================= */
+</div>
 
-    let lastScroll = 0;
-    const header = document.getElementById('header');
+</section>
 
-    window.addEventListener('scroll',()=>{
+<!-- FOOTER -->
 
-        let current = window.pageYOffset;
+<footer>
 
-        if(current > lastScroll && current > 100){
-            header.style.transform = 'translateY(-100%)';
-        }else{
-            header.style.transform = 'translateY(0)';
+<div class="container footer-inner">
+
+<div class="footer-brand">
+    <img src="{% static 'images/CYVEXA.png' %}" width="55">
+    <h3>CYVEXA</h3>
+    <p>
+        Professional Cybersecurity &
+        Web Development Solutions
+    </p>
+</div>
+
+<div class="footer-links">
+    <a href="/home/">Home</a>
+    <a href="/about/">About</a>
+    <a href="/services/">Services</a>
+    <a href="/works/">Works</a>
+    <a href="/contact/">Contact</a>
+</div>
+
+<div class="footer-links">
+    <a href="#">Cybersecurity</a>
+    <a href="#">Web Development</a>
+    <a href="#">Consulting</a>
+    <a href="#">Ethical Hacking</a>
+    <a href="#">Cloud Security</a>
+</div>
+
+<div class="footer-copy">
+    © 2026 CYVEXA — Secure Technology Solutions
+</div>
+
+</div>
+
+</footer>
+
+<script>
+
+/* =========================
+SCROLL REVEAL
+========================= */
+
+const reveals = document.querySelectorAll('.reveal');
+
+function revealOnScroll(){
+
+    reveals.forEach((el)=>{
+
+        const windowHeight = window.innerHeight;
+        const revealTop = el.getBoundingClientRect().top;
+
+        if(revealTop < windowHeight - 100){
+            el.classList.add('active');
         }
-
-        lastScroll = current;
 
     });
 
-    /* =========================
-    FLOATING PARTICLES
-    ========================= */
+}
 
-    const particleCount = 40;
+window.addEventListener('scroll', revealOnScroll);
+revealOnScroll();
 
-    for(let i=0;i<particleCount;i++){
+/* =========================
+NAVBAR HIDE
+========================= */
 
-        const particle = document.createElement('div');
+let lastScroll = 0;
+const header = document.getElementById('header');
 
-        particle.style.position = 'fixed';
-        particle.style.width = Math.random()*3 + 'px';
-        particle.style.height = particle.style.width;
-        particle.style.background = 'rgba(255,255,255,0.25)';
-        particle.style.left = Math.random()*100 + 'vw';
-        particle.style.top = Math.random()*100 + 'vh';
-        particle.style.borderRadius = '50%';
-        particle.style.pointerEvents = 'none';
-        particle.style.zIndex = '-1';
+window.addEventListener('scroll',()=>{
 
-        particle.animate([
-            {
-                transform:'translateY(0px)',
-                opacity:0
-            },
-            {
-                opacity:1
-            },
-            {
-                transform:`translateY(-${Math.random()*300+100}px)`,
-                opacity:0
-            }
-        ],{
-            duration:Math.random()*12000+6000,
-            iterations:Infinity
-        });
+    let current = window.pageYOffset;
 
-        document.body.appendChild(particle);
+    if(current > lastScroll && current > 100){
+        header.style.transform = 'translateY(-100%)';
+    }else{
+        header.style.transform = 'translateY(0)';
     }
 
-    </script>
+    lastScroll = current;
 
-    </body>
-    </html>
+});
+
+/* =========================
+FLOATING PARTICLES
+========================= */
+
+const particleCount = 40;
+
+for(let i=0;i<particleCount;i++){
+
+    const particle = document.createElement('div');
+
+    particle.style.position = 'fixed';
+    particle.style.width = Math.random()*3 + 'px';
+    particle.style.height = particle.style.width;
+    particle.style.background = 'rgba(255,255,255,0.25)';
+    particle.style.left = Math.random()*100 + 'vw';
+    particle.style.top = Math.random()*100 + 'vh';
+    particle.style.borderRadius = '50%';
+    particle.style.pointerEvents = 'none';
+    particle.style.zIndex = '-1';
+
+    particle.animate([
+        {
+            transform:'translateY(0px)',
+            opacity:0
+        },
+        {
+            opacity:1
+        },
+        {
+            transform:`translateY(-${Math.random()*300+100}px)`,
+            opacity:0
+        }
+    ],{
+        duration:Math.random()*12000+6000,
+        iterations:Infinity
+    });
+
+    document.body.appendChild(particle);
+}
+
+</script>
+
+</body>
+</html>
