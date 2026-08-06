@@ -17,10 +17,10 @@ def admin_only(user):
 
 
 # =========================
-# 🏠 HOME PAGES (PUBLIC)
+# 🏠 INDEX PAGES (PUBLIC)
 # =========================
-def home(request):
-    return render(request, 'home.html')
+def index(request):
+    return render(request, 'index.html')
 
 def services(request):
     return render(request, 'Services.html')
@@ -41,7 +41,7 @@ def contact(request):
 def user_login(request):
 
     if request.user.is_authenticated:
-        return redirect('home')
+        return redirect('index')
 
     if request.method == "POST":
 
@@ -52,7 +52,7 @@ def user_login(request):
 
         if user is not None:
             login(request, user)
-            return redirect('home')
+            return redirect('index')
         else:
             messages.error(request, "Invalid credentials")
 
@@ -64,7 +64,7 @@ def user_login(request):
 # =========================
 def user_logout(request):
     logout(request)
-    return redirect('home')
+    return redirect('index')
 
 
 # =========================
