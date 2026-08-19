@@ -5,8 +5,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Projects | CYVEXA</title>
- <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
@@ -139,253 +139,303 @@ nav a:hover{
 }
 
 /* =========================
-HERO SECTION
+PROJECTS HERO
 ========================= */
 
-.hero{
-    min-height:100vh;
+.services-hero{
+    min-height:50vh;
     display:flex;
     align-items:center;
+    justify-content:center;
+    text-align:center;
+    position:relative;
+    padding:100px 0 60px;
+}
+
+.services-hero-content{
+    max-width:800px;
+}
+
+.services-title{
+    font-size:clamp(2.5rem, 6vw, 4.5rem);
+    font-weight:800;
+    line-height:1.1;
+    margin-bottom:20px;
+    background:linear-gradient(135deg, #ffffff 0%, #bdbdbd 100%);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+}
+
+.services-subtitle{
+    font-size:clamp(1rem, 2.5vw, 1.3rem);
+    color:#a0a0a0;
+    font-weight:400;
+}
+
+/* =========================
+SECTIONS
+========================= */
+
+.section{
+    padding:80px 0;
+}
+
+.section--alt{
+    background:rgba(255,255,255,0.02);
+    border-top:1px solid rgba(255,255,255,0.05);
+    border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+.section-subtext{
+    text-align:center;
+    color:#b0b0b0;
+    font-size:1.15rem;
+    max-width:850px;
+    margin:0 auto;
+    line-height:1.8;
+}
+
+/* =========================
+PROJECT CARDS
+========================= */
+
+.project-card{
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:28px;
+    padding:50px;
+    transition:all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     position:relative;
     overflow:hidden;
 }
 
-.hero-content{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    align-items:center;
-    gap:80px;
+.project-card::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    height:4px;
+    background:linear-gradient(90deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1), transparent);
+    opacity:0;
+    transition:opacity 0.4s ease;
 }
 
-.hero-text h1{
-    font-size:4.5rem;
-    font-weight:800;
-    line-height:1.1;
-    margin-bottom:25px;
+.project-card:hover::before{
+    opacity:1;
 }
 
-.hero-text h1 span{
-    color:#bdbdbd;
+.project-card:hover{
+    transform:translateY(-8px);
+    border-color:rgba(255,255,255,0.18);
+    box-shadow:
+        0 30px 60px rgba(0,0,0,0.4),
+        0 0 0 1px rgba(255,255,255,0.1),
+        0 0 80px rgba(255,255,255,0.04);
 }
 
-.hero-text p{
-    font-size:1.1rem;
-    color:#cfcfcf;
-    margin-bottom:40px;
-    max-width:600px;
-}
-
-.hero-buttons{
+.project-card h2{
+    font-size:clamp(1.5rem, 3vw, 2rem);
+    font-weight:700;
+    margin-bottom:12px;
     display:flex;
-    gap:20px;
-    flex-wrap:wrap;
+    align-items:center;
+    gap:12px;
 }
+
+.project-card .category{
+    display:inline-block;
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.1);
+    color:#c0c0c0;
+    font-size:0.85rem;
+    font-weight:500;
+    padding:6px 16px;
+    border-radius:50px;
+    margin-bottom:24px;
+}
+
+.project-card > p{
+    color:#c5c5c5;
+    margin-bottom:20px;
+    line-height:1.8;
+}
+
+/* =========================
+CHECKLIST
+========================= */
+
+.checklist{
+    list-style:none;
+    margin:28px 0;
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+    gap:12px 24px;
+}
+
+.checklist li{
+    position:relative;
+    padding-left:32px;
+    color:#d0d0d0;
+    font-size:0.95rem;
+    line-height:1.6;
+    transition:all 0.3s ease;
+}
+
+.checklist li::before{
+    content:'✓';
+    position:absolute;
+    left:0;
+    top:50%;
+    transform:translateY(-50%);
+    width:22px;
+    height:22px;
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.15);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:0.75rem;
+    color:#fff;
+    font-weight:700;
+}
+
+.checklist li:hover{
+    color:#fff;
+    transform:translateX(4px);
+}
+
+/* =========================
+TECH STACK
+========================= */
+
+.tech-stack{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin:20px 0 30px;
+}
+
+.tech-stack span{
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.1);
+    color:#aaa;
+    font-size:0.8rem;
+    padding:6px 14px;
+    border-radius:8px;
+    font-weight:500;
+    transition:all 0.3s ease;
+}
+
+.tech-stack span:hover{
+    background:rgba(255,255,255,0.1);
+    color:#fff;
+    border-color:rgba(255,255,255,0.2);
+    transform:translateY(-2px);
+}
+
+/* =========================
+TESTIMONIAL
+========================= */
+
+.testimonial{
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:20px;
+    padding:30px;
+    margin:30px 0;
+    position:relative;
+}
+
+.testimonial::before{
+    content:'"';
+    position:absolute;
+    top:10px;
+    left:20px;
+    font-size:4rem;
+    color:rgba(255,255,255,0.06);
+    font-family:Georgia, serif;
+    line-height:1;
+}
+
+.testimonial .stars{
+    color:#ffd700;
+    font-size:1.1rem;
+    letter-spacing:2px;
+    margin-bottom:16px;
+}
+
+.testimonial p{
+    color:#c8c8c8;
+    font-style:italic;
+    line-height:1.8;
+    font-size:1rem;
+    position:relative;
+    z-index:1;
+}
+
+.testimonial .client-name{
+    margin-top:16px;
+    color:#fff;
+    font-weight:600;
+    font-size:0.95rem;
+    font-style:normal;
+}
+
+/* =========================
+BUTTONS
+========================= */
 
 .btn{
-    padding:16px 34px;
+    padding:16px 36px;
     border-radius:60px;
     font-weight:600;
     text-decoration:none;
-    transition:0.4s ease;
+    transition:all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     display:inline-flex;
     align-items:center;
     justify-content:center;
+    gap:10px;
+    font-size:0.95rem;
+    border:none;
+    cursor:pointer;
+    position:relative;
+    overflow:hidden;
 }
 
 .btn-primary{
     background:#fff;
     color:#000;
+    box-shadow:0 4px 20px rgba(255,255,255,0.1);
+}
+
+.btn-primary::after{
+    content:'→';
+    transition:transform 0.3s ease;
 }
 
 .btn-primary:hover{
-    transform:translateY(-5px) scale(1.03);
-    box-shadow:0 15px 35px rgba(255,255,255,0.18);
+    transform:translateY(-3px) scale(1.02);
+    box-shadow:0 12px 40px rgba(255,255,255,0.2);
+}
+
+.btn-primary:hover::after{
+    transform:translateX(4px);
 }
 
 .btn-outline{
     border:1px solid rgba(255,255,255,0.2);
     color:#fff;
+    background:transparent;
 }
 
 .btn-outline:hover{
     background:#fff;
     color:#000;
-    transform:translateY(-5px);
-}
-
-.hero-image{
-    position:relative;
-}
-
-.hero-image img{
-    width:100%;
-    border-radius:30px;
-    object-fit:cover;
-    box-shadow:
-    0 25px 80px rgba(255,255,255,0.08),
-    0 0 0 1px rgba(255,255,255,0.08);
-    animation:float 6s ease-in-out infinite;
-}
-
-/* =========================
-ABOUT CARDS
-========================= */
-
-.section{
-    padding:50px 0;
-}
-
-.section-title{
-    font-size:3rem;
-    margin-bottom:20px;
-    text-align:center;
-    font-weight:800;
-}
-
-.section-sub{
-    text-align:center;
-    color:#cfcfcf;
-    max-width:800px;
-    margin:0 auto 70px;
-}
-
-.cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:30px;
-}
-
-.card{
-    background:rgba(255,255,255,0.04);
-    border:1px solid rgba(255,255,255,0.08);
-    border-radius:28px;
-    padding:40px;
-    transition:0.4s ease;
-    position:relative;
-    overflow:hidden;
-}
-
-.card::before{
-    content:'';
-    position:absolute;
-    inset:0;
-    background:linear-gradient(135deg, rgba(255,255,255,0.08), transparent);
-    opacity:0;
-    transition:0.4s ease;
-}
-
-.card:hover::before{
-    opacity:1;
-}
-
-.card:hover{
-    transform:translateY(-12px);
-    border-color:rgba(255,255,255,0.2);
-    box-shadow:0 25px 60px rgba(255,255,255,0.08);
-}
-
-.card h3{
-    margin-bottom:18px;
-    font-size:1.5rem;
-}
-
-.card p{
-    color:#d3d3d3;
-}
-
-/* =========================
-STATS
-========================= */
-
-.stats{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:30px;
-}
-
-.stat-box{
-    text-align:center;
-    padding:50px 20px;
-    border-radius:25px;
-    background:rgba(255,255,255,0.04);
-    border:1px solid rgba(255,255,255,0.08);
-    transition:0.4s ease;
-}
-
-.stat-box:hover{
-    transform:translateY(-10px);
-    box-shadow:0 20px 50px rgba(255,255,255,0.08);
-}
-
-.stat-box h2{
-    font-size:3rem;
-    margin-bottom:10px;
-}
-
-/* =========================
-SHOWCASE
-========================= */
-
-.showcase{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:60px;
-    align-items:center;
-}
-
-.showcase img{
-    width:100%;
-    border-radius:30px;
-    box-shadow:0 20px 60px rgba(255,255,255,0.08);
-    transition:0.5s ease;
-}
-
-.showcase img:hover{
-    transform:scale(1.03);
-}
-
-.showcase-text h2{
-    font-size:3rem;
-    margin-bottom:25px;
-}
-
-.showcase-text p{
-    color:#d0d0d0;
-    margin-bottom:25px;
-}
-
-/* =========================
-CTA
-========================= */
-
-.cta{
-    text-align:center;
-    padding:120px 20px;
-    position:relative;
-}
-
-.cta-box{
-    max-width:900px;
-    margin:auto;
-    padding:70px;
-    border-radius:35px;
-    background:linear-gradient(
-        135deg,
-        rgba(255,255,255,0.08),
-        rgba(255,255,255,0.03)
-    );
-    border:1px solid rgba(255,255,255,0.08);
-    backdrop-filter:blur(14px);
-}
-
-.cta h2{
-    font-size:3rem;
-    margin-bottom:25px;
-}
-
-.cta p{
-    color:#d0d0d0;
-    margin-bottom:40px;
+    transform:translateY(-3px);
+    box-shadow:0 12px 40px rgba(255,255,255,0.15);
 }
 
 /* =========================
@@ -469,21 +519,15 @@ ANIMATIONS
 ========================= */
 
 @keyframes float{
-    0%{
-        transform:translateY(0px);
-    }
-    50%{
-        transform:translateY(-20px);
-    }
-    100%{
-        transform:translateY(0px);
-    }
+    0%{ transform:translateY(0px); }
+    50%{ transform:translateY(-20px); }
+    100%{ transform:translateY(0px); }
 }
 
 .reveal{
     opacity:0;
     transform:translateY(50px);
-    transition:1s ease;
+    transition:all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .reveal.active{
@@ -497,46 +541,52 @@ RESPONSIVE
 
 @media(max-width:980px){
 
-    .hero-content,
-    .showcase{
-        grid-template-columns:1fr;
-    }
-
-    .hero-text{
-        text-align:center;
-    }
-
-    .hero-text p{
-        margin:auto auto 40px;
-    }
-
-    .hero-buttons{
-        justify-content:center;
-    }
-
     .hero-text h1{
         font-size:3rem;
     }
 
-
-
-    .showcase-text{
-        text-align:center;
-    }
-
-    .cta-box{
-        padding:50px 30px;
-    }
-
-    .section-title{
-        font-size:2.4rem;
-    }
-
-    .cta h2{
-        font-size:2.4rem;
+    .footer-inner{
+        flex-direction:column;
+        gap:40px;
     }
 }
 
+@media(max-width:768px){
+
+    body{
+        padding-top:100px;
+    }
+
+    .services-hero{
+        min-height:35vh;
+        padding:60px 0 40px;
+    }
+
+    .section{
+        padding:50px 0;
+    }
+
+    .project-card{
+        padding:30px 24px;
+    }
+
+    .checklist{
+        grid-template-columns:1fr;
+    }
+
+    .checklist li:hover{
+        transform:none;
+    }
+
+    .testimonial{
+        padding:24px 20px;
+    }
+
+    .btn{
+        width:100%;
+        padding:16px 24px;
+    }
+}
 
 /* MENU BUTTON */
 .menu-toggle{
@@ -544,6 +594,7 @@ RESPONSIVE
     font-size:26px;
     cursor:pointer;
 }
+
 /* =========================
 MOBILE NAV (SLIDE-IN MENU)
 ========================= */
@@ -580,7 +631,6 @@ MOBILE NAV (SLIDE-IN MENU)
     }
 }
 
-
 </style>
   </head>
 
@@ -595,19 +645,19 @@ MOBILE NAV (SLIDE-IN MENU)
             <img src="{% static 'images/cyvexa_logo.png' %}" alt="logo">
             <div class="logo-text">CYVEXA</div>
         </div>
-<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 
-<nav id="mobileMenu">
-    <ul>
-        <li><a class="nav-link" href="/">Home</a></li>
-        <li><a class="nav-link" href="/about/">About</a></li>
-        <li><a class="nav-link" href="/services/">Services</a></li>
-        <li><a class="nav-link" href="/works/">Works</a></li>
-        <li><a class="nav-link" href="/contact/">Contact</a></li>
-        <li><a class="nav-link" href="/blog/">Blog</a></li>
-        <li><a class="nav-link" href="{% url 'event_list' %}">Events</a></li>
-    </ul>
-</nav>
+        <nav id="mobileMenu">
+            <ul>
+                <li><a class="nav-link" href="/">Home</a></li>
+                <li><a class="nav-link" href="/about/">About</a></li>
+                <li><a class="nav-link" href="/services/">Services</a></li>
+                <li><a class="nav-link" href="/works/">Works</a></li>
+                <li><a class="nav-link" href="/contact/">Contact</a></li>
+                <li><a class="nav-link" href="/blog/">Blog</a></li>
+                <li><a class="nav-link" href="{% url 'event_list' %}">Events</a></li>
+            </ul>
+        </nav>
 
     </div>
 </header>
@@ -635,10 +685,9 @@ MOBILE NAV (SLIDE-IN MENU)
       <!-- PROJECT 1 -->
       <section class="section section--alt reveal">
         <div class="container">
-
-          <div class="card">
+          <div class="project-card">
             <h2>🏋️ Gym Optimization Application</h2>
-            <p><strong>Category:</strong> Business Management System • Web Application</p>
+            <span class="category">Business Management System • Web Application</span>
 
             <p>
               A smart management system developed to streamline gym operations, improve member experience,
@@ -654,31 +703,30 @@ MOBILE NAV (SLIDE-IN MENU)
               <li>Scalable for multi-branch expansion</li>
             </ul>
 
-            <p><strong>Technologies:</strong> Application Development • Database Systems • Analytics Integration • Secure Architecture</p>
+            <div class="tech-stack">
+              <span>Application Development</span>
+              <span>Database Systems</span>
+              <span>Analytics Integration</span>
+              <span>Secure Architecture</span>
+            </div>
 
-            <h3>⭐ Client Feedback</h3>
-            <p>
-              ★★★★★ <br><br>
-              "CYVEXA developed a custom gym optimization application for our operations,
-              and it significantly improved how we manage member data and daily tracking.
-              The system is fast, simple to use, and well structured."
-              <br><br>
-              <strong>Mubarak A</strong> – Gym Owner, MMS Classic Gym
-            </p>
+            <div class="testimonial">
+              <div class="stars">★★★★★</div>
+              <p>"CYVEXA developed a custom gym optimization application for our operations, and it significantly improved how we manage member data and daily tracking. The system is fast, simple to use, and well structured."</p>
+              <div class="client-name">— Mubarak A, Gym Owner, MMS Classic Gym</div>
+            </div>
 
             <a href="https://wa.me/918903051053?text=Hi%20CYVEXA,%20Services,%20I%20need%20Website" class="btn btn-primary">Get Business Solution</a>
           </div>
-
         </div>
       </section>
 
       <!-- PROJECT 2 -->
       <section class="section reveal">
         <div class="container">
-
-          <div class="card">
+          <div class="project-card">
             <h2>🚀 Aurax Coaching Platform</h2>
-            <p><strong>Category:</strong> Secure Web Application • EdTech Platform</p>
+            <span class="category">Secure Web Application • EdTech Platform</span>
 
             <p>
               Aurax is a comprehensive digital learning platform designed to deliver structured coaching programs
@@ -694,25 +742,26 @@ MOBILE NAV (SLIDE-IN MENU)
               <li>Data protection & secure access</li>
             </ul>
 
-            <p><strong>Technologies:</strong> Secure Web Development • Database Design • Payment Integration • UI/UX Engineering</p>
+            <div class="tech-stack">
+              <span>Secure Web Development</span>
+              <span>Database Design</span>
+              <span>Payment Integration</span>
+              <span>UI/UX Engineering</span>
+            </div>
 
-            <h3>⭐ Client Feedback</h3>
-            <p>
-              ★★★★★ <br><br>
-              "We worked with CYVEXA to build our learning platform website, and the experience was smooth.
-              Clean design, strong structure, and secure implementation."
-              <br><br>
-              <strong>Kishore</strong>
-            </p>
+            <div class="testimonial">
+              <div class="stars">★★★★★</div>
+              <p>"We worked with CYVEXA to build our learning platform website, and the experience was smooth. Clean design, strong structure, and secure implementation."</p>
+              <div class="client-name">— Kishore</div>
+            </div>
 
             <a href="https://wa.me/918903051053?text=Hi%20CYVEXA,%20Services,%20I%20need%20Website" class="btn btn-primary">Request Similar Solution</a>
           </div>
-
         </div>
       </section>
 
-
     </main>
+
     <!-- FOOTER -->
     <footer>
         <div class="container footer-inner">
@@ -750,42 +799,40 @@ MOBILE NAV (SLIDE-IN MENU)
             </div>
         </div>
     </footer>
->
-    <!-- SAME SCRIPT -->
+
     <script>
         function toggleMenu() {
-    document.getElementById("mobileMenu").classList.toggle("active");
-}
-      let lastScrollTop = 0;
-      const header = document.querySelector('header');
-
-      window.addEventListener('scroll', () => {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        if (scrollTop > lastScrollTop && scrollTop > 100) {
-          header.classList.add('navbar-hidden');
-        } else {
-          header.classList.remove('navbar-hidden');
+            document.getElementById("mobileMenu").classList.toggle("active");
         }
-        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-      });
-      function revealOnScroll() {
-    const reveals = document.querySelectorAll('.reveal');
 
-    reveals.forEach((el) => {
-        const windowHeight = window.innerHeight;
-        const elementTop = el.getBoundingClientRect().top;
-        const revealPoint = 100;
+        let lastScrollTop = 0;
+        const header = document.querySelector('header');
 
-        if (elementTop < windowHeight - revealPoint) {
-            el.classList.add('active');
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                header.classList.add('navbar-hidden');
+            } else {
+                header.classList.remove('navbar-hidden');
+            }
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        });
+
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach((el) => {
+                const windowHeight = window.innerHeight;
+                const elementTop = el.getBoundingClientRect().top;
+                const revealPoint = 100;
+                if (elementTop < windowHeight - revealPoint) {
+                    el.classList.add('active');
+                }
+            });
         }
-    });
-}
 
-window.addEventListener('scroll', revealOnScroll);
-
-// run once on load
-revealOnScroll();
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
     </script>
 
   </body>
+</html>
