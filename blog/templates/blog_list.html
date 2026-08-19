@@ -5,11 +5,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Blogs | CYVEXA</title>
-
   <link rel="icon" type="image/png" href="{% static 'images/CYVEXA.png' %}" />
-</head>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
@@ -29,6 +27,7 @@ body{
     color:#ffffff;
     overflow-x:hidden;
     line-height:1.7;
+    padding-top:120px;
 }
 
 /* =========================
@@ -79,6 +78,10 @@ header{
     background:rgba(0,0,0,0.45);
     border-bottom:1px solid rgba(255,255,255,0.08);
     transition:0.4s ease;
+}
+
+header.navbar-hidden{
+    transform:translateY(-100%);
 }
 
 .header-inner{
@@ -141,251 +144,270 @@ nav a:hover{
 }
 
 /* =========================
-HERO SECTION
+BLOG HERO
 ========================= */
 
-.hero{
-    min-height:100vh;
+.blog-hero{
+    min-height:40vh;
     display:flex;
     align-items:center;
+    justify-content:center;
+    text-align:center;
     position:relative;
-    overflow:hidden;
+    padding:80px 0 40px;
 }
 
-.hero-content{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    align-items:center;
-    gap:80px;
+.blog-hero-content{
+    max-width:800px;
 }
 
-.hero-text h1{
-    font-size:4.5rem;
+.blog-hero h1{
+    font-size:clamp(2.5rem, 6vw, 4rem);
     font-weight:800;
     line-height:1.1;
-    margin-bottom:25px;
+    margin-bottom:20px;
+    background:linear-gradient(135deg, #ffffff 0%, #bdbdbd 100%);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
 }
 
-.hero-text h1 span{
-    color:#bdbdbd;
-}
-
-.hero-text p{
-    font-size:1.1rem;
-    color:#cfcfcf;
-    margin-bottom:40px;
+.blog-hero p{
+    font-size:clamp(1rem, 2.5vw, 1.2rem);
+    color:#a0a0a0;
     max-width:600px;
+    margin:0 auto;
 }
 
-.hero-buttons{
-    display:flex;
-    gap:20px;
-    flex-wrap:wrap;
+/* =========================
+SECTIONS
+========================= */
+
+.section{
+    padding:60px 0;
+}
+
+/* =========================
+CREATE BUTTON
+========================= */
+
+.create-btn-wrapper{
+    text-align:center;
+    margin-bottom:50px;
 }
 
 .btn{
-    padding:16px 34px;
+    padding:14px 32px;
     border-radius:60px;
     font-weight:600;
     text-decoration:none;
-    transition:0.4s ease;
+    transition:all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     display:inline-flex;
     align-items:center;
     justify-content:center;
+    gap:10px;
+    font-size:0.95rem;
+    border:none;
+    cursor:pointer;
+    position:relative;
+    overflow:hidden;
 }
 
 .btn-primary{
     background:#fff;
     color:#000;
+    box-shadow:0 4px 20px rgba(255,255,255,0.1);
+}
+
+.btn-primary::before{
+    content:'+';
+    font-size:1.2rem;
+    font-weight:400;
+    transition:transform 0.3s ease;
 }
 
 .btn-primary:hover{
-    transform:translateY(-5px) scale(1.03);
-    box-shadow:0 15px 35px rgba(255,255,255,0.18);
+    transform:translateY(-3px) scale(1.02);
+    box-shadow:0 12px 40px rgba(255,255,255,0.2);
+}
+
+.btn-primary:hover::before{
+    transform:rotate(90deg);
 }
 
 .btn-outline{
     border:1px solid rgba(255,255,255,0.2);
     color:#fff;
+    background:transparent;
+    padding:10px 24px;
+    font-size:0.85rem;
 }
 
 .btn-outline:hover{
     background:#fff;
     color:#000;
-    transform:translateY(-5px);
-}
-
-.hero-image{
-    position:relative;
-}
-
-.hero-image img{
-    width:100%;
-    border-radius:30px;
-    object-fit:cover;
-    box-shadow:
-    0 25px 80px rgba(255,255,255,0.08),
-    0 0 0 1px rgba(255,255,255,0.08);
-    animation:float 6s ease-in-out infinite;
+    transform:translateY(-2px);
+    box-shadow:0 8px 25px rgba(255,255,255,0.1);
 }
 
 /* =========================
-ABOUT CARDS
+BLOG GRID
 ========================= */
 
-.section{
-    padding:120px 0;
-}
-
-.section-title{
-    font-size:3rem;
-    margin-bottom:20px;
-    text-align:center;
-    font-weight:800;
-}
-
-.section-sub{
-    text-align:center;
-    color:#cfcfcf;
-    max-width:800px;
-    margin:0 auto 70px;
-}
-.card{
-    background:rgba(255,255,255,0.04);
-    border:1px solid rgba(255,255,255,0.08);
-    border-radius:28px;
-    padding:40px;
-    transition:0.4s ease;
-    position:relative;
-    overflow:hidden;
-}
-
-.card::before{
-    content:'';
-    position:absolute;
-    inset:0;
-    background:linear-gradient(135deg, rgba(255,255,255,0.08), transparent);
-    opacity:0;
-    transition:0.4s ease;
-    pointer-events:none; /* 🔥 IMPORTANT FIX */
-}
-
-.card:hover::before{
-    opacity:1;
-}
-
-.card:hover{
-    transform:translateY(-12px);
-    border-color:rgba(255,255,255,0.2);
-    box-shadow:0 25px 60px rgba(255,255,255,0.08);
-}
-
-.card-content,
-.card-footer{
-    position:relative;
-    z-index:2;
-}
-/* =========================
-STATS
-========================= */
-
-.stats{
+.blog-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    grid-template-columns:repeat(auto-fill, minmax(340px, 1fr));
     gap:30px;
 }
 
-.stat-box{
-    text-align:center;
-    padding:50px 20px;
-    border-radius:25px;
+/* =========================
+BLOG CARD
+========================= */
+
+.blog-card{
     background:rgba(255,255,255,0.04);
     border:1px solid rgba(255,255,255,0.08);
-    transition:0.4s ease;
-}
-
-.stat-box:hover{
-    transform:translateY(-10px);
-    box-shadow:0 20px 50px rgba(255,255,255,0.08);
-}
-
-.stat-box h2{
-    font-size:3rem;
-    margin-bottom:10px;
-}
-
-/* =========================
-SHOWCASE
-========================= */
-
-.showcase{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:60px;
-    align-items:center;
-}
-
-.showcase img{
-    width:100%;
-    border-radius:30px;
-    box-shadow:0 20px 60px rgba(255,255,255,0.08);
-    transition:0.5s ease;
-}
-
-.showcase img:hover{
-    transform:scale(1.03);
-}
-
-.showcase-text h2{
-    font-size:3rem;
-    margin-bottom:25px;
-}
-
-.showcase-text p{
-    color:#d0d0d0;
-    margin-bottom:25px;
-}
-
-/* =========================
-CTA
-========================= */
-
-.cta{
-    text-align:center;
-    padding:120px 20px;
+    border-radius:24px;
+    overflow:hidden;
+    transition:all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    display:flex;
+    flex-direction:column;
+    height:100%;
     position:relative;
 }
 
-.cta-box{
-    max-width:900px;
-    margin:auto;
-    padding:70px;
-    border-radius:35px;
-    background:linear-gradient(
-        135deg,
-        rgba(255,255,255,0.08),
-        rgba(255,255,255,0.03)
-    );
-    border:1px solid rgba(255,255,255,0.08);
-    backdrop-filter:blur(14px);
+.blog-card::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    height:3px;
+    background:linear-gradient(90deg, rgba(255,255,255,0.5), rgba(255,255,255,0.1), transparent);
+    opacity:0;
+    transition:opacity 0.4s ease;
+    z-index:2;
 }
 
-.cta h2{
-    font-size:3rem;
-    margin-bottom:25px;
+.blog-card:hover::before{
+    opacity:1;
 }
 
-.cta p{
-    color:#d0d0d0;
-    margin-bottom:40px;
+.blog-card:hover{
+    transform:translateY(-10px);
+    border-color:rgba(255,255,255,0.18);
+    box-shadow:
+        0 30px 60px rgba(0,0,0,0.4),
+        0 0 0 1px rgba(255,255,255,0.1),
+        0 0 80px rgba(255,255,255,0.04);
+}
+
+.blog-card .card-image{
+    width:100%;
+    height:220px;
+    overflow:hidden;
+    position:relative;
+}
+
+.blog-card .card-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.blog-card:hover .card-image img{
+    transform:scale(1.08);
+}
+
+.blog-card .card-image::after{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:linear-gradient(to bottom, transparent 60%, rgba(5,5,5,0.8) 100%);
+    pointer-events:none;
+}
+
+.blog-card .card-body{
+    padding:28px;
+    display:flex;
+    flex-direction:column;
+    flex:1;
+}
+
+.blog-card h3{
+    font-size:1.25rem;
+    font-weight:700;
+    margin-bottom:12px;
+    line-height:1.4;
+    color:#fff;
+}
+
+.blog-card .excerpt{
+    color:#b0b0b0;
+    font-size:0.95rem;
+    line-height:1.7;
+    margin-bottom:16px;
+    flex:1;
+}
+
+.blog-card .author{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:20px;
+    font-size:0.85rem;
+    color:#888;
+}
+
+.blog-card .author::before{
+    content:'';
+    width:28px;
+    height:28px;
+    background:rgba(255,255,255,0.08);
+    border-radius:50%;
+    display:inline-block;
+    border:1px solid rgba(255,255,255,0.1);
+}
+
+.blog-card .card-actions{
+    display:flex;
+    gap:10px;
+    margin-top:auto;
+    padding-top:16px;
+    border-top:1px solid rgba(255,255,255,0.06);
+}
+
+.blog-card .card-actions form{
+    display:inline;
+}
+
+/* No image placeholder */
+.blog-card.no-image{
+    padding-top:28px;
 }
 
 /* =========================
-   FOOTER
+EMPTY STATE
+========================= */
+
+.empty-state{
+    text-align:center;
+    padding:80px 20px;
+    color:#666;
+}
+
+.empty-state p{
+    font-size:1.1rem;
+}
+
+/* =========================
+FOOTER
 ========================= */
 footer {
     padding: 70px 0 40px;
     border-top: 1px solid rgba(255,255,255,0.08);
+    margin-top:60px;
 }
 
 .footer-inner {
@@ -434,7 +456,7 @@ footer {
     margin-bottom: 6px;
 }
 
-.footer-col a {
+.footer-col a, .footer-col span {
     color: #a0a0a0;
     text-decoration: none;
     transition: 0.3s ease;
@@ -444,6 +466,21 @@ footer {
 .footer-col a:hover {
     color: #fff;
     transform: translateX(4px);
+}
+
+.footer-auth{
+    margin-top:12px;
+    padding-top:12px;
+    border-top:1px solid rgba(255,255,255,0.06);
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.footer-auth span{
+    color:#fff;
+    font-size:0.9rem;
+    font-weight:600;
 }
 
 .footer-copy {
@@ -461,117 +498,26 @@ ANIMATIONS
 ========================= */
 
 @keyframes float{
-    0%{
-        transform:translateY(0px);
-    }
-    50%{
-        transform:translateY(-20px);
-    }
-    100%{
-        transform:translateY(0px);
-    }
+    0%{ transform:translateY(0px); }
+    50%{ transform:translateY(-20px); }
+    100%{ transform:translateY(0px); }
 }
 
-/* smoother reveal */
-.card.reveal{
+.reveal{
     opacity:0;
-    transform:translateY(60px) scale(0.98);
+    transform:translateY(50px);
+    transition:all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.card.active{
+.reveal.active{
     opacity:1;
-    transform:translateY(0) scale(1);
-    transition:0.8s ease;
+    transform:translateY(0);
 }
+
 /* =========================
-RESPONSIVE
+MENU BUTTON
 ========================= */
 
-@media(max-width:980px){
-
-    .hero-content,
-    .showcase{
-        grid-template-columns:1fr;
-    }
-
-    .hero-text{
-        text-align:center;
-    }
-
-    .hero-text p{
-        margin:auto auto 40px;
-    }
-
-    .hero-buttons{
-        justify-content:center;
-    }
-
-    .hero-text h1{
-        font-size:3rem;
-    }
-
-
-
-    .showcase-text{
-        text-align:center;
-    }
-
-    .cta-box{
-        padding:50px 30px;
-    }
-
-    .section-title{
-        font-size:2.4rem;
-    }
-
-    .cta h2{
-        font-size:2.4rem;
-    }
-}
-
-
-
-/* BLOG GRID FIX */
-.blog-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:30px;
-}
-
-/* FIX IMAGE SIZE */
-.card img{
-    width:100%;
-    height:220px;
-    object-fit:cover;
-    border-radius:12px;
-    margin-bottom:15px;
-}
-
-/* CARD FOOTER ALIGN */
-.card-footer{
-    display:flex;
-    gap:10px;
-    margin-top:auto;
-}
-
-/* PUSH CONTENT BELOW HEADER */
-.section{
-    padding-top:40px;
-}
-
-.card-footer button.btn-outline {
-    background: transparent;   /* remove white bg */
-    color: #fff;               /* same text color */
-    border: 1px solid rgba(255,255,255,0.2);
-    cursor: pointer;
-}
-
-/* remove default button styles */
-.card-footer button {
-    outline: none;
-    border: none;
-}
-/* MENU BUTTON */
 .menu-toggle{
     display:none;
     font-size:26px;
@@ -579,11 +525,10 @@ RESPONSIVE
 }
 
 /* =========================
-MOBILE NAV (SLIDE-IN MENU)
+MOBILE NAV
 ========================= */
 
 @media (max-width: 980px) {
-
     .menu-toggle{
         display:block;
     }
@@ -614,12 +559,60 @@ MOBILE NAV (SLIDE-IN MENU)
     }
 }
 
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+    body{
+        padding-top:100px;
+    }
+
+    .blog-hero{
+        min-height:30vh;
+        padding:40px 0 20px;
+    }
+
+    .blog-grid{
+        grid-template-columns:1fr;
+        gap:24px;
+    }
+
+    .blog-card .card-image{
+        height:200px;
+    }
+
+    .section{
+        padding:40px 0;
+    }
+
+    .create-btn-wrapper{
+        margin-bottom:30px;
+    }
+
+    .btn{
+        width:100%;
+    }
+
+    .blog-card .card-actions{
+        flex-direction:column;
+    }
+
+    .blog-card .card-actions .btn-outline{
+        width:100%;
+        text-align:center;
+    }
+}
+
 </style>
+</head>
+
 <body>
 
 <div class="grid"></div>
+
 <!-- HEADER -->
-<header class="site-header">
+<header id="header">
   <div class="container header-inner">
 
     <div class="logo-wrapper">
@@ -628,7 +621,9 @@ MOBILE NAV (SLIDE-IN MENU)
       </a>
       <span class="logo-text">CYVEXA</span>
     </div>
-<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
     <nav id="mobileMenu">
       <ul class="nav-list">
         <li><a class="nav-link" href="/">Home</a></li>
@@ -638,115 +633,118 @@ MOBILE NAV (SLIDE-IN MENU)
         <li><a class="nav-link" href="/contact/">Contact</a></li>
         <li><a class="nav-link" href="{% url 'blog_list' %}">Blog</a></li>
         <li><a class="nav-link" href="{% url 'event_list' %}">Events</a></li>
-
-        
       </ul>
     </nav>
 
   </div>
 </header>
 
-<!-- CREATE BUTTON -->
-<!-- BLOG SECTION -->
-<section class="section reveal" style="margin-top:120px;">
-  <div class="container">
+<main>
 
-    {% if user.is_authenticated %}
-      <div style="text-align:center; margin-bottom:40px;">
-        <a href="{% url 'create_blog' %}" class="btn btn-primary">
-            + Create Blog
-          </a>
-        </div>
+  <!-- BLOG HERO -->
+  <section class="blog-hero reveal">
+    <div class="container blog-hero-content">
+      <h1>Our Blog</h1>
+      <p>Insights, tutorials, and updates from the CYVEXA team on cybersecurity, development, and technology.</p>
+    </div>
+  </section>
+
+  <!-- BLOG SECTION -->
+  <section class="section">
+    <div class="container">
+
+      {% if user.is_authenticated %}
+      <div class="create-btn-wrapper reveal">
+        <a href="{% url 'create_blog' %}" class="btn btn-primary">Create Blog</a>
+      </div>
       {% endif %}
 
+      {% if blogs %}
       <div class="blog-grid">
         {% for blog in blogs %}
-        <div class="card reveal">
+        <article class="blog-card reveal {% if not blog.image %}no-image{% endif %}">
 
           {% if blog.image %}
-            <img src="{{ blog.image.url }}" alt="blog image">
+          <div class="card-image">
+            <img src="{{ blog.image.url }}" alt="{{ blog.title }}">
+          </div>
           {% endif %}
 
-          <div class="card-content">
+          <div class="card-body">
             <h3>{{ blog.title }}</h3>
-            <p>{{ blog.content|truncatewords:25 }}</p>
-            <small>By {{ blog.author }}</small>
+            <p class="excerpt">{{ blog.content|truncatewords:25 }}</p>
+            <div class="author">By {{ blog.author }}</div>
+
+            {% if user == blog.author %}
+            <div class="card-actions">
+              <a href="{% url 'edit_blog' blog.id %}" class="btn btn-outline">Edit</a>
+              <form method="POST" action="{% url 'delete_blog' blog.id %}" onsubmit="return confirmDelete()">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-outline">Delete</button>
+              </form>
+            </div>
+            {% endif %}
           </div>
 
-          {% if user == blog.author %}
-  <div class="card-footer">
-
-    <!-- EDIT -->
-    <a href="{% url 'edit_blog' blog.id %}" class="btn btn-outline">
-        Edit
-    </a>
-
-    <!-- DELETE -->
-    <form method="POST" action="{% url 'delete_blog' blog.id %}" 
-          style="display:inline;" 
-          onsubmit="return confirmDelete()">
-        
-        {% csrf_token %}
-        
-        <button type="submit" class="btn btn-outline">
-            Delete
-        </button>
-
-    </form>
-
-</div>
-        {% endif %}
-
+        </article>
+        {% endfor %}
       </div>
-      {% endfor %}
+      {% else %}
+      <div class="empty-state reveal">
+        <p>No blog posts yet. Check back soon for updates!</p>
+      </div>
+      {% endif %}
+
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <img src="{% static 'images/cyvexa_logo.png' %}" alt="CYVEXA Logo">
+      <h3>CYVEXA</h3>
+      <p>Professional Cybersecurity & Web Development Solutions for modern enterprises.</p>
     </div>
 
+    <div class="footer-col">
+      <strong>Company</strong>
+      <a href="/">Home</a>
+      <a href="/about/">About</a>
+      <a href="/services/">Services</a>
+      <a href="/works/">Works</a>
+      <a href="/contact/">Contact</a>
+    </div>
+
+    <div class="footer-col">
+      <strong>Resources</strong>
+      <a href="/blog/">Blog</a>
+      <a href="{% url 'event_list' %}">Events</a>
+      <div class="footer-auth">
+        {% if user.is_authenticated %}
+        <span>Hi, {{ user.username }}</span>
+        <a href="{% url 'logout' %}">Logout</a>
+        {% else %}
+        <a href="{% url 'login' %}">Login</a>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <strong>Services</strong>
+      <a href="#">Cybersecurity</a>
+      <a href="#">Web Development</a>
+      <a href="#">Consulting</a>
+      <a href="#">Ethical Hacking</a>
+    </div>
+
+    <div class="footer-copy">
+      © 2026 CYVEXA — Secure Technology Solutions. All rights reserved.
+    </div>
   </div>
-</section>
-    <!-- FOOTER -->
-    <footer>
-        <div class="container footer-inner">
-            <div class="footer-brand">
-                <img src="{% static 'images/cyvexa_logo.png' %}" alt="CYVEXA Logo">
-                <h3>CYVEXA</h3>
-                <p>Professional Cybersecurity & Web Development Solutions for modern enterprises.</p>
-            </div>
-
-            <div class="footer-col">
-                <strong>Company</strong>
-                <a href="/">Home</a>
-                <a href="/about/">About</a>
-                <a href="/services/">Services</a>
-                <a href="/works/">Works</a>
-                <a href="/contact/">Contact</a>
-            </div>
-
-            <div class="footer-col">
-                <strong>Resources</strong>
-                <a href="/blog/">Blog</a>
-                <a href="{% url 'event_list' %}">Events</a>
-                    {% if user.is_authenticated %}
-                    <li class="nav-link">Hi, {{ user.username }}</li>
-                    <li><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
-                      {% else %}
-                    <li><a class="nav-link" href="{% url 'login' %}">Login</a></li>
-                     {% endif %}
-            </div>
-
-            <div class="footer-col">
-                <strong>Services</strong>
-                <a href="#">Cybersecurity</a>
-                <a href="#">Web Development</a>
-                <a href="#">Consulting</a>
-                <a href="#">Ethical Hacking</a>
-            </div>
-
-            <div class="footer-copy">
-                © 2026 CYVEXA — Secure Technology Solutions. All rights reserved.
-            </div>
-        </div>
-    </footer>
-
+</footer>
 
 <script>
 function confirmDelete() {
@@ -756,14 +754,26 @@ function confirmDelete() {
 function toggleMenu() {
     document.getElementById("mobileMenu").classList.toggle("active");
 }
+
+let lastScrollTop = 0;
+const header = document.getElementById('header');
+
+window.addEventListener('scroll', () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    if (scrollTop > lastScrollTop && scrollTop > 100) {
+        header.classList.add('navbar-hidden');
+    } else {
+        header.classList.remove('navbar-hidden');
+    }
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+});
+
 function revealOnScroll() {
     const reveals = document.querySelectorAll('.reveal');
-
     reveals.forEach((el) => {
         const windowHeight = window.innerHeight;
         const elementTop = el.getBoundingClientRect().top;
         const revealPoint = 100;
-
         if (elementTop < windowHeight - revealPoint) {
             el.classList.add('active');
         }
@@ -771,9 +781,8 @@ function revealOnScroll() {
 }
 
 window.addEventListener('scroll', revealOnScroll);
-
-// run once on load
 revealOnScroll();
-
 </script>
+
 </body>
+</html>

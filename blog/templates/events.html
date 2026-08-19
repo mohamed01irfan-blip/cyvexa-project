@@ -5,9 +5,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CYVEXA | Events</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="{% static 'images/CYVEXA.png' %}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
@@ -27,7 +27,7 @@ body{
     color:#ffffff;
     overflow-x:hidden;
     line-height:1.7;
-    padding-top:160px;
+    padding-top:120px;
 }
 
 /* =========================
@@ -78,6 +78,10 @@ header{
     background:rgba(0,0,0,0.45);
     border-bottom:1px solid rgba(255,255,255,0.08);
     transition:0.4s ease;
+}
+
+header.navbar-hidden{
+    transform:translateY(-100%);
 }
 
 .header-inner{
@@ -140,253 +144,298 @@ nav a:hover{
 }
 
 /* =========================
-HERO SECTION
+EVENTS HERO
 ========================= */
 
-.hero{
-    min-height:100vh;
+.events-hero{
+    min-height:35vh;
     display:flex;
     align-items:center;
+    justify-content:center;
+    text-align:center;
     position:relative;
-    overflow:hidden;
+    padding:80px 0 40px;
 }
 
-.hero-content{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    align-items:center;
-    gap:80px;
+.events-hero-content{
+    max-width:800px;
 }
 
-.hero-text h1{
-    font-size:4.5rem;
+.events-hero h1{
+    font-size:clamp(2.5rem, 6vw, 4rem);
     font-weight:800;
     line-height:1.1;
-    margin-bottom:25px;
+    margin-bottom:20px;
+    background:linear-gradient(135deg, #ffffff 0%, #bdbdbd 100%);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
 }
 
-.hero-text h1 span{
-    color:#bdbdbd;
-}
-
-.hero-text p{
-    font-size:1.1rem;
-    color:#cfcfcf;
-    margin-bottom:40px;
+.events-hero p{
+    font-size:clamp(1rem, 2.5vw, 1.2rem);
+    color:#a0a0a0;
     max-width:600px;
+    margin:0 auto;
 }
 
-.hero-buttons{
+/* =========================
+SECTIONS
+========================= */
+
+.section{
+    padding:60px 0;
+}
+
+.section-header{
     display:flex;
-    gap:20px;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:40px;
     flex-wrap:wrap;
+    gap:20px;
+}
+
+.section-title{
+    font-size:clamp(1.5rem, 3vw, 2rem);
+    font-weight:700;
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.section-title .icon{
+    font-size:1.5rem;
+}
+
+/* =========================
+TOP BAR / ADD BUTTON
+========================= */
+
+.top-bar{
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    margin-bottom:40px;
 }
 
 .btn{
-    padding:16px 34px;
+    padding:14px 32px;
     border-radius:60px;
     font-weight:600;
     text-decoration:none;
-    transition:0.4s ease;
+    transition:all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     display:inline-flex;
     align-items:center;
     justify-content:center;
+    gap:10px;
+    font-size:0.95rem;
+    border:none;
+    cursor:pointer;
+    position:relative;
+    overflow:hidden;
 }
 
 .btn-primary{
     background:#fff;
     color:#000;
+    box-shadow:0 4px 20px rgba(255,255,255,0.1);
 }
 
 .btn-primary:hover{
-    transform:translateY(-5px) scale(1.03);
-    box-shadow:0 15px 35px rgba(255,255,255,0.18);
+    transform:translateY(-3px) scale(1.02);
+    box-shadow:0 12px 40px rgba(255,255,255,0.2);
 }
 
 .btn-outline{
     border:1px solid rgba(255,255,255,0.2);
     color:#fff;
+    background:transparent;
+    padding:10px 24px;
+    font-size:0.85rem;
 }
 
 .btn-outline:hover{
     background:#fff;
     color:#000;
-    transform:translateY(-5px);
-}
-
-.hero-image{
-    position:relative;
-}
-
-.hero-image img{
-    width:100%;
-    border-radius:30px;
-    object-fit:cover;
-    box-shadow:
-    0 25px 80px rgba(255,255,255,0.08),
-    0 0 0 1px rgba(255,255,255,0.08);
-    animation:float 6s ease-in-out infinite;
+    transform:translateY(-2px);
+    box-shadow:0 8px 25px rgba(255,255,255,0.1);
 }
 
 /* =========================
-ABOUT CARDS
+EVENT GRID
 ========================= */
 
-.section{
-    padding:120px 0;
-}
-
-.section-title{
-    font-size:2rem;
-    margin-bottom:20px;
-    text-align:center;
-    font-weight:500;
-}
-
-.section-sub{
-    text-align:center;
-    color:#cfcfcf;
-    max-width:800px;
-    margin:0 auto 70px;
-}
-
-.cards{
+.event-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    grid-template-columns:repeat(auto-fill, minmax(340px, 1fr));
     gap:30px;
+    margin-bottom:60px;
 }
 
-.card{
+/* =========================
+EVENT CARD
+========================= */
+
+.event-card{
     background:rgba(255,255,255,0.04);
     border:1px solid rgba(255,255,255,0.08);
-    border-radius:28px;
-    padding:40px;
-    transition:0.4s ease;
-    position:relative;
+    border-radius:24px;
     overflow:hidden;
+    transition:all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    display:flex;
+    flex-direction:column;
+    height:100%;
+    position:relative;
 }
 
-.card::before{
+.event-card::before{
     content:'';
     position:absolute;
-    inset:0;
-    background:linear-gradient(135deg, rgba(255,255,255,0.08), transparent);
+    top:0;
+    left:0;
+    right:0;
+    height:3px;
+    background:linear-gradient(90deg, rgba(255,255,255,0.5), rgba(255,255,255,0.1), transparent);
     opacity:0;
-    transition:0.4s ease;
+    transition:opacity 0.4s ease;
+    z-index:2;
 }
 
-.card:hover::before{
+.event-card:hover::before{
     opacity:1;
 }
 
-.card:hover{
-    transform:translateY(-12px);
-    border-color:rgba(255,255,255,0.2);
-    box-shadow:0 25px 60px rgba(255,255,255,0.08);
-}
-
-.card h3{
-    margin-bottom:18px;
-    font-size:1.5rem;
-}
-
-.card p{
-    color:#d3d3d3;
-}
-
-/* =========================
-STATS
-========================= */
-
-.stats{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:30px;
-}
-
-.stat-box{
-    text-align:center;
-    padding:50px 20px;
-    border-radius:25px;
-    background:rgba(255,255,255,0.04);
-    border:1px solid rgba(255,255,255,0.08);
-    transition:0.4s ease;
-}
-
-.stat-box:hover{
+.event-card:hover{
     transform:translateY(-10px);
-    box-shadow:0 20px 50px rgba(255,255,255,0.08);
+    border-color:rgba(255,255,255,0.18);
+    box-shadow:
+        0 30px 60px rgba(0,0,0,0.4),
+        0 0 0 1px rgba(255,255,255,0.1),
+        0 0 80px rgba(255,255,255,0.04);
 }
 
-.stat-box h2{
-    font-size:3rem;
-    margin-bottom:10px;
-}
-
-/* =========================
-SHOWCASE
-========================= */
-
-.showcase{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:60px;
-    align-items:center;
-}
-
-.showcase img{
+.event-card .card-image{
     width:100%;
-    border-radius:30px;
-    box-shadow:0 20px 60px rgba(255,255,255,0.08);
-    transition:0.5s ease;
-}
-
-.showcase img:hover{
-    transform:scale(1.03);
-}
-
-.showcase-text h2{
-    font-size:3rem;
-    margin-bottom:25px;
-}
-
-.showcase-text p{
-    color:#d0d0d0;
-    margin-bottom:25px;
-}
-
-/* =========================
-CTA
-========================= */
-
-.cta{
-    text-align:center;
-    padding:120px 20px;
+    height:220px;
+    overflow:hidden;
     position:relative;
 }
 
-.cta-box{
-    max-width:900px;
-    margin:auto;
-    padding:70px;
-    border-radius:35px;
-    background:linear-gradient(
-        135deg,
-        rgba(255,255,255,0.08),
-        rgba(255,255,255,0.03)
-    );
-    border:1px solid rgba(255,255,255,0.08);
-    backdrop-filter:blur(14px);
+.event-card .card-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.cta h2{
-    font-size:3rem;
-    margin-bottom:25px;
+.event-card:hover .card-image img{
+    transform:scale(1.08);
 }
 
-.cta p{
-    color:#d0d0d0;
-    margin-bottom:40px;
+.event-card .card-image::after{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:linear-gradient(to bottom, transparent 50%, rgba(5,5,5,0.9) 100%);
+    pointer-events:none;
+}
+
+.event-card .card-body{
+    padding:28px;
+    display:flex;
+    flex-direction:column;
+    flex:1;
+}
+
+.event-card h3{
+    font-size:1.3rem;
+    font-weight:700;
+    margin-bottom:12px;
+    line-height:1.4;
+    color:#fff;
+}
+
+.event-card .description{
+    color:#b0b0b0;
+    font-size:0.95rem;
+    line-height:1.7;
+    margin-bottom:20px;
+    flex:1;
+}
+
+/* =========================
+META BADGES
+========================= */
+
+.event-meta{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    margin-bottom:20px;
+}
+
+.meta-badge{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:0.9rem;
+    color:#c0c0c0;
+}
+
+.meta-badge .label{
+    color:#888;
+    font-size:0.8rem;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    min-width:70px;
+}
+
+.meta-badge .value{
+    color:#fff;
+    font-weight:500;
+}
+
+/* =========================
+CARD ACTIONS
+========================= */
+
+.card-actions{
+    display:flex;
+    gap:10px;
+    margin-top:auto;
+    padding-top:16px;
+    border-top:1px solid rgba(255,255,255,0.06);
+}
+
+.card-actions form{
+    display:inline;
+}
+
+/* =========================
+EMPTY STATE
+========================= */
+
+.empty-state{
+    text-align:center;
+    padding:60px 20px;
+    color:#666;
+    font-size:1.1rem;
+    grid-column:1 / -1;
+    background:rgba(255,255,255,0.02);
+    border:1px solid rgba(255,255,255,0.06);
+    border-radius:20px;
+}
+
+/* =========================
+DIVIDER BETWEEN SECTIONS
+========================= */
+
+.section-divider{
+    height:1px;
+    background:linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+    margin:20px 0 60px;
+    border:none;
 }
 
 /* =========================
@@ -394,8 +443,9 @@ FOOTER
 ========================= */
 
 footer{
-    padding:60px 0 40px;
+    padding:70px 0 40px;
     border-top:1px solid rgba(255,255,255,0.08);
+    margin-top:40px;
 }
 
 .footer-inner{
@@ -406,20 +456,20 @@ footer{
 }
 
 .footer-brand{
-    max-width:350px;
+    max-width:320px;
 }
 
 .footer-brand img{
-    width:55px;
-    height:55px;
+    width:50px;
+    height:50px;
     object-fit:contain;
     margin-bottom:14px;
     filter:drop-shadow(0 0 12px rgba(255,255,255,0.2));
 }
 
 .footer-brand h3{
-    margin:0 0 10px;
     font-size:1.3rem;
+    margin-bottom:10px;
     font-weight:700;
     letter-spacing:1px;
 }
@@ -456,35 +506,45 @@ footer{
     transform:translateX(4px);
 }
 
+.footer-auth{
+    margin-top:12px;
+    padding-top:12px;
+    border-top:1px solid rgba(255,255,255,0.06);
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.footer-auth span{
+    color:#fff;
+    font-size:0.9rem;
+    font-weight:600;
+}
+
 .footer-copy{
     width:100%;
     text-align:center;
-    margin-top:50px;
+    margin-top:60px;
     color:#666;
-    border-top:1px solid rgba(255,255,255,0.08);
+    border-top:1px solid rgba(255,255,255,0.06);
     padding-top:30px;
     font-size:0.9rem;
 }
+
 /* =========================
 ANIMATIONS
 ========================= */
 
 @keyframes float{
-    0%{
-        transform:translateY(0px);
-    }
-    50%{
-        transform:translateY(-20px);
-    }
-    100%{
-        transform:translateY(0px);
-    }
+    0%{ transform:translateY(0px); }
+    50%{ transform:translateY(-20px); }
+    100%{ transform:translateY(0px); }
 }
 
 .reveal{
     opacity:0;
     transform:translateY(50px);
-    transition:1s ease;
+    transition:all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .reveal.active{
@@ -493,195 +553,9 @@ ANIMATIONS
 }
 
 /* =========================
-RESPONSIVE
+MENU BUTTON
 ========================= */
 
-@media(max-width:980px){
-
-    .hero-content,
-    .showcase{
-        grid-template-columns:1fr;
-    }
-
-    .hero-text{
-        text-align:center;
-    }
-
-    .hero-text p{
-        margin:auto auto 40px;
-    }
-
-    .hero-buttons{
-        justify-content:center;
-    }
-
-    .hero-text h1{
-        font-size:3rem;
-    }
-
-
-
-    .showcase-text{
-        text-align:center;
-    }
-
-    .cta-box{
-        padding:50px 30px;
-    }
-
-    .section-title{
-        font-size:2.4rem;
-    }
-
-    .cta h2{
-        font-size:2.4rem;
-    }
-}
-
-
-
-/* BLOG GRID FIX */
-.blog-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:30px;
-}
-
-/* FIX IMAGE SIZE */
-.card img{
-    width:100%;
-    height:220px;
-    object-fit:cover;
-    border-radius:12px;
-    margin-bottom:15px;
-}
-
-/* CARD FOOTER ALIGN */
-.card-footer{
-    display:flex;
-    gap:10px;
-    margin-top:auto;
-}
-
-/* PUSH CONTENT BELOW HEADER */
-.section{
-    padding-top:40px;
-}
-
-
-/* EVENT GRID FIX */
-.event-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:30px;
-    margin-top:30px;
-}
-
-/* CARD IMAGE FIX */
-.card img{
-    width:100%;
-    height:220px;
-    object-fit:cover;
-    border-radius:12px;
-    margin-bottom:15px;
-}
-
-/* TOP BAR */
-.top-bar{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:30px;
-}
-
-/* ADD BUTTON */
-.btn-add{
-    background:#0066ff;
-    color:#fff;
-    padding:10px 18px;
-    border-radius:8px;
-    text-decoration:none;
-}
-
-/* SECTION SPACING FIX */
-.section{
-    padding-top:40px;
-}
-
-.action-btn{
-    padding:8px 14px;
-    border-radius:6px;
-    font-size:13px;
-    border:none;
-    cursor:pointer;
-    transition:all 0.25s ease;
-    position:relative;
-    z-index:5;
-}
-
-/* EDIT */
-.btn-edit{
-    background:#ffc107;
-    color:#000;
-}
-
-/* DELETE */
-.btn-delete{
-    background:#dc3545;
-    color:#fff;
-}
-
-/* HOVER FIXED */
-.action-btn:hover{
-    background:#fff;
-    color:#000;
-    box-shadow:0 4px 10px rgba(255,255,255,0.2); /* lighter */
-    transform:translateY(-1px); /* smaller move */
-}
-
-/* IMPORTANT FIX */
-.card{
-    position:relative;
-    z-index:1;
-}
-
-
-.card::before{
-    pointer-events:none;
-}
-.action-btn{
-    padding:10px 0;
-    width:90px;              /* 🔥 fixed width */
-    text-align:center;
-    border-radius:6px;
-    font-size:13px;
-    border:none;
-    cursor:pointer;
-    transition:0.25s;
-    display:inline-flex;
-    justify-content:center;
-    align-items:center;
-}
-/* EDIT */
-.btn-edit {
-    background:#fbfbfa;
-    color:#000;
-}
-
-/* DELETE */
-.btn-delete {
-    background:#f6f3f3;
-    color:#040404;
-}
-
-/* SAME HOVER FOR BOTH */
-.action-btn:hover {
-    background:#fff;
-    color:#000;
-    box-shadow:0 6px 15px rgba(255,255,255,0.3);
-}
-
-/* MENU BUTTON */
 .menu-toggle{
     display:none;
     font-size:26px;
@@ -689,11 +563,10 @@ RESPONSIVE
 }
 
 /* =========================
-MOBILE NAV (SLIDE-IN MENU)
+MOBILE NAV
 ========================= */
 
 @media (max-width: 980px) {
-
     .menu-toggle{
         display:block;
     }
@@ -724,35 +597,54 @@ MOBILE NAV (SLIDE-IN MENU)
     }
 }
 
+/* =========================
+RESPONSIVE
+========================= */
 
 @media(max-width:768px){
-
-    /* Upcoming */
-    .section-title:nth-of-type(1){
-        font-size:1.5rem;
+    body{
+        padding-top:100px;
     }
 
-    /* Ongoing */
-    .section-title:nth-of-type(2){
-        font-size:1.5rem;
+    .events-hero{
+        min-height:25vh;
+        padding:40px 0 20px;
     }
 
-    /* Completed */
-    .section-title:nth-of-type(3){
-        font-size:1.5rem;
+    .event-grid{
+        grid-template-columns:1fr;
+        gap:24px;
     }
 
-}
-/* CARD REVEAL UPGRADE */
-.card.reveal{
-    opacity:0;
-    transform:translateY(60px) scale(0.97);
-}
+    .event-card .card-image{
+        height:200px;
+    }
 
-.card.active{
-    opacity:1;
-    transform:translateY(0) scale(1);
-    transition:0.7s ease;
+    .section{
+        padding:40px 0;
+    }
+
+    .section-header{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .top-bar{
+        justify-content:center;
+    }
+
+    .btn{
+        width:100%;
+    }
+
+    .card-actions{
+        flex-direction:column;
+    }
+
+    .card-actions .btn-outline{
+        width:100%;
+        text-align:center;
+    }
 }
 
 </style>
@@ -760,237 +652,236 @@ MOBILE NAV (SLIDE-IN MENU)
 
 <body>
 
-
 <div class="grid"></div>
 
+<!-- HEADER -->
 <header id="header">
     <div class="container header-inner">
-    <div class="logo-wrapper">
-      <a class="logo" href="/">
-        <img src="{% static 'images/cyvexa_logo.png' %}" alt="logo">
-      </a>
-      <span class="logo-text">CYVEXA</span>
+        <div class="logo-wrapper">
+            <a class="logo" href="/">
+                <img src="{% static 'images/cyvexa_logo.png' %}" alt="logo">
+            </a>
+            <span class="logo-text">CYVEXA</span>
+        </div>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <nav class="nav" id="mobileMenu">
+            <ul class="nav-list">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about/">About</a></li>
+                <li><a href="/services/">Services</a></li>
+                <li><a href="/works/">Works</a></li>
+                <li><a href="/contact/">Contact</a></li>
+                <li><a href="{% url 'blog_list' %}">Blog</a></li>
+                <li><a href="{% url 'event_list' %}">Events</a></li>
+            </ul>
+        </nav>
     </div>
-<div class="menu-toggle" onclick="toggleMenu()">☰</div>
-    <nav class="nav" id="mobileMenu">
-      <ul class="nav-list">
-        <li><a href="/">Home</a></li>
-        <li><a href="/about/">About</a></li>
-        <li><a href="/services/">Services</a></li>
-        <li><a href="/works/">Works</a></li>
-        <li><a href="/contact/">Contact</a></li>
-        <li><a href="{% url 'blog_list' %}">Blog</a></li>
-        <li><a href="{% url 'event_list' %}">Events</a></li>
-
-        
-      </ul>
-    </nav>
-  </div>
 </header>
 
+<main>
 
-<section class="container reveal">
+    <!-- EVENTS HERO -->
+    <section class="events-hero reveal">
+        <div class="container events-hero-content">
+            <h1>Events</h1>
+            <p>Join us for workshops, webinars, and conferences. Stay updated with our latest tech events and community gatherings.</p>
+        </div>
+    </section>
 
-  <!-- TOP BAR -->
-  <div class="top-bar">
-    
+    <!-- EVENTS CONTENT -->
+    <section class="section">
+        <div class="container">
 
-    {% if user.is_authenticated and user.is_staff %}
-      <a href="{% url 'add_event' %}" class="btn-add">➕ Add Event</a>
-    {% endif %}
-  </div>
-
-  <!-- UPCOMING -->
-   <h2 class="section-title event-title">📅 Upcoming Events</h2>
-<div class="event-grid">
-  {% for event in upcoming_events %}
-  <div class="card reveal">
-
-    {% if event.image %}
-      <img src="{{ event.image.url }}">
-    {% endif %}
-
-    <h3>{{ event.title }}</h3>
-    <p>{{ event.description|truncatewords:15 }}</p>
-    <p><strong>Starts:</strong> {{ event.start_date }}</p>
-    <p><strong>Location:</strong> {{ event.location }}</p>
-
-    {% if user.is_authenticated and user.is_staff %}
-<div class="card-footer">
-
-<!-- EDIT -->
-<a href="{% url 'edit_event' event.id %}" class="action-btn btn-edit">
-    Edit
-</a>
-
-<!-- DELETE -->
-<form method="POST" action="{% url 'delete_event' event.id %}" 
-      onsubmit="return confirm('Are you sure?')" 
-      style="display:inline;">
-    
-    {% csrf_token %}
-    
-    <button type="submit" class="action-btn btn-delete">
-        Delete
-    </button>
-</form>
-
-</div>
-    {% endif %}
-
-  </div>
-  {% empty %}
-    <p>No upcoming events</p>
-  {% endfor %}
-</div>
-
-
-  <!-- ONGOING -->
-  <h2 class="section-title event-title">🟢 Ongoing Events</h2>
-<div class="event-grid">
-  {% for event in ongoing_events %}
-  <div class="card reveal">
-
-    {% if event.image %}
-      <img src="{{ event.image.url }}">
-    {% endif %}
-
-    <h3>{{ event.title }}</h3>
-    <p>{{ event.description|truncatewords:15 }}</p>
-    <p><strong>Starts:</strong> {{ event.start_date }}</p>
-    <p><strong>Location:</strong> {{ event.location }}</p>
-
-    {% if user.is_authenticated and user.is_staff %}
-<div class="card-footer">
-
-<!-- EDIT -->
-<a href="{% url 'edit_event' event.id %}" class="action-btn btn-edit">
-    Edit
-</a>
-
-<!-- DELETE -->
-<form method="POST" action="{% url 'delete_event' event.id %}" 
-      onsubmit="return confirm('Are you sure?')" 
-      style="display:inline;">
-    
-    {% csrf_token %}
-    
-    <button type="submit" class="action-btn btn-delete">
-        Delete
-    </button>
-</form>
-
-</div>
-    {% endif %}
-
-  </div>
-  {% empty %}
-    <p>No Ongoing events</p>
-  {% endfor %}
-</div>
-
-
-  <!-- COMPLETED -->
-  <h2 class="section-title event-title">⚫ Completed Events</h2>
-<div class="event-grid">
-  {% for event in completed_events %}
-  <div class="card reveal">
-
-    {% if event.image %}
-      <img src="{{ event.image.url }}">
-    {% endif %}
-
-    <h3>{{ event.title }}</h3>
-    <p>{{ event.description|truncatewords:15 }}</p>
-    <p><strong>Starts:</strong> {{ event.start_date }}</p>
-    <p><strong>Location:</strong> {{ event.location }}</p>
-
-    {% if user.is_authenticated and user.is_staff %}
- <div class="card-footer">
-
-<div class="card-footer">
-
-<!-- EDIT -->
-<a href="{% url 'edit_event' event.id %}" class="action-btn btn-edit">
-    Edit
-</a>
-
-<!-- DELETE -->
-<form method="POST" action="{% url 'delete_event' event.id %}" 
-      onsubmit="return confirm('Are you sure?')" 
-      style="display:inline;">
-    
-    {% csrf_token %}
-    
-    <button type="submit" class="action-btn btn-delete">
-        Delete
-    </button>
-</form>
-
-</div>
-
-</div>
-    {% endif %}
-
-  </div>
-  {% empty %}
-    <p>No Completed events</p>
-  {% endfor %}
-</div>
-
-</section>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="container footer-inner">
-            <div class="footer-brand">
-                <img src="{% static 'images/cyvexa_logo.png' %}" alt="CYVEXA Logo">
-                <h3>CYVEXA</h3>
-                <p>Professional Cybersecurity & Web Development Solutions for modern enterprises.</p>
+            <!-- ADD EVENT BUTTON -->
+            {% if user.is_authenticated and user.is_staff %}
+            <div class="top-bar reveal">
+                <a href="{% url 'add_event' %}" class="btn btn-primary">➕ Add Event</a>
             </div>
+            {% endif %}
 
-            <div class="footer-col">
-                <strong>Company</strong>
-                <a href="/">Home</a>
-                <a href="/about/">About</a>
-                <a href="/services/">Services</a>
-                <a href="/works/">Works</a>
-                <a href="/contact/">Contact</a>
+            <!-- UPCOMING EVENTS -->
+            <div class="section-header reveal">
+                <h2 class="section-title"><span class="icon">📅</span> Upcoming Events</h2>
             </div>
-
-            <div class="footer-col">
-                <strong>Resources</strong>
-                <a href="/blog/">Blog</a>
-                <a href="{% url 'event_list' %}">Events</a>
-                    {% if not user.is_authenticated %}
-                    <a href="{% url 'login' %}">
-                       Login
-                    </a>
+            <div class="event-grid">
+                {% for event in upcoming_events %}
+                <article class="event-card reveal">
+                    {% if event.image %}
+                    <div class="card-image">
+                        <img src="{{ event.image.url }}" alt="{{ event.title }}">
+                    </div>
                     {% endif %}
+                    <div class="card-body">
+                        <h3>{{ event.title }}</h3>
+                        <p class="description">{{ event.description|truncatewords:15 }}</p>
+                        <div class="event-meta">
+                            <div class="meta-badge">
+                                <span class="label">Starts</span>
+                                <span class="value">{{ event.start_date }}</span>
+                            </div>
+                            <div class="meta-badge">
+                                <span class="label">Location</span>
+                                <span class="value">{{ event.location }}</span>
+                            </div>
+                        </div>
+                        {% if user.is_authenticated and user.is_staff %}
+                        <div class="card-actions">
+                            <a href="{% url 'edit_event' event.id %}" class="btn btn-outline">Edit</a>
+                            <form method="POST" action="{% url 'delete_event' event.id %}" onsubmit="return confirm('Are you sure you want to delete this event?')">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-outline">Delete</button>
+                            </form>
+                        </div>
+                        {% endif %}
+                    </div>
+                </article>
+                {% empty %}
+                <div class="empty-state reveal">
+                    <p>No upcoming events at the moment. Check back soon!</p>
+                </div>
+                {% endfor %}
+            </div>
 
-                    {% if user.is_authenticated %}
-                     <a href="{% url 'logout' %}" >
-                        Logout
-                        </a>
+            <hr class="section-divider">
+
+            <!-- ONGOING EVENTS -->
+            <div class="section-header reveal">
+                <h2 class="section-title"><span class="icon">🟢</span> Ongoing Events</h2>
+            </div>
+            <div class="event-grid">
+                {% for event in ongoing_events %}
+                <article class="event-card reveal">
+                    {% if event.image %}
+                    <div class="card-image">
+                        <img src="{{ event.image.url }}" alt="{{ event.title }}">
+                    </div>
                     {% endif %}
+                    <div class="card-body">
+                        <h3>{{ event.title }}</h3>
+                        <p class="description">{{ event.description|truncatewords:15 }}</p>
+                        <div class="event-meta">
+                            <div class="meta-badge">
+                                <span class="label">Starts</span>
+                                <span class="value">{{ event.start_date }}</span>
+                            </div>
+                            <div class="meta-badge">
+                                <span class="label">Location</span>
+                                <span class="value">{{ event.location }}</span>
+                            </div>
+                        </div>
+                        {% if user.is_authenticated and user.is_staff %}
+                        <div class="card-actions">
+                            <a href="{% url 'edit_event' event.id %}" class="btn btn-outline">Edit</a>
+                            <form method="POST" action="{% url 'delete_event' event.id %}" onsubmit="return confirm('Are you sure you want to delete this event?')">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-outline">Delete</button>
+                            </form>
+                        </div>
+                        {% endif %}
+                    </div>
+                </article>
+                {% empty %}
+                <div class="empty-state reveal">
+                    <p>No ongoing events right now.</p>
+                </div>
+                {% endfor %}
             </div>
 
-            <div class="footer-col">
-                <strong>Services</strong>
-                <a href="#">Cybersecurity</a>
-                <a href="#">Web Development</a>
-                <a href="#">Consulting</a>
-                <a href="#">Ethical Hacking</a>
+            <hr class="section-divider">
+
+            <!-- COMPLETED EVENTS -->
+            <div class="section-header reveal">
+                <h2 class="section-title"><span class="icon">⚫</span> Completed Events</h2>
+            </div>
+            <div class="event-grid">
+                {% for event in completed_events %}
+                <article class="event-card reveal">
+                    {% if event.image %}
+                    <div class="card-image">
+                        <img src="{{ event.image.url }}" alt="{{ event.title }}">
+                    </div>
+                    {% endif %}
+                    <div class="card-body">
+                        <h3>{{ event.title }}</h3>
+                        <p class="description">{{ event.description|truncatewords:15 }}</p>
+                        <div class="event-meta">
+                            <div class="meta-badge">
+                                <span class="label">Starts</span>
+                                <span class="value">{{ event.start_date }}</span>
+                            </div>
+                            <div class="meta-badge">
+                                <span class="label">Location</span>
+                                <span class="value">{{ event.location }}</span>
+                            </div>
+                        </div>
+                        {% if user.is_authenticated and user.is_staff %}
+                        <div class="card-actions">
+                            <a href="{% url 'edit_event' event.id %}" class="btn btn-outline">Edit</a>
+                            <form method="POST" action="{% url 'delete_event' event.id %}" onsubmit="return confirm('Are you sure you want to delete this event?')">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-outline">Delete</button>
+                            </form>
+                        </div>
+                        {% endif %}
+                    </div>
+                </article>
+                {% empty %}
+                <div class="empty-state reveal">
+                    <p>No completed events yet.</p>
+                </div>
+                {% endfor %}
             </div>
 
-            <div class="footer-copy">
-                © 2026 CYVEXA — Secure Technology Solutions. All rights reserved.
+        </div>
+    </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container footer-inner">
+        <div class="footer-brand">
+            <img src="{% static 'images/cyvexa_logo.png' %}" alt="CYVEXA Logo">
+            <h3>CYVEXA</h3>
+            <p>Professional Cybersecurity & Web Development Solutions for modern enterprises.</p>
+        </div>
+
+        <div class="footer-col">
+            <strong>Company</strong>
+            <a href="/">Home</a>
+            <a href="/about/">About</a>
+            <a href="/services/">Services</a>
+            <a href="/works/">Works</a>
+            <a href="/contact/">Contact</a>
+        </div>
+
+        <div class="footer-col">
+            <strong>Resources</strong>
+            <a href="/blog/">Blog</a>
+            <a href="{% url 'event_list' %}">Events</a>
+            <div class="footer-auth">
+                {% if user.is_authenticated %}
+                <span>Hi, {{ user.username }}</span>
+                <a href="{% url 'logout' %}">Logout</a>
+                {% else %}
+                <a href="{% url 'login' %}">Login</a>
+                {% endif %}
             </div>
         </div>
-    </footer>
 
-</div>
-</section>
+        <div class="footer-col">
+            <strong>Services</strong>
+            <a href="#">Cybersecurity</a>
+            <a href="#">Web Development</a>
+            <a href="#">Consulting</a>
+            <a href="#">Ethical Hacking</a>
+        </div>
+
+        <div class="footer-copy">
+            © 2026 CYVEXA — Secure Technology Solutions. All rights reserved.
+        </div>
+    </div>
+</footer>
 
 <script>
 function toggleMenu() {
@@ -1000,29 +891,26 @@ function toggleMenu() {
 function confirmDelete() {
     return confirm("Are you sure you want to delete?");
 }
-// CSRF TOKEN FUNCTION
-function getCookie(name) {
-    let cookieValue = null;
-    if (document.cookie && document.cookie !== '') {
-        const cookies = document.cookie.split(';');
-        for (let i = 0; i < cookies.length; i++) {
-            const cookie = cookies[i].trim();
-            if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                break;
-            }
-        }
+
+let lastScrollTop = 0;
+const header = document.getElementById('header');
+
+window.addEventListener('scroll', () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    if (scrollTop > lastScrollTop && scrollTop > 100) {
+        header.classList.add('navbar-hidden');
+    } else {
+        header.classList.remove('navbar-hidden');
     }
-    return cookieValue;
-}
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+});
+
 function revealOnScroll() {
     const reveals = document.querySelectorAll('.reveal');
-
     reveals.forEach((el) => {
         const windowHeight = window.innerHeight;
         const elementTop = el.getBoundingClientRect().top;
         const revealPoint = 100;
-
         if (elementTop < windowHeight - revealPoint) {
             el.classList.add('active');
         }
@@ -1032,4 +920,6 @@ function revealOnScroll() {
 window.addEventListener('scroll', revealOnScroll);
 revealOnScroll();
 </script>
+
 </body>
+</html>
