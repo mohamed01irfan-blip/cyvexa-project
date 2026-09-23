@@ -26,6 +26,7 @@ body {
     color: #ffffff;
     overflow-x: hidden;
     line-height: 1.7;
+    padding-top: 120px;
 }
 
 /* =========================
@@ -152,144 +153,380 @@ nav a:hover {
 HERO
 ========================= */
 .services-hero {
-    background: linear-gradient(135deg, #000, #0a0a0a);
-    padding: 140px 20px 90px;
+    min-height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    position: relative;
+    padding: 80px 20px 60px;
 }
 
 .services-title {
-    font-size: 44px;
-    color: #fff;
-    margin-bottom: 10px;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, #ffffff 0%, #bdbdbd 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .services-subtitle {
-    color: #aaa;
-    font-size: 18px;
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: #a0a0a0;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 /* =========================
-SECTIONS & CARDS
+   SERVICES — SCREENSHOT STYLE
 ========================= */
-.services-section {
-    padding: 70px 20px;
+
+.main-services-section {
+    padding: 10px 0 80px;
 }
 
-.services-section-alt {
-    background: #080808;
-}
-
-.services-category-title {
-    text-align: center;
-    font-size: 28px;
-    margin-bottom: 40px;
+.section-label {
+    font-size: 1.45rem;
+    font-weight: 500;
     color: #fff;
+    margin-bottom: 18px;
 }
 
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
+.main-services-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
 }
 
-.service-card {
-    background: #0a0a0a;
-    border-radius: 10px;
-    overflow: hidden;
-    border: 1px solid #111;
-    transition: 0.3s ease;
-}
-
-.service-card:hover {
-    transform: translateY(-8px);
-    border-color: #bdc3d1;
-}
-
-.service-image img {
+.main-service-card {
+    position: relative;
     width: 100%;
-    height: 200px;
-    object-fit: cover;
-    display: block;
-}
-
-.service-content {
-    padding: 20px;
-    text-align: left;
-}
-
-.service-badge {
-    display: inline-block;
-    background: #111;
-    color: #3b82f6;
-    font-size: 12px;
-    padding: 4px 10px;
+    padding: 22px 20px 22px;
+    border: 1px solid rgba(255,255,255,0.13);
     border-radius: 20px;
-    margin-bottom: 10px;
+    background: #030303;
+    box-shadow: 0 18px 50px rgba(0,0,0,0.22);
+    overflow: hidden;
+    transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease;
 }
 
-.service-title {
+.main-service-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(80,145,255,0.34);
+    box-shadow: 0 25px 60px rgba(0,0,0,.35), 0 0 35px rgba(0,100,255,.05);
+}
+
+.service-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 18px;
+}
+
+.service-icon {
+    width: 58px;
+    height: 58px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.055);
+    border: 1px solid rgba(255,255,255,0.045);
+    color: #5e9cff;
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 1;
+}
+
+.code-icon {
     font-size: 20px;
+    font-family: monospace;
+}
+
+.maintenance-icon {
+    font-size: 28px;
+}
+
+.service-number {
+    min-width: 34px;
+    height: 30px;
+    padding: 0 8px;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #5e9cff;
+    background: rgba(0,90,255,0.08);
+    font-size: .85rem;
+    font-weight: 600;
+}
+
+.main-service-card h2 {
+    margin: 0 0 4px;
     color: #fff;
-    margin-bottom: 10px;
+    font-size: clamp(1.55rem, 3vw, 2rem);
+    line-height: 1.25;
+    font-weight: 700;
 }
 
-.service-description {
-    font-size: 14px;
-    color: #bbb;
-    margin-bottom: 15px;
+.service-tagline {
+    color: #a9a9a9;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 17px;
 }
 
-/* BUTTONS */
+.service-lead {
+    color: #f0f0f0;
+    font-size: 1rem;
+    line-height: 1.75;
+    max-width: 1050px;
+    margin-bottom: 22px;
+}
+
+.main-service-card h3 {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 11px;
+}
+
+.service-list {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0 18px;
+    color: #e5e5e5;
+    font-size: .96rem;
+}
+
+.service-list li {
+    position: relative;
+    padding: 3px 0 3px 16px;
+    line-height: 1.55;
+}
+
+.service-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.service-divider {
+    width: 100%;
+    height: 1px;
+    margin: 20px 0 18px;
+    background: rgba(255,255,255,0.14);
+}
+
+.ideal-for {
+    color: #f0f0f0;
+    font-size: .94rem;
+    line-height: 1.6;
+    margin: 0 0 16px;
+}
+
+.service-outline-btn {
+    width: 100%;
+    min-height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 11px 18px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.24);
+    background: transparent;
+    color: #fff;
+    text-decoration: none;
+    font-size: .9rem;
+    font-weight: 600;
+    transition: all .3s ease;
+}
+
+.service-outline-btn:hover {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
+    transform: translateY(-1px);
+}
+
+/* Supporting section */
+.approach-section {
+    padding: 20px 0 90px;
+}
+
+.approach-heading {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 8px 0 18px;
+}
+
+.approach-heading h2 {
+    color: #fff;
+    font-size: clamp(1.6rem, 3vw, 2.1rem);
+    white-space: nowrap;
+}
+
+.approach-line {
+    height: 1px;
+    flex: 1;
+    background: rgba(255,255,255,0.12);
+}
+
+.approach-intro {
+    color: #a8a8a8;
+    max-width: 760px;
+    line-height: 1.7;
+    margin-bottom: 28px;
+}
+
+.approach-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.approach-item {
+    padding: 24px;
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 18px;
+    background: rgba(255,255,255,0.025);
+}
+
+.approach-number {
+    display: inline-block;
+    color: #5e9cff;
+    font-size: .8rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.approach-item h3 {
+    color: #fff;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+
+.approach-item p {
+    color: #999;
+    font-size: .9rem;
+    line-height: 1.65;
+}
+
+/* CTA */
+.cta-section {
+    text-align: center;
+    padding: 80px 20px 120px;
+    position: relative;
+}
+
+.cta-box {
+    max-width: 800px;
+    margin: auto;
+    padding: 60px 50px;
+    border-radius: 30px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+    border: 1px solid rgba(255,255,255,0.08);
+    backdrop-filter: blur(14px);
+}
+
+.cta-box h2 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.cta-box p {
+    color: #b0b0b0;
+    margin-bottom: 32px;
+    font-size: 1.05rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 10px 18px;
+    padding: 12px 28px;
     border-radius: 60px;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 0.9rem;
     font-weight: 600;
-    transition: 0.4s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+    cursor: pointer;
+    gap: 8px;
 }
 
 .btn-primary {
     background: #fff;
     color: #000;
-    padding: 16px 34px;
+    box-shadow: 0 4px 20px rgba(255,255,255,0.1);
+    padding: 16px 36px;
+    font-size: 1rem;
 }
 
 .btn-primary:hover {
-    transform: translateY(-5px) scale(1.03);
-    box-shadow: 0 15px 35px rgba(255,255,255,0.18);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 40px rgba(255,255,255,0.2);
 }
 
-.btn-service {
-    border: 1px solid rgba(255,255,255,0.2);
-    color: #fff;
-}
+@media (max-width: 768px) {
+    .main-services-section {
+        padding-top: 5px;
+    }
 
-.btn-service:hover {
-    background: #fff;
-    color: #000;
-    transform: translateY(-5px);
-}
+    .section-label {
+        font-size: 1.25rem;
+    }
 
-/* CTA */
-.cta-section {
-    background: #050505;
-    text-align: center;
-    padding: 80px 20px;
-}
+    .main-service-card {
+        padding: 18px 16px;
+        border-radius: 16px;
+    }
 
-.cta-content h2 {
-    font-size: 28px;
-    color: #fff;
-    margin-bottom: 10px;
-}
+    .main-service-card h2 {
+        font-size: 1.45rem;
+    }
 
-.cta-content p {
-    color: #aaa;
-    margin-bottom: 20px;
+    .service-lead {
+        font-size: .94rem;
+    }
+
+    .service-list {
+        padding-left: 5px;
+    }
+
+    .approach-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .approach-heading {
+        gap: 10px;
+    }
+
+    .approach-heading h2 {
+        font-size: 1.5rem;
+    }
+
+    .cta-section {
+        padding: 50px 15px 80px;
+    }
+
+    .cta-box {
+        padding: 40px 24px;
+    }
+
+    .btn {
+        width: 100%;
+    }
 }
 
 /* =========================
@@ -380,7 +617,7 @@ ANIMATIONS
 .reveal {
     opacity: 0;
     transform: translateY(50px);
-    transition: 1s ease;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .reveal.active {
@@ -421,62 +658,63 @@ RESPONSIVE
         padding-top: 50px;
     }
 
-    .services-title {
-        font-size: 32px;
-    }
-
-    .services-category-title {
-        font-size: 22px;
-    }
-
-    .service-title {
-        font-size: 18px;
-    }
-
+    /* Footer stays left-aligned on mobile too */
     .footer-inner {
         flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .footer-links {
-        align-items: center;
+        align-items: flex-start;
+        text-align: left;
     }
 }
 
 @media (max-width: 768px) {
+    body {
+        padding-top: 100px;
+    }
+
     .services-hero {
-        padding: 120px 15px 60px;
+        min-height: 30vh;
+        padding: 40px 15px 30px;
     }
 
     .services-section {
-        padding: 50px 15px;
+        padding: 50px 0;
     }
 
     .services-grid {
         grid-template-columns: 1fr;
-        gap: 25px;
+        gap: 24px;
     }
 
-    .service-image img {
-        height: 180px;
+    .service-image {
+        height: 200px;
+    }
+
+    .service-content {
+        padding: 24px;
+    }
+
+    .cta-box {
+        padding: 40px 24px;
     }
 
     .btn {
         width: 100%;
-        text-align: center;
+    }
+
+    .btn-service {
+        align-self: stretch;
     }
 }
 
 .service-card.reveal {
-    transform: translateY(60px);
+    transform: translateY(60px) scale(0.97);
     opacity: 0;
 }
 
 .service-card.active {
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
     opacity: 1;
-    transition: 0.8s ease;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 </style>
   </head>
@@ -508,6 +746,7 @@ RESPONSIVE
 </header>
 
 <main>
+    <!-- Services Hero -->
     <section class="services-hero reveal">
         <div class="container services-hero-content">
             <h1 class="services-title">Our Services</h1>
@@ -515,278 +754,178 @@ RESPONSIVE
         </div>
     </section>
 
-    <!-- Cybersecurity Services -->
-    <section class="services-section reveal">
+    <!-- Main Service Cards -->
+    <section class="main-services-section">
         <div class="container">
-            <h2 class="services-category-title">🔐 Cybersecurity Services</h2>
-            <div class="services-grid">
-                <div class="service-card reveal">
-                    <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&h=500&fit=crop" alt="Website Security Assessment" />
+            <div class="section-label">Main Service Cards:</div>
+
+            <div class="main-services-list">
+
+                <!-- 01 -->
+                <article class="main-service-card reveal">
+                    <div class="service-card-top">
+                        <div class="service-icon security-icon">♢</div>
+                        <span class="service-number">01</span>
                     </div>
-                    <div class="service-content">
-                        <span class="service-badge">Cybersecurity</span>
-                        <h3 class="service-title">Website Security Assessment & Security Analysis</h3>
-                        <p class="service-description">
-                            Comprehensive evaluation of your website infrastructure to identify vulnerabilities, misconfigurations, and security gaps with detailed remediation reports.
-                        </p>
-                        <a class="btn btn-service" href="https://wa.me/918903051053?text=Hi%20CYVEXA,%20I%20need%20Website%20Security%20Assessment">
-                            👉 Request Assessment
-                        </a>
+
+                    <h2>Web VAPT</h2>
+                    <p class="service-tagline">
+                        Web Application Vulnerability Assessment &amp; Penetration Testing
+                    </p>
+
+                    <p class="service-lead">
+                        Identify security vulnerabilities in web applications through structured testing and actionable security reporting.
+                    </p>
+
+                    <h3>What we cover:</h3>
+                    <ul class="service-list">
+                        <li>Web application security assessment</li>
+                        <li>Vulnerability identification</li>
+                        <li>Manual and automated testing</li>
+                        <li>Risk-based findings</li>
+                        <li>Detailed security reports</li>
+                        <li>Remediation guidance</li>
+                    </ul>
+
+                    <div class="service-divider"></div>
+
+                    <p class="ideal-for">
+                        <strong>Ideal for:</strong> Businesses · Startups · Web Application Owners
+                    </p>
+
+                    <a class="service-outline-btn"
+                       href="https://wa.me/918903051053?text=Hi%20CYVEXA,%20I%20need%20Web%20VAPT">
+                        Explore Web VAPT
+                    </a>
+                </article>
+
+                <!-- 02 -->
+                <article class="main-service-card reveal">
+                    <div class="service-card-top">
+                        <div class="service-icon code-icon">&lt;/&gt;</div>
+                        <span class="service-number">02</span>
                     </div>
+
+                    <h2>Secure Website Development</h2>
+                    <p class="service-tagline">
+                        Websites and Digital Solutions Built Around Your Business
+                    </p>
+
+                    <p class="service-lead">
+                        Design and develop professional, responsive websites and web applications with security and maintainability considered throughout the process.
+                    </p>
+
+                    <h3>What we build:</h3>
+                    <ul class="service-list">
+                        <li>Business websites</li>
+                        <li>Startup &amp; corporate websites</li>
+                        <li>Portfolio websites</li>
+                        <li>School &amp; college websites</li>
+                        <li>Custom web applications</li>
+                    </ul>
+
+                    <div class="service-divider"></div>
+
+                    <p class="ideal-for">
+                        <strong>Ideal for:</strong> Businesses · Institutions · Startups · Organizations
+                    </p>
+
+                    <a class="service-outline-btn"
+                       href="https://wa.me/918903051053?text=Hi%20CYVEXA,%20I%20need%20Secure%20Website%20Development">
+                        Explore Website Development
+                    </a>
+                </article>
+
+                <!-- 03 -->
+                <article class="main-service-card reveal">
+                    <div class="service-card-top">
+                        <div class="service-icon maintenance-icon">↻</div>
+                        <span class="service-number">03</span>
+                    </div>
+
+                    <h2>Website Security &amp; AMC</h2>
+                    <p class="service-tagline">
+                        Ongoing Maintenance and Security Support
+                    </p>
+
+                    <p class="service-lead">
+                        Help keep your website updated, maintained, and supported through a service plan aligned with your operational and security requirements.
+                    </p>
+
+                    <h3>What we offer:</h3>
+                    <ul class="service-list">
+                        <li>Website maintenance</li>
+                        <li>Security updates &amp; patching</li>
+                        <li>Backup support</li>
+                        <li>Security checks</li>
+                        <li>Performance &amp; functionality support</li>
+                        <li>Ongoing technical assistance</li>
+                    </ul>
+
+                    <div class="service-divider"></div>
+
+                    <p class="ideal-for">
+                        <strong>Ideal for:</strong> Existing Website Owners · Businesses · Institutions
+                    </p>
+
+                    <a class="service-outline-btn"
+                       href="https://wa.me/918903051053?text=Hi%20CYVEXA,%20I%20need%20Website%20Security%20%26%20AMC">
+                        Explore Website Security &amp; AMC
+                    </a>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Supporting Section -->
+    <section class="approach-section reveal">
+        <div class="container">
+            <div class="section-label">Supporting Section Below the Cards</div>
+
+            <div class="approach-heading">
+                <span class="approach-line"></span>
+                <h2>Our Approach</h2>
+                <span class="approach-line"></span>
+            </div>
+
+            <p class="approach-intro">
+                We combine security, development, and ongoing support to deliver reliable digital solutions built around your requirements.
+            </p>
+
+            <div class="approach-grid">
+                <div class="approach-item">
+                    <span class="approach-number">01</span>
+                    <h3>Understand</h3>
+                    <p>We understand your business goals, technical requirements, and security needs.</p>
                 </div>
 
-                <div class="service-card reveal">
-                    <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&h=500&fit=crop" alt="Web Application Security Testing" />
-                    </div>
-                    <div class="service-content">
-                        <span class="service-badge">Cybersecurity</span>
-                        <h3 class="service-title">Web Application Security Testing</h3>
-                        <p class="service-description">
-                            Rigorous testing of web applications against OWASP standards to detect SQL injection, XSS, authentication flaws, and other critical vulnerabilities.
-                        </p>
-                        <a class="btn btn-service" href="https://wa.me/918903051053?text=Hi%20CYVEXA,%20I%20need%20Web%20App%20Security%20Testing">
-                            👉 Request Testing
-                        </a>
-                    </div>
+                <div class="approach-item">
+                    <span class="approach-number">02</span>
+                    <h3>Build &amp; Test</h3>
+                    <p>We develop, assess, and test the solution with security and performance in mind.</p>
                 </div>
 
-                <div class="service-card reveal">
-                    <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=500&fit=crop" alt="Security Consultation" />
-                    </div>
-                    <div class="service-content">
-                        <span class="service-badge">Cybersecurity</span>
-                        <h3 class="service-title">Security Consultation</h3>
-                        <p class="service-description">
-                            Expert strategic guidance to strengthen your security posture, implement best practices, and build resilient defense mechanisms for your organization.
-                        </p>
-                        <a class="btn btn-service" href="https://wa.me/918903051053?text=Hi%20CYVEXA,%20I%20need%20Security%20Consultation">
-                            👉 Get Consultation
-                        </a>
-                    </div>
-                </div>
-
-                <div class="service-card reveal">
-                    <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1526378722484-bd91ca387e72?w=800&h=500&fit=crop" alt="Cybersecurity Risk Assessment" />
-                    </div>
-                    <div class="service-content">
-                        <span class="service-badge">Cybersecurity</span>
-                        <h3 class="service-title">Cybersecurity Risk Assessment</h3>
-                        <p class="service-description">
-                            In-depth analysis of your digital assets to identify potential threats, quantify risks, and develop prioritized mitigation strategies.
-                        </p>
-                        <a class="btn btn-service" href="https://wa.me/918903051053?text=Hi%20CYVEXA,%20I%20need%20Risk%20Assessment">
-                            👉 Request Risk Assessment
-                        </a>
-                    </div>
+                <div class="approach-item">
+                    <span class="approach-number">03</span>
+                    <h3>Support</h3>
+                    <p>We provide maintenance, security updates, and technical assistance after delivery.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Secure Development -->
-    <section class="services-section services-section-alt reveal">
-        <div class="container">
-            <h2 class="services-category-title">⚙️ Secure Development</h2>
-            <div class="services-grid">
-                <div class="service-card reveal">
-                    <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=500&fit=crop" alt="Secure Business Websites" />
-                    </div>
-                    <div class="service-content">
-                        <span class="service-badge">Development</span>
-                        <h3 class="service-title">Secure Business Websites</h3>
-                        <p class="service-description">
-                            Professional, high-performance business websites built with security-first architecture to protect your brand and customer data.
-                        </p>
-                        <a class="btn btn-service" href="https://wa.me/918903051053?text=Hi%20CYVEXA,%20I%20need%20Secure%20Business%20Website">
-                            👉 Get Business Website
-                        </a>
-                    </div>
-                </div>
-
-                <div class="service-card reveal">
-                    <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=500&fit=crop" alt="Secure School & College Web Applications" />
-                    </div>
-                    <div class="service-content">
-                        <span class="service-badge">Development</span>
-                        <h3 class="service-title">Secure School & College Web Applications</h3>
-                        <p class="service-description">
-                            Tailored educational platforms with robust security for student data, online learning, and institutional management systems.
-                        </p>
-                        <a class="btn btn-service" href="https://wa.me/918903051053?text=Hi%20CYVEXA,%20I%20need%20School%20Web%20Application">
-                            👉 Get Educational Platform
-                        </a>
-                    </div>
-                </div>
-
-                <div class="service-card reveal">
-                    <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=800&h=500&fit=crop" alt="Custom Web Applications" />
-                    </div>
-                    <div class="service-content">
-                        <span class="service-badge">Development</span>
-                        <h3 class="service-title">Custom Web Applications</h3>
-                        <p class="service-description">
-                            Bespoke web applications designed and developed specifically for your unique business workflows and operational requirements.
-                        </p>
-                        <a class="btn btn-service" href="https://wa.me/918903051053?text=Hi%20CYVEXA,%20I%20need%20Custom%20Web%20Application">
-                            👉 Build Custom App
-                        </a>
-                    </div>
-                </div>
-
-                <div class="service-card reveal">
-                    <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=800&h=500&fit=crop" alt="Startup & Corporate Websites" />
-                    </div>
-                    <div class="service-content">
-                        <span class="service-badge">Development</span>
-                        <h3 class="service-title">Startup & Corporate Websites</h3>
-                        <p class="service-description">
-                            Scalable, modern websites engineered for startups and enterprises with growth-ready architecture and premium security standards.
-                        </p>
-                        <a class="btn btn-service" href="https://wa.me/918903051053?text=Hi%20CYVEXA,%20I%20need%20Startup%20Website">
-                            👉 Get Corporate Website
-                        </a>
-                    </div>
-                </div>
-
-                <div class="service-card reveal">
-                    <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=500&fit=crop" alt="Portfolio & Company Websites" />
-                    </div>
-                    <div class="service-content">
-                        <span class="service-badge">Development</span>
-                        <h3 class="service-title">Portfolio & Company Websites</h3>
-                        <p class="service-description">
-                            Stunning portfolio and company websites that showcase your brand identity with elegant design and flawless performance.
-                        </p>
-                        <a class="btn btn-service" href="https://wa.me/918903051053?text=Hi%20CYVEXA,%20I%20need%20Portfolio%20Website">
-                            👉 Get Portfolio Website
-                        </a>
-                    </div>
-                </div>
-
-                <div class="service-card reveal">
-                    <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1510511459019-5dda7724fd87?w=800&h=500&fit=crop" alt="Dynamic Web Applications" />
-                    </div>
-                    <div class="service-content">
-                        <span class="service-badge">Development</span>
-                        <h3 class="service-title">Dynamic Web Applications</h3>
-                        <p class="service-description">
-                            Interactive, data-driven web applications with real-time functionality, secure APIs, and seamless user experiences.
-                        </p>
-                        <a class="btn btn-service" href="https://wa.me/918903051053?text=Hi%20CYVEXA,%20I%20need%20Dynamic%20Web%20Application">
-                            👉 Build Dynamic App
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Maintenance Services -->
-    <section class="services-section reveal">
-        <div class="container">
-            <h2 class="services-category-title">🛠️ Maintenance Services</h2>
-            <div class="services-grid">
-                <div class="service-card reveal">
-                    <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1581090700227-1e8f6a0d1f0d?w=800&h=500&fit=crop" alt="Web Application Maintenance AMC" />
-                    </div>
-                    <div class="service-content">
-                        <span class="service-badge">Maintenance</span>
-                        <h3 class="service-title">Web Application Maintenance AMC</h3>
-                        <p class="service-description">
-                            Comprehensive Annual Maintenance Contracts to keep your web applications running smoothly with regular health checks and updates.
-                        </p>
-                        <a class="btn btn-service" href="https://wa.me/918903051053?text=Hi%20CYVEXA,%20I%20need%20Web%20App%20Maintenance%20AMC">
-                            👉 Get AMC Service
-                        </a>
-                    </div>
-                </div>
-
-                <div class="service-card reveal">
-                    <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1584433144859-1fc3ab64a957?w=800&h=500&fit=crop" alt="Security Updates & Patch Management" />
-                    </div>
-                    <div class="service-content">
-                        <span class="service-badge">Maintenance</span>
-                        <h3 class="service-title">Security Updates & Patch Management</h3>
-                        <p class="service-description">
-                            Proactive monitoring and deployment of security patches to protect your systems from emerging vulnerabilities and threats.
-                        </p>
-                        <a class="btn btn-service" href="https://wa.me/918903051053?text=Hi%20CYVEXA,%20I%20need%20Security%20Updates%20%26%20Patches">
-                            👉 Get Patch Management
-                        </a>
-                    </div>
-                </div>
-
-                <div class="service-card reveal">
-                    <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&h=500&fit=crop" alt="Annual Security Maintenance" />
-                    </div>
-                    <div class="service-content">
-                        <span class="service-badge">Maintenance</span>
-                        <h3 class="service-title">Annual Security Maintenance</h3>
-                        <p class="service-description">
-                            Year-round security maintenance plans ensuring your infrastructure stays protected with continuous monitoring and hardening.
-                        </p>
-                        <a class="btn btn-service" href="https://wa.me/918903051053?text=Hi%20CYVEXA,%20I%20need%20Annual%20Security%20Maintenance">
-                            👉 Get Annual Maintenance
-                        </a>
-                    </div>
-                </div>
-
-                <div class="service-card reveal">
-                    <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&h=500&fit=crop" alt="Security Monitoring AMC" />
-                    </div>
-                    <div class="service-content">
-                        <span class="service-badge">Maintenance</span>
-                        <h3 class="service-title">Security Monitoring AMC</h3>
-                        <p class="service-description">
-                            24/7 security monitoring with real-time threat detection, incident response, and detailed activity reporting for your systems.
-                        </p>
-                        <a class="btn btn-service" href="https://wa.me/918903051053?text=Hi%20CYVEXA,%20I%20need%20Security%20Monitoring%20AMC">
-                            👉 Get Monitoring AMC
-                        </a>
-                    </div>
-                </div>
-
-                <div class="service-card reveal">
-                    <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1537432376769-00a5c2f4c8d2?w=800&h=500&fit=crop" alt="Technical Support" />
-                    </div>
-                    <div class="service-content">
-                        <span class="service-badge">Maintenance</span>
-                        <h3 class="service-title">Technical Support</h3>
-                        <p class="service-description">
-                            Reliable technical support for all your web and security needs — fast response times, expert troubleshooting, and resolution.
-                        </p>
-                        <a class="btn btn-service" href="https://wa.me/918903051053?text=Hi%20CYVEXA,%20I%20need%20Technical%20Support">
-                            👉 Get Support
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
+    <!-- CTA -->
     <section class="cta-section reveal">
-        <div class="container cta-content">
-            <h2>Ready to Get Started?</h2>
-            <p>Choose the perfect service for your needs and let's secure your digital future together.</p>
-            <a class="btn btn-primary" href="https://wa.me/918903051053?text=Hi%20CYVEXA,%20I%20am%20interested%20in%20your%20services">
-                Contact Us Today
-            </a>
+        <div class="container">
+            <div class="cta-box">
+                <h2>Ready to Get Started?</h2>
+                <p>Choose the service that fits your needs and let's build a secure digital future together.</p>
+                <a class="btn btn-primary"
+                   href="https://wa.me/918903051053?text=Hi%20CYVEXA,%20I%20am%20interested%20in%20your%20services">
+                    Contact Us Today
+                </a>
+            </div>
         </div>
     </section>
 </main>
